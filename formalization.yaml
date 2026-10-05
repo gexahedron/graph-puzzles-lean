@@ -1,0 +1,25 @@
+version: "0.1.0"
+project:
+  name: "Graph Puzzles in Lean"
+  authors: ["Nikolay Ulyanov"]
+  responsible_maintainers: ["Nikolay Ulyanov"]
+  license: "Apache-2.0"
+classification:
+  arxiv: [math.CO]
+  msc2020: [05C45, 05C70]
+sources:
+  - title: "Graph Puzzles III.1: A Proof of Sabidussi's Compatibility Conjecture"
+    authors: ["Nikolay Ulyanov"]
+    id: "https://arxiv.org/abs/2607.13225"
+    type: "paper"
+    relationship: "formalizes"
+    note: "All five numbered results in version 0.4; loops and parallel edges are allowed."
+  - title: "OpenAI cycle double cover formalization"
+    authors: ["OpenAI"]
+    id: "https://github.com/openai/cdc-lean/tree/577e9d9ea326d520f80672ee69b830bf1d513df5"
+    type: "software"
+    relationship: "uses"
+    note: >-
+      The pinned eight-flow, affine-pair and cubic-expansion proofs are composed
+      with the endpoint graph model. Loops are restored in exactly two layers
+      and the layers are decomposed into ordinary circuits.

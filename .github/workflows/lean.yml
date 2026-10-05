@@ -1,0 +1,55 @@
+name: Lean CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lean-ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      LEAN_NUM_THREADS: 1
+    steps:
+      # actions/checkout v4.2.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - name: Check the exact publication boundary
+        run: python3 tools/publication.py check --public-tree
+      # leanprover/lean-action v1.5.0
+      - uses: leanprover/lean-action@38fbc41a8c28c4cbaec22d7f7de508ec2e7c0dd9
+        with:
+          build: true
+          test: false
+          lint: false
+          use-mathlib-cache: true
+      - name: Verify exact axiom guards
+        run: lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
+      - name: Verify graph scope
+        run: lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
+      - name: Verify the Sabidussi solution wrapper
+        run: lake --wfail build SabidussiSolution
+      - name: Check the upstream production proof
+        shell: bash
+        run: |
+          set -euo pipefail
+          set +e
+          grep -R -n -E --include='*.lean' \
+            '\b(sorry|admit|native_decide)\b|^[[:space:]]*(axiom|opaque|unsafe)\b|implemented_by' \
+            .lake/packages/cdc_lean/CDCLean
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo '::error::The pinned CDC dependency contains a forbidden proof shortcut.'
+            exit 1
+          fi
+          if [ "$status" -ne 1 ]; then
+            exit "$status"
+          fi

@@ -1,0 +1,24 @@
+name = "graph_puzzles"
+version = "0.1.0"
+defaultTargets = ["GraphPuzzles"]
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "9a9483a92959bc92bd6a60176dd1fe597298c1f8"
+
+[[require]]
+name = "cdc_lean"
+git = "https://github.com/openai/cdc-lean.git"
+rev = "577e9d9ea326d520f80672ee69b830bf1d513df5"
+
+[[lean_lib]]
+name = "GraphPuzzles"
+weakLeanArgs = ["-j1", "-M4096"]
+
+[[lean_lib]]
+name = "SabidussiChallenge"
+
+[[lean_lib]]
+name = "SabidussiSolution"
+weakLeanArgs = ["-j1", "-M4096"]

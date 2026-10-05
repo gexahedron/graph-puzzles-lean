@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "Please cite the relevant paper for its mathematical result and this repository for the software."
+title: "Graph Puzzles in Lean"
+type: software
+authors:
+  - family-names: Ulyanov
+    given-names: Nikolay
+version: 0.1.0
+date-released: 2026-10-05
+repository-code: "https://github.com/gexahedron/graph-puzzles-lean"
+license: Apache-2.0

@@ -1,0 +1,230 @@
+{
+  "version": 1,
+  "scope": [
+    "Sabidussi v0.4 proof and prerequisites",
+    "Pinned OpenAI CDC proof and native graph bridge"
+  ],
+  "roots": [
+    "GraphPuzzles",
+    "GraphPuzzles.Audit"
+  ],
+  "modules": [
+    "GraphPuzzles",
+    "GraphPuzzles.Audit",
+    "GraphPuzzles.Circuits.CircuitEulerTour",
+    "GraphPuzzles.Circuits.OrdinaryCircuit",
+    "GraphPuzzles.Claims",
+    "GraphPuzzles.Claims.CycleDoubleCover",
+    "GraphPuzzles.Claims.Sabidussi",
+    "GraphPuzzles.Core.Color",
+    "GraphPuzzles.Core.CyclicWord",
+    "GraphPuzzles.Core.LocalPattern",
+    "GraphPuzzles.Core.OddBalance",
+    "GraphPuzzles.Core.Parity",
+    "GraphPuzzles.Core.Tactics",
+    "GraphPuzzles.CycleCovers.DominatingCircuit",
+    "GraphPuzzles.CycleCovers.DominatingCircuitCore",
+    "GraphPuzzles.CycleCovers.General.Decomposition",
+    "GraphPuzzles.CycleCovers.General.Statement",
+    "GraphPuzzles.CycleCovers.General.Theorem",
+    "GraphPuzzles.CycleCovers.General.Transport",
+    "GraphPuzzles.CycleCovers.General.Upstream",
+    "GraphPuzzles.Graph.Bridgeless",
+    "GraphPuzzles.Graph.LoopGraphBridge",
+    "GraphPuzzles.Graph.LoopMultigraph",
+    "GraphPuzzles.Graph.LoopMultigraphIso",
+    "GraphPuzzles.Graph.Model",
+    "GraphPuzzles.Results.CycleDoubleCover",
+    "GraphPuzzles.Results.Sabidussi"
+  ],
+  "files": [
+    {
+      "source": "GraphPuzzles.lean",
+      "target": "GraphPuzzles.lean"
+    },
+    {
+      "source": "GraphPuzzles/Audit.lean",
+      "target": "GraphPuzzles/Audit.lean"
+    },
+    {
+      "source": "GraphPuzzles/Circuits/CircuitEulerTour.lean",
+      "target": "GraphPuzzles/Circuits/CircuitEulerTour.lean"
+    },
+    {
+      "source": "GraphPuzzles/Circuits/OrdinaryCircuit.lean",
+      "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
+    },
+    {
+      "source": "GraphPuzzles/Claims.lean",
+      "target": "GraphPuzzles/Claims.lean"
+    },
+    {
+      "source": "GraphPuzzles/Claims/CycleDoubleCover.lean",
+      "target": "GraphPuzzles/Claims/CycleDoubleCover.lean"
+    },
+    {
+      "source": "GraphPuzzles/Claims/Sabidussi.lean",
+      "target": "GraphPuzzles/Claims/Sabidussi.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/Color.lean",
+      "target": "GraphPuzzles/Core/Color.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/CyclicWord.lean",
+      "target": "GraphPuzzles/Core/CyclicWord.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/LocalPattern.lean",
+      "target": "GraphPuzzles/Core/LocalPattern.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/OddBalance.lean",
+      "target": "GraphPuzzles/Core/OddBalance.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/Parity.lean",
+      "target": "GraphPuzzles/Core/Parity.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/Tactics.lean",
+      "target": "GraphPuzzles/Core/Tactics.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/DominatingCircuit.lean",
+      "target": "GraphPuzzles/CycleCovers/DominatingCircuit.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean",
+      "target": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/Decomposition.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Decomposition.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/Statement.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Statement.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/Theorem.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Theorem.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/Transport.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Transport.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/Upstream.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Upstream.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/Bridgeless.lean",
+      "target": "GraphPuzzles/Graph/Bridgeless.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/LoopGraphBridge.lean",
+      "target": "GraphPuzzles/Graph/LoopGraphBridge.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/LoopMultigraph.lean",
+      "target": "GraphPuzzles/Graph/LoopMultigraph.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/LoopMultigraphIso.lean",
+      "target": "GraphPuzzles/Graph/LoopMultigraphIso.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/Model.lean",
+      "target": "GraphPuzzles/Graph/Model.lean"
+    },
+    {
+      "source": "GraphPuzzles/Results/CycleDoubleCover.lean",
+      "target": "GraphPuzzles/Results/CycleDoubleCover.lean"
+    },
+    {
+      "source": "GraphPuzzles/Results/Sabidussi.lean",
+      "target": "GraphPuzzles/Results/Sabidussi.lean"
+    },
+    {
+      "source": "LICENSE",
+      "target": "LICENSE"
+    },
+    {
+      "source": ".gitignore",
+      "target": ".gitignore"
+    },
+    {
+      "source": "lean-toolchain",
+      "target": "lean-toolchain"
+    },
+    {
+      "source": "lake-manifest.json",
+      "target": "lake-manifest.json"
+    },
+    {
+      "source": "SabidussiChallenge.lean",
+      "target": "SabidussiChallenge.lean"
+    },
+    {
+      "source": "SabidussiSolution.lean",
+      "target": "SabidussiSolution.lean"
+    },
+    {
+      "source": "checks/CycleDoubleCover.lean",
+      "target": "checks/CycleDoubleCover.lean"
+    },
+    {
+      "source": "tools/publication.py",
+      "target": "tools/publication.py"
+    },
+    {
+      "source": "comparator/sabidussi_compatibility.json",
+      "target": "comparator/sabidussi_compatibility.json"
+    },
+    {
+      "source": ".github/workflows/comparator.yml",
+      "target": ".github/workflows/comparator.yml"
+    },
+    {
+      "source": "publication/public-manifest.json",
+      "target": "publication/public-manifest.json"
+    },
+    {
+      "source": "publication/public/README.md",
+      "target": "README.md"
+    },
+    {
+      "source": "publication/public/SOURCE_GUIDE.md",
+      "target": "GraphPuzzles/README.md"
+    },
+    {
+      "source": "publication/public/VERIFICATION.md",
+      "target": "VERIFICATION.md"
+    },
+    {
+      "source": "publication/public/lakefile.toml",
+      "target": "lakefile.toml"
+    },
+    {
+      "source": "publication/public/formalization.yaml",
+      "target": "formalization.yaml"
+    },
+    {
+      "source": "publication/public/CITATION.cff",
+      "target": "CITATION.cff"
+    },
+    {
+      "source": "publication/public/lean.yml",
+      "target": ".github/workflows/lean.yml"
+    },
+    {
+      "source": "sabidussi_proof.pdf",
+      "target": "papers/sabidussi/sabidussi_proof.pdf"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/General/README.md",
+      "target": "GraphPuzzles/CycleCovers/General/README.md"
+    }
+  ]
+}
