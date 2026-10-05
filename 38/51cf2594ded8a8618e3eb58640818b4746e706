@@ -1,0 +1,109 @@
+.github/workflows/comparator.yml
+  s_2abf5139c13ccf::t_446cea64d1291f 1-131
+.github/workflows/lean.yml
+  s_2abf5139c13ccf::t_5cff6be78ef390 1-55
+.gitignore
+  s_2abf5139c13ccf::t_9ea3dcbe85e357 1-7
+CITATION.cff
+  s_2abf5139c13ccf::t_a8e075926297aa 1-11
+GraphPuzzles.lean
+  s_2abf5139c13ccf::t_fe6d4a2e847939 1-3
+GraphPuzzles/Audit.lean
+  s_2abf5139c13ccf::t_27d32cd4951048 1-128
+GraphPuzzles/Circuits/CircuitEulerTour.lean
+  s_2abf5139c13ccf::t_fcb5d1ec02e7b0 1-669
+GraphPuzzles/Circuits/OrdinaryCircuit.lean
+  s_2abf5139c13ccf::t_48882a89d3561c 1-472
+GraphPuzzles/Claims.lean
+  s_2abf5139c13ccf::t_8f0165a1d052e6 1-4
+GraphPuzzles/Claims/CycleDoubleCover.lean
+  s_2abf5139c13ccf::t_acf65e0489b476 1-22
+GraphPuzzles/Claims/Sabidussi.lean
+  s_2abf5139c13ccf::t_44b8f5b66930ae 1-22
+GraphPuzzles/Core/Color.lean
+  s_2abf5139c13ccf::t_3632ad36cedf9e 1-169
+GraphPuzzles/Core/CyclicWord.lean
+  s_2abf5139c13ccf::t_c756fa08e1bcdf 1-671
+GraphPuzzles/Core/LocalPattern.lean
+  s_2abf5139c13ccf::t_93131ec50f564e 1-80
+GraphPuzzles/Core/OddBalance.lean
+  s_2abf5139c13ccf::t_b73763a7175e24 1-604
+GraphPuzzles/Core/Parity.lean
+  s_2abf5139c13ccf::t_b4c9fd76fd373a 1-193
+GraphPuzzles/Core/Tactics.lean
+  s_2abf5139c13ccf::t_44e1f60bf27c5d 1-13
+GraphPuzzles/CycleCovers/DominatingCircuit.lean
+  s_2abf5139c13ccf::t_8c521ca002ca02 1-912
+GraphPuzzles/CycleCovers/DominatingCircuitCore.lean
+  s_2abf5139c13ccf::t_73dc54c057cc07 1-821
+GraphPuzzles/CycleCovers/General/Decomposition.lean
+  s_2abf5139c13ccf::t_ab2c2fef52e67b 1-34
+GraphPuzzles/CycleCovers/General/README.md
+  s_2abf5139c13ccf::t_f566dec18672cd 1-41
+GraphPuzzles/CycleCovers/General/Statement.lean
+  s_2abf5139c13ccf::t_07e7762c607c66 1-30
+GraphPuzzles/CycleCovers/General/Theorem.lean
+  s_2abf5139c13ccf::t_b7f1023b3c877e 1-32
+GraphPuzzles/CycleCovers/General/Transport.lean
+  s_2abf5139c13ccf::t_558dd3ec9ea7aa 1-89
+GraphPuzzles/CycleCovers/General/Upstream.lean
+  s_2abf5139c13ccf::t_839e7e981573a7 1-59
+GraphPuzzles/Graph/Bridgeless.lean
+  s_2abf5139c13ccf::t_6c921668063012 1-17
+GraphPuzzles/Graph/LoopGraphBridge.lean
+  s_2abf5139c13ccf::t_668a8086a1c00f 1-143
+GraphPuzzles/Graph/LoopMultigraph.lean
+  s_2abf5139c13ccf::t_42e32914b4a9d8 1-327
+GraphPuzzles/Graph/LoopMultigraphIso.lean
+  s_2abf5139c13ccf::t_f7394b24aea4ce 1-181
+GraphPuzzles/Graph/Model.lean
+  s_2abf5139c13ccf::t_d2eb7d1b1e70ff 1-116
+GraphPuzzles/README.md
+  s_2abf5139c13ccf::t_c93d1f8eb948dd 1-20
+GraphPuzzles/Results/CycleDoubleCover.lean
+  s_2abf5139c13ccf::t_99dccf2834f05b 1-9
+GraphPuzzles/Results/Sabidussi.lean
+  s_2abf5139c13ccf::t_df08b99d35911a 1-11
+LICENSE
+  s_2abf5139c13ccf::t_7d98cd29f40ec8 1-201
+README.md
+  s_2abf5139c13ccf::t_e486c3ce987dff 1-68
+SabidussiChallenge.lean
+  s_2abf5139c13ccf::t_956f98c176d817 1-120
+SabidussiSolution.lean
+  s_2abf5139c13ccf::t_dd9403a09b26ff 1-15
+VERIFICATION.md
+  s_2abf5139c13ccf::t_59254fb271ecb5 1-32
+checks/CycleDoubleCover.lean
+  s_2abf5139c13ccf::t_46b5bef0fa122d 1-64
+comparator/sabidussi_compatibility.json
+  s_2abf5139c13ccf::t_06cac638fe5da5 1-7
+formalization.yaml
+  s_2abf5139c13ccf::t_c7800d8111dcd1 1-25
+lake-manifest.json
+  s_2abf5139c13ccf::t_9c9cfe1f515397 1-129
+lakefile.toml
+  s_2abf5139c13ccf::t_c29a0dfeb5ca81 1-24
+lean-toolchain
+  s_2abf5139c13ccf::t_2aacf50dcb4c95 1
+publication/public-manifest.json
+  s_2abf5139c13ccf::t_82c00b308da383 1-230
+tools/publication.py
+  s_2abf5139c13ccf::t_7a571d89f85180 1-149
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "3851cf2594ded8a8618e3eb58640818b4746e706",
+  "prompts": {},
+  "sessions": {
+    "s_2abf5139c13ccf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10c0a-ca2c-7231-85f8-95ce99bcd54b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "gexahedron <3427698+gexahedron@users.noreply.github.com>"
+    }
+  }
+}
