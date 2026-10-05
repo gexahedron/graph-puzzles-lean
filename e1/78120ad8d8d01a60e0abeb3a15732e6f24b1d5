@@ -1,0 +1,21 @@
+README.md
+  s_2abf5139c13ccf::t_30419a540e02ff 33
+SabidussiChallenge.lean
+  s_2abf5139c13ccf::t_435efda1d15488 1-6,11-12
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "e178120ad8d8d01a60e0abeb3a15732e6f24b1d5",
+  "prompts": {},
+  "sessions": {
+    "s_2abf5139c13ccf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10c0a-ca2c-7231-85f8-95ce99bcd54b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "gexahedron <3427698+gexahedron@users.noreply.github.com>"
+    }
+  }
+}
