@@ -1,9 +1,15 @@
-import Mathlib
+import Mathlib.Data.Fin.Rev
+import Mathlib.Data.Finset.Prod
+import Mathlib.Data.Fintype.Prod
+import Mathlib.Data.Fintype.Sets
+import Mathlib.Logic.Equiv.Fin.Rotate
+import Mathlib.Logic.Relation
 
 /-!
 # Trusted Comparator challenge for Sabidussi compatibility
 
-This file is deliberately self-contained apart from Mathlib. The declarations below mirror
+This file is deliberately self-contained apart from Mathlib. Its imports match the statement
+layer so instance elaboration is identical in both environments. The declarations below mirror
 `GraphPuzzles.Graph.Model`, which is the statement layer used by the proof modules. The proof
 placeholder is intentional: Comparator compares this reviewed statement to `SabidussiSolution` and checks
 only the latter's proof axioms.

@@ -30,7 +30,7 @@ This library supplies the bridge to its graph representation, restores loops,
 and decomposes the cover into ordinary circuits. The upstream source and
 attribution remain in the dependency, rather than being vendored here.
 
-The [Sabidussi paper PDF](papers/sabidussi/sabidussi_proof.pdf) accompanies its
+The [Sabidussi paper on arXiv](https://arxiv.org/abs/2607.13225) accompanies its
 formalization. The original [sabidussi-lean repository](https://github.com/gexahedron/sabidussi-lean)
 remains available independently; this repository uses new module paths.
 
