@@ -1,4 +1,13 @@
-# Verification of version 0.2.0
+# Verification of version 0.2.1
+
+This patch builds `GraphPuzzles.Audit` before the standalone axiom check in
+CI and the checking instructions. The proof sources and paper files are
+identical to v0.2.0.
+
+A check with both compiled audit modules removed reproduced the missing
+dependency reported by CI. The explicit build restored them, and the 34
+axiom guards, both statement checks and publication boundary then passed.
+This check completed in 30.2 seconds, peaking at 1528.6 MiB with no swap growth.
 
 The release proof sources were checked locally on 2026-10-06 with Lean 4.31.0,
 Mathlib `9a9483a92959bc92bd6a60176dd1fe597298c1f8` and OpenAI CDC

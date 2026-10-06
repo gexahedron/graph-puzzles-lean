@@ -31,7 +31,9 @@ jobs:
           lint: false
           use-mathlib-cache: true
       - name: Verify exact axiom guards
-        run: lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
+        run: |
+          lake --wfail build GraphPuzzles.Audit
+          lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
       - name: Verify graph scope
         run: lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
       - name: Verify strong five-cycle double cover statements

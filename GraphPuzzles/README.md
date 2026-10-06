@@ -57,7 +57,7 @@ Import `GraphPuzzles.Results.StrongFiveCycleDoubleCover` for the underlying
 proofs or `GraphPuzzles.Claims.StrongFiveCycleDoubleCover` for the paper
 statements. The [paper-to-Lean guide](../papers/strong-five-cdc/README.md)
 lists the theorem names, hypotheses and conventions.
-[Release notes](../RELEASE_NOTES.md) describe version 0.2.0.
+[Release notes](../RELEASE_NOTES.md) describe version 0.2.1.
 
 The extension proof is in `CycleCovers/CircuitExtension{,Corollaries,Exact}.lean`.
 `CycleCovers/TwoCircuitFactor.lean` constructs the permutation-graph colouring;
@@ -94,6 +94,7 @@ Lean is pinned to `v4.31.0`, Mathlib to
 ```bash
 lake exe cache get
 LEAN_NUM_THREADS=1 lake --wfail build
+LEAN_NUM_THREADS=1 lake --wfail build GraphPuzzles.Audit
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean

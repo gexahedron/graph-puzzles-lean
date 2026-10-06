@@ -64,11 +64,11 @@
   ],
   "files": [
     {
-      "source": "publication/releases/strong-five-cdc/GraphPuzzles.lean",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/GraphPuzzles.lean",
       "target": "GraphPuzzles.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc/Audit.lean",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/Audit.lean",
       "target": "GraphPuzzles/Audit.lean"
     },
     {
@@ -80,7 +80,7 @@
       "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc/Claims.lean",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/Claims.lean",
       "target": "GraphPuzzles/Claims.lean"
     },
     {
@@ -212,35 +212,35 @@
       "target": ".github/workflows/comparator.yml"
     },
     {
-      "source": "publication/releases/strong-five-cdc/manifest.json",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/manifest.json",
       "target": "publication/public-manifest.json"
     },
     {
-      "source": "publication/releases/strong-five-cdc/README.md",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/README.md",
       "target": "README.md"
     },
     {
-      "source": "publication/releases/strong-five-cdc/SOURCE_GUIDE.md",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/SOURCE_GUIDE.md",
       "target": "GraphPuzzles/README.md"
     },
     {
-      "source": "publication/releases/strong-five-cdc/VERIFICATION.md",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/VERIFICATION.md",
       "target": "VERIFICATION.md"
     },
     {
-      "source": "publication/releases/strong-five-cdc/lakefile.toml",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/lakefile.toml",
       "target": "lakefile.toml"
     },
     {
-      "source": "publication/releases/strong-five-cdc/formalization.yaml",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/formalization.yaml",
       "target": "formalization.yaml"
     },
     {
-      "source": "publication/releases/strong-five-cdc/CITATION.cff",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/CITATION.cff",
       "target": "CITATION.cff"
     },
     {
-      "source": "publication/releases/strong-five-cdc/lean.yml",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/lean.yml",
       "target": ".github/workflows/lean.yml"
     },
     {
@@ -256,7 +256,7 @@
       "target": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc/ParityColoring.lean",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/ParityColoring.lean",
       "target": "GraphPuzzles/Circuits/ParityColoring.lean"
     },
     {
@@ -348,11 +348,11 @@
       "target": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc/PAPER_GUIDE.md",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/PAPER_GUIDE.md",
       "target": "papers/strong-five-cdc/README.md"
     },
     {
-      "source": "publication/releases/strong-five-cdc/RELEASE_NOTES.md",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/RELEASE_NOTES.md",
       "target": "RELEASE_NOTES.md"
     },
     {
@@ -360,16 +360,16 @@
       "target": "checks/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
       "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex"
     },
     {
-      "source": "publication/releases/strong-five-cdc/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf",
+      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf",
       "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf"
     }
   ],
   "release": {
-    "version": "0.2.0",
+    "version": "0.2.1",
     "date": "2026-10-06",
     "paper": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
     "sabidussi_paper": "papers/sabidussi/sabidussi_proof.pdf"
