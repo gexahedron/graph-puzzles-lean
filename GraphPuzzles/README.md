@@ -1,20 +1,123 @@
-# Public source guide
+# Formalization guide
+
+This page describes the mathematical statements, their Lean entry points,
+the source layout, and how to build and check the proofs.
+
+## Results and entry points
+
+| Result | Entry point |
+| --- | --- |
+| Sabidussi's compatibility conjecture with 4 colours | `GraphPuzzles.Results.Sabidussi` |
+| Cycle double covers of finite bridgeless graphs | `GraphPuzzles.Results.CycleDoubleCover` |
+| Strong 5-cycle double covers for critical, permutation and colouring-defect-three snarks | `GraphPuzzles.Results.StrongFiveCycleDoubleCover` |
+
+Import `GraphPuzzles` for the results together, or import one of the entry
+points above. The declarations share the `GraphPuzzles` namespace.
+
+## Sabidussi compatibility
+
+The headline declaration is `GraphPuzzles.LoopMultigraph.sabidussi_theorem`.
+Its strengthened colouring conclusion and compatible decomposition use
+ordinary nonempty, connected, 2-regular circuits. The dominating-circuit
+corollary supplies a five-cycle double cover with the prescribed circuit as
+an entire layer.
+
+The [paper](../papers/sabidussi/sabidussi_proof.pdf) accompanies the proof.
+The PDF is kept under `papers/sabidussi/`. The original
+[sabidussi-lean repository](https://github.com/gexahedron/sabidussi-lean)
+remains available independently; this project uses the `GraphPuzzles` module
+paths.
+
+## Cycle double covers
+
+The declaration `GraphPuzzles.LoopMultigraph.exists_ordinaryCycleDoubleCover`
+covers loops, parallel edges, isolated vertices, disconnected graphs and the
+empty graph. Its list retains repeated circuit occurrences and covers each
+edge exactly twice. The eight-layer result permits empty or disconnected
+layers; decomposing those layers may produce more than eight ordinary
+circuits.
+
+The proof uses the pinned
+[OpenAI formalization](https://github.com/openai/cdc-lean/tree/577e9d9ea326d520f80672ee69b830bf1d513df5).
+This project supplies the bridge to its graph representation, restores loops,
+and decomposes the cover into ordinary circuits. The upstream source and
+attribution remain in the dependency.
+
+## Strong five-cycle double covers
+
+The [paper](../papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf)
+and its [exact TeX source](../papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex)
+accompany the proofs. Critical and permutation cubic graphs admit every
+prescribed circuit as an **entire member** of a five-cover. For numerical
+colouring defect three, the prescribed circuit is a **component** of a
+member. The proof constructs the hexagonal core from the numerical defect
+hypothesis.
+
+Import `GraphPuzzles.Results.StrongFiveCycleDoubleCover` for the underlying
+proofs or `GraphPuzzles.Claims.StrongFiveCycleDoubleCover` for the paper
+statements. The [paper-to-Lean guide](../papers/strong-five-cdc/README.md)
+lists the theorem names, hypotheses and conventions.
+[Release notes](../RELEASE_NOTES.md) describe version 0.2.0.
+
+The extension proof is in `CycleCovers/CircuitExtension{,Corollaries,Exact}.lean`.
+`CycleCovers/TwoCircuitFactor.lean` constructs the permutation-graph colouring;
+`CycleCovers/StrongFive.lean` supplies the critical and permutation conclusions.
+`DefectThree/StrongFive.lean` combines the optimal matching triple and hexagon
+construction to obtain the numerical defect-three conclusion.
+
+`CycleCovers/StrongProperties.lean` defines strong containment.
+`CycleCovers/CoverTransportBasic.lean` transports ordinary covers through
+vertex and edge relabelling and endpoint reversals.
+
+## Graph model and source layout
+
+The graph model allows labelled parallel edges and loops; each loop
+contributes two incidences to degree. Vertices and edges have independent
+types. `Graph/Model.lean` contains the trusted graph and circuit data.
 
 | Directory | Contents |
 | --- | --- |
-| `Core/` | Four-colour algebra, local patterns, parity, balancing and cyclic words |
-| `Graph/` | Endpoint graph model, bridgelessness, graph relabelling and the cyclic-word bridge |
-| `Circuits/` | Ordinary circuits and Euler traversals |
-| `CycleCovers/` | Dominating-circuit covers and the general CDC bridge |
-| `Results/` | Separate imports for the two proof families |
-| `Claims/` | Checked statements with explicit graph hypotheses and conclusions |
+| `Core/` | Four-colour algebra, local patterns, parity, balancing, cyclic words and finite counting |
+| `Graph/` | Endpoint graph model, boundaries, connectivity, bridgelessness, relabelling and the cyclic-word bridge |
+| `Circuits/` | Ordinary circuits, Euler traversals and parity colourings |
+| `CycleCovers/` | Dominating-circuit covers, exact circuit extension, strong five-covers and the general CDC bridge |
+| `DefectThree/` | Matching triples, hexagonal core extraction and strong five-covers |
+| `Results/` | Imports for the mathematical results |
+| `Claims/` | Statements with explicit graph hypotheses and conclusions |
 
-`Graph/Model.lean` contains the trusted graph and circuit data.
-`Audit.lean` checks the exact axioms of the public endpoints and critical
-intermediate constructions. Only `propext`, `Classical.choice`, and
-`Quot.sound` are permitted by these guards.
+## Build and verify
 
-Module paths describe topics, while declarations use the shared `GraphPuzzles`
-namespace. Import `GraphPuzzles.Results.Sabidussi` or
-`GraphPuzzles.Results.CycleDoubleCover` for one family, or `GraphPuzzles` for
-both. The full build instructions are in [README.md](../README.md).
+Lean is pinned to `v4.31.0`, Mathlib to
+`9a9483a92959bc92bd6a60176dd1fe597298c1f8`, and `cdc_lean` to
+`577e9d9ea326d520f80672ee69b830bf1d513df5`.
+
+```bash
+lake exe cache get
+LEAN_NUM_THREADS=1 lake --wfail build
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
+LEAN_NUM_THREADS=1 lake --wfail build SabidussiSolution
+python3 tools/publication.py check --public-tree
+```
+
+`lake-manifest.json` records the dependency revisions. Use `lake update` only
+when intentionally changing those pins. A missing dependency cache can
+require a larger local build; inspect available RAM and disk first and use
+one Lean worker.
+
+`Audit.lean` checks the exact axioms of the result declarations and
+intermediate constructions. Its guards permit only `propext`,
+`Classical.choice`, and `Quot.sound`. The [verification record](../VERIFICATION.md)
+describes the checks performed for this release. The exported files and
+their import closure are recorded in `publication/public-manifest.json`.
+
+`SabidussiChallenge.lean` is the trusted Comparator specification and contains
+an intentional proof placeholder. `SabidussiSolution.lean` supplies the
+checked proof. The placeholder is outside the production library and its
+axiom audit.
+
+## Licensing and citation
+
+Code is licensed under [Apache-2.0](../LICENSE). Cite the individual papers
+for their mathematical results; `CITATION.cff` describes the software.

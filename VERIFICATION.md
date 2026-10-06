@@ -1,32 +1,53 @@
-# Verification
+# Verification of version 0.2.0
 
-The exported public source tree was checked on 2026-10-05 with Lean 4.31.0,
+The release proof sources were checked locally on 2026-10-06 with Lean 4.31.0,
 Mathlib `9a9483a92959bc92bd6a60176dd1fe597298c1f8` and OpenAI CDC
-`577e9d9ea326d520f80672ee69b830bf1d513df5`.
+`577e9d9ea326d520f80672ee69b830bf1d513df5`. All ten dependency checkouts
+matched the revisions in `lake-manifest.json` and had clean tracked sources.
 
 | Check | Result |
 | --- | --- |
-| `LEAN_NUM_THREADS=1 lake --wfail build GraphPuzzles` | Passed, 1770 jobs |
-| `lake env lean -j1 -M4096 GraphPuzzles/Audit.lean` | Passed, 20 exact axiom guards |
+| Full exported library build with `lake --wfail build` | Passed, 1793 jobs |
+| Final `lake --wfail build GraphPuzzles.Audit SabidussiSolution` | Passed, 1796 jobs |
+| `lake env lean -j1 -M4096 GraphPuzzles/Audit.lean` | Passed, 34 exact axiom guards: 20 existing and 14 new |
 | `lake env lean -j1 -M4096 checks/CycleDoubleCover.lean` | Passed |
-| `lake --wfail build SabidussiSolution` | Passed, 1771 jobs |
-| `python3 tools/publication.py check --public-tree` | Passed, exactly 27 production modules and 47 files |
-| Pinned OpenAI production shortcut scan | Passed |
+| `lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean` | Passed |
+| `python3 tools/publication.py check --public-tree` | Passed, exactly 51 modules and 76 files |
+| Exporter privacy-boundary regression tests | Passed, 11 tests, including explicit draft overlays and private-import rejection |
+| Already public proof sources | All 24 proof source files unchanged; the new umbrellas and audit add the strong-five results |
 
-The project build cache was fresh; only pinned third-party dependency caches
-were reused. The build used one worker, took 75.6 seconds and peaked at
-2579.5 MiB resident RAM, with no additional swap use recorded.
+The initial export used a fresh project build cache and reused only pinned
+third-party dependency caches. It completed in 157.0
+seconds with one Lean worker and a peak resident process-tree footprint of
+2469.3 MiB. The final dependency separation was rebuilt and
+all exported checks rerun successfully in 91.1 seconds, peaking at 2570.1
+MiB with no swap growth. Runs were bounded by a 6 GiB resident budget, a 4 GiB Lean heap limit,
+swap/disk checks and explicit time limits.
 
-The scope checks cover independent vertex/edge universes, empty graphs,
-isolated vertices, loops, parallel edges and disconnected graphs. A single
-non-loop edge is checked as a negative bridgelessness case.
+The guards require the exact lists containing only `propext`, `Classical.choice`
+and `Quot.sound`. They tolerate whitespace wrapping, while checking axiom
+names and ordering. The production-source boundary scan rejects proof
+placeholders, additional axioms and native decision shortcuts.
 
-The axiom guards check the recorded lists containing only `propext`,
-`Classical.choice` and `Quot.sound`. They ignore whitespace to tolerate line
-wrapping while retaining exact axiom names and ordering.
+The strong-five statement check uses independent vertex and edge universes.
+It checks entire-member containment for critical and permutation graphs and
+component containment from the numerical defect-three hypothesis, with no
+assumed hexagon, auxiliary exterior colouring or girth-five restriction.
+The previous CDC scope checks cover empty/disconnected graphs, loops,
+parallel edges and isolated vertices.
 
-`SabidussiChallenge.lean` is a trusted Comparator specification with an
-intentional proof placeholder. It is outside the production library and its
-axiom audit. `SabidussiSolution.lean` provides the checked proof. The Linux
-Comparator isolation workflow is configured for GitHub CI; it was not run
-locally on the Mac used for these checks.
+The current supplied TeX source was frozen without edits and compiled successfully
+with the desktop editor. A matching 18-page PDF was exported from that frozen
+source using the existing pdfLaTeX/latexmk installation. The source MD5 matches
+the successful PDF build record. The source title, date and attribution are
+preserved.
+
+`SabidussiChallenge.lean` is the existing trusted Comparator specification
+with an intentional proof placeholder, outside the production library and
+its axiom audit. `SabidussiSolution.lean` supplies the checked proof. At the time of local verification, Linux
+Comparator and GitHub CI were pending;
+the workflows check the published release. Their live results are available on GitHub.
+
+The Sabidussi PDF is copied byte-for-byte from the supplied local arXiv v2
+submission folder. Its title and the first and last pages were checked; it
+contains 10 pages. The repository README links directly to both paper PDFs.

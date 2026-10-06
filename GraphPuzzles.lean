@@ -1,3 +1,3 @@
 import GraphPuzzles.Claims
 
-/-! Public Graph Puzzles library: Sabidussi compatibility and cycle double covers. -/
+/-! Public Graph Puzzles library: Sabidussi, CDC, and strong five-cycle double covers. -/

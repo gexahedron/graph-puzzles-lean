@@ -1,4 +1,4 @@
-version: "0.1.0"
+version: "0.2.0"
 project:
   name: "Graph Puzzles in Lean"
   authors: ["Nikolay Ulyanov"]
@@ -8,12 +8,12 @@ classification:
   arxiv: [math.CO]
   msc2020: [05C45, 05C70]
 sources:
-  - title: "Graph Puzzles III.1: A Proof of Sabidussi's Compatibility Conjecture"
+  - title: "Graph Puzzles III.1: A proof of Sabidussi's compatibility conjecture with 4 colours"
     authors: ["Nikolay Ulyanov"]
-    id: "https://arxiv.org/abs/2607.13225"
+    id: "papers/sabidussi/sabidussi_proof.pdf"
     type: "paper"
     relationship: "formalizes"
-    note: "All five numbered results in version 0.4; loops and parallel edges are allowed."
+    note: "Four-colouring and compatible circuit decompositions; the PDF is the supplied local arXiv v2 submission."
   - title: "OpenAI cycle double cover formalization"
     authors: ["OpenAI"]
     id: "https://github.com/openai/cdc-lean/tree/577e9d9ea326d520f80672ee69b830bf1d513df5"
@@ -23,3 +23,12 @@ sources:
       The pinned eight-flow, affine-pair and cubic-expansion proofs are composed
       with the endpoint graph model. Loops are restored in exactly two layers
       and the layers are decomposed into ordinary circuits.
+  - title: "Graph Puzzles III.2-preview: Strong five-cycle double covers"
+    authors: ["Nikolay Ulyanov + AI-Slop"]
+    id: "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex"
+    type: "paper"
+    relationship: "formalizes"
+    note: >-
+      Prescribed circuit extension, critical and permutation cubic graphs,
+      the single induced hexagon construction, and numerical colouring defect three.
+      The source and matching PDF retain the supplied title and attribution.

@@ -34,6 +34,8 @@ jobs:
         run: lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
       - name: Verify graph scope
         run: lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
+      - name: Verify strong five-cycle double cover statements
+        run: lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
       - name: Verify the Sabidussi solution wrapper
         run: lake --wfail build SabidussiSolution
       - name: Check the upstream production proof

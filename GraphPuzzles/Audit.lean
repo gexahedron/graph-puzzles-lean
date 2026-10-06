@@ -1,6 +1,7 @@
 import GraphPuzzles
+import GraphPuzzles.Audit.StrongFiveCycleDoubleCover
 
-/-! Exact axiom guards for the two public proof families. Whitespace is ignored so
+/-! Exact axiom guards for all released proof families. Whitespace is ignored so
 namespace length and pretty-printer wrapping do not affect the axiom checks. -/
 
 /--

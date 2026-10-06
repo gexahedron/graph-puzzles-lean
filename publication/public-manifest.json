@@ -1,8 +1,9 @@
 {
   "version": 1,
   "scope": [
-    "Sabidussi v0.4 proof and prerequisites",
-    "Pinned OpenAI CDC proof and native graph bridge"
+    "Sabidussi's compatibility conjecture with 4 colours and prerequisites",
+    "Pinned OpenAI CDC proof and native graph bridge",
+    "Strong 5CDC: critical and permutation cubic graphs; induced hexagon; numerical defect-three snarks and prerequisites"
   ],
   "roots": [
     "GraphPuzzles",
@@ -11,17 +12,25 @@
   "modules": [
     "GraphPuzzles",
     "GraphPuzzles.Audit",
+    "GraphPuzzles.Audit.StrongFiveCycleDoubleCover",
     "GraphPuzzles.Circuits.CircuitEulerTour",
     "GraphPuzzles.Circuits.OrdinaryCircuit",
+    "GraphPuzzles.Circuits.ParityColoring",
     "GraphPuzzles.Claims",
     "GraphPuzzles.Claims.CycleDoubleCover",
     "GraphPuzzles.Claims.Sabidussi",
+    "GraphPuzzles.Claims.StrongFiveCycleDoubleCover",
     "GraphPuzzles.Core.Color",
     "GraphPuzzles.Core.CyclicWord",
+    "GraphPuzzles.Core.FiniteCounts",
     "GraphPuzzles.Core.LocalPattern",
     "GraphPuzzles.Core.OddBalance",
     "GraphPuzzles.Core.Parity",
     "GraphPuzzles.Core.Tactics",
+    "GraphPuzzles.CycleCovers.CircuitExtension",
+    "GraphPuzzles.CycleCovers.CircuitExtensionCorollaries",
+    "GraphPuzzles.CycleCovers.CircuitExtensionExact",
+    "GraphPuzzles.CycleCovers.CoverTransportBasic",
     "GraphPuzzles.CycleCovers.DominatingCircuit",
     "GraphPuzzles.CycleCovers.DominatingCircuitCore",
     "GraphPuzzles.CycleCovers.General.Decomposition",
@@ -29,21 +38,37 @@
     "GraphPuzzles.CycleCovers.General.Theorem",
     "GraphPuzzles.CycleCovers.General.Transport",
     "GraphPuzzles.CycleCovers.General.Upstream",
+    "GraphPuzzles.CycleCovers.StrongFive",
+    "GraphPuzzles.CycleCovers.StrongProperties",
+    "GraphPuzzles.CycleCovers.TJoin",
+    "GraphPuzzles.CycleCovers.TwoCircuitFactor",
+    "GraphPuzzles.DefectThree.DefectThreeCore",
+    "GraphPuzzles.DefectThree.HexagonCore",
+    "GraphPuzzles.DefectThree.HexagonDisjointFive",
+    "GraphPuzzles.DefectThree.HexagonMatching",
+    "GraphPuzzles.DefectThree.HexagonPairing",
+    "GraphPuzzles.DefectThree.HexagonStrong",
+    "GraphPuzzles.DefectThree.MatchingTriple",
+    "GraphPuzzles.DefectThree.MatchingTripleStructure",
+    "GraphPuzzles.DefectThree.StrongFive",
+    "GraphPuzzles.Graph.Boundary",
     "GraphPuzzles.Graph.Bridgeless",
+    "GraphPuzzles.Graph.Connectivity",
     "GraphPuzzles.Graph.LoopGraphBridge",
     "GraphPuzzles.Graph.LoopMultigraph",
     "GraphPuzzles.Graph.LoopMultigraphIso",
     "GraphPuzzles.Graph.Model",
     "GraphPuzzles.Results.CycleDoubleCover",
-    "GraphPuzzles.Results.Sabidussi"
+    "GraphPuzzles.Results.Sabidussi",
+    "GraphPuzzles.Results.StrongFiveCycleDoubleCover"
   ],
   "files": [
     {
-      "source": "GraphPuzzles.lean",
+      "source": "publication/releases/strong-five-cdc/GraphPuzzles.lean",
       "target": "GraphPuzzles.lean"
     },
     {
-      "source": "GraphPuzzles/Audit.lean",
+      "source": "publication/releases/strong-five-cdc/Audit.lean",
       "target": "GraphPuzzles/Audit.lean"
     },
     {
@@ -55,7 +80,7 @@
       "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
     },
     {
-      "source": "GraphPuzzles/Claims.lean",
+      "source": "publication/releases/strong-five-cdc/Claims.lean",
       "target": "GraphPuzzles/Claims.lean"
     },
     {
@@ -187,35 +212,35 @@
       "target": ".github/workflows/comparator.yml"
     },
     {
-      "source": "publication/public-manifest.json",
+      "source": "publication/releases/strong-five-cdc/manifest.json",
       "target": "publication/public-manifest.json"
     },
     {
-      "source": "publication/public/README.md",
+      "source": "publication/releases/strong-five-cdc/README.md",
       "target": "README.md"
     },
     {
-      "source": "publication/public/SOURCE_GUIDE.md",
+      "source": "publication/releases/strong-five-cdc/SOURCE_GUIDE.md",
       "target": "GraphPuzzles/README.md"
     },
     {
-      "source": "publication/public/VERIFICATION.md",
+      "source": "publication/releases/strong-five-cdc/VERIFICATION.md",
       "target": "VERIFICATION.md"
     },
     {
-      "source": "publication/public/lakefile.toml",
+      "source": "publication/releases/strong-five-cdc/lakefile.toml",
       "target": "lakefile.toml"
     },
     {
-      "source": "publication/public/formalization.yaml",
+      "source": "publication/releases/strong-five-cdc/formalization.yaml",
       "target": "formalization.yaml"
     },
     {
-      "source": "publication/public/CITATION.cff",
+      "source": "publication/releases/strong-five-cdc/CITATION.cff",
       "target": "CITATION.cff"
     },
     {
-      "source": "publication/public/lean.yml",
+      "source": "publication/releases/strong-five-cdc/lean.yml",
       "target": ".github/workflows/lean.yml"
     },
     {
@@ -225,6 +250,128 @@
     {
       "source": "GraphPuzzles/CycleCovers/General/README.md",
       "target": "GraphPuzzles/CycleCovers/General/README.md"
+    },
+    {
+      "source": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean",
+      "target": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/strong-five-cdc/ParityColoring.lean",
+      "target": "GraphPuzzles/Circuits/ParityColoring.lean"
+    },
+    {
+      "source": "GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean",
+      "target": "GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean"
+    },
+    {
+      "source": "GraphPuzzles/Core/FiniteCounts.lean",
+      "target": "GraphPuzzles/Core/FiniteCounts.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/CircuitExtension.lean",
+      "target": "GraphPuzzles/CycleCovers/CircuitExtension.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean",
+      "target": "GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/CircuitExtensionExact.lean",
+      "target": "GraphPuzzles/CycleCovers/CircuitExtensionExact.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/CoverTransportBasic.lean",
+      "target": "GraphPuzzles/CycleCovers/CoverTransportBasic.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/StrongFive.lean",
+      "target": "GraphPuzzles/CycleCovers/StrongFive.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/StrongProperties.lean",
+      "target": "GraphPuzzles/CycleCovers/StrongProperties.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/TJoin.lean",
+      "target": "GraphPuzzles/CycleCovers/TJoin.lean"
+    },
+    {
+      "source": "GraphPuzzles/CycleCovers/TwoCircuitFactor.lean",
+      "target": "GraphPuzzles/CycleCovers/TwoCircuitFactor.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/DefectThreeCore.lean",
+      "target": "GraphPuzzles/DefectThree/DefectThreeCore.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/HexagonCore.lean",
+      "target": "GraphPuzzles/DefectThree/HexagonCore.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/HexagonDisjointFive.lean",
+      "target": "GraphPuzzles/DefectThree/HexagonDisjointFive.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/HexagonMatching.lean",
+      "target": "GraphPuzzles/DefectThree/HexagonMatching.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/HexagonPairing.lean",
+      "target": "GraphPuzzles/DefectThree/HexagonPairing.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/HexagonStrong.lean",
+      "target": "GraphPuzzles/DefectThree/HexagonStrong.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/MatchingTriple.lean",
+      "target": "GraphPuzzles/DefectThree/MatchingTriple.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/MatchingTripleStructure.lean",
+      "target": "GraphPuzzles/DefectThree/MatchingTripleStructure.lean"
+    },
+    {
+      "source": "GraphPuzzles/DefectThree/StrongFive.lean",
+      "target": "GraphPuzzles/DefectThree/StrongFive.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/Boundary.lean",
+      "target": "GraphPuzzles/Graph/Boundary.lean"
+    },
+    {
+      "source": "GraphPuzzles/Graph/Connectivity.lean",
+      "target": "GraphPuzzles/Graph/Connectivity.lean"
+    },
+    {
+      "source": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean",
+      "target": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/strong-five-cdc/PAPER_GUIDE.md",
+      "target": "papers/strong-five-cdc/README.md"
+    },
+    {
+      "source": "publication/releases/strong-five-cdc/RELEASE_NOTES.md",
+      "target": "RELEASE_NOTES.md"
+    },
+    {
+      "source": "checks/StrongFiveCycleDoubleCover.lean",
+      "target": "checks/StrongFiveCycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/strong-five-cdc/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
+      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex"
+    },
+    {
+      "source": "publication/releases/strong-five-cdc/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf",
+      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf"
     }
-  ]
+  ],
+  "release": {
+    "version": "0.2.0",
+    "date": "2026-10-06",
+    "paper": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
+    "sabidussi_paper": "papers/sabidussi/sabidussi_proof.pdf"
+  }
 }

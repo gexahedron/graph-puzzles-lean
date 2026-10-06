@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """Validate the public import boundary and export only explicitly approved files."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -64,8 +63,17 @@ def safe_path(root, value):
     return path
 
 
-def check(root=ROOT, public_tree=False):
-    manifest = json.loads((root / MANIFEST).read_text())
+def check(root=ROOT, public_tree=False, manifest_path=MANIFEST):
+    manifest = json.loads(safe_path(root, manifest_path).read_text())
+    sources = {}
+    for item in manifest['files']:
+        source = safe_path(root, item['target'] if public_tree else item['source'])
+        safe_path(root, item['target'])
+        if item['target'] in sources:
+            raise ValueError('Duplicate export target: ' + item['target'])
+        if not source.is_file():
+            raise ValueError('Missing export file: ' + str(source))
+        sources[item['target']] = source
     allowed = set(manifest['modules'])
     if len(allowed) != len(manifest['modules']):
         raise ValueError('Duplicate module in the public manifest')
@@ -76,8 +84,10 @@ def check(root=ROOT, public_tree=False):
         if module in seen: continue
         if module not in allowed:
             raise ValueError('Public import reaches an unapproved module: ' + module)
-        path = safe_path(root, module.replace('.', '/') + '.lean')
-        if not path.is_file(): raise ValueError('Missing public module: ' + module)
+        target = module.replace('.', '/') + '.lean'
+        if target not in sources:
+            raise ValueError('Module absent from export files: ' + module)
+        path = sources[target]
         seen.add(module)
         code = lean_code(path.read_text())
         if re.search(r'\b(?:sorry|admit|native_decide|implemented_by)\b|^\s*(?:axiom|opaque|unsafe)\b', code, re.M):
@@ -91,17 +101,12 @@ def check(root=ROOT, public_tree=False):
                 raise ValueError('Unapproved external import: ' + dependency)
     if seen != allowed:
         raise ValueError('Public manifest has unreachable modules: ' + ', '.join(sorted(allowed - seen)))
-    targets = set()
-    for item in manifest['files']:
-        source = safe_path(root, item['target'] if public_tree else item['source'])
-        safe_path(root, item['target'])
-        if item['target'] in targets: raise ValueError('Duplicate export target: ' + item['target'])
-        targets.add(item['target'])
-        if not source.is_file(): raise ValueError('Missing export file: ' + str(source))
+    targets = set(sources)
+    for target, source in sources.items():
         if source.suffix == '.lean':
             for dependency in imports(source):
                 if dependency == 'GraphPuzzlesResearch' or (dependency.startswith('GraphPuzzles.') and dependency not in allowed):
-                    raise ValueError('Exported Lean file imports private work: ' + item['target'])
+                    raise ValueError('Exported Lean file imports private work: ' + target)
     expected = {m.replace('.', '/') + '.lean' for m in allowed}
     if not expected <= targets: raise ValueError('Module absent from export files')
     if public_tree:
@@ -113,8 +118,8 @@ def check(root=ROOT, public_tree=False):
     return manifest, {'modules': len(seen), 'files': len(targets), 'external_imports': sorted(external)}
 
 
-def export(destination, root=ROOT):
-    manifest, summary = check(root)
+def export(destination, root=ROOT, manifest_path=MANIFEST):
+    manifest, summary = check(root, manifest_path=manifest_path)
     if destination.exists():
         raise ValueError('Export destination must not exist; export to a fresh directory and review the diff')
     if destination.resolve().is_relative_to(root.resolve()):
@@ -125,7 +130,9 @@ def export(destination, root=ROOT):
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(safe_path(root, item['source']), target)
     # Independently verify the resulting file tree, not just the copy inputs.
-    check(destination, public_tree=True)
+    exported_manifest, _ = check(destination, public_tree=True)
+    if exported_manifest != manifest:
+        raise ValueError('Exported manifest differs from the selected manifest')
     return summary
 
 
@@ -134,11 +141,16 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     validate = sub.add_parser('check')
     validate.add_argument('--public-tree', action='store_true')
+    validate.add_argument('--manifest', default=MANIFEST,
+                          help='Explicit draft allowlist; the default approved scope is unchanged')
     emit = sub.add_parser('export')
     emit.add_argument('destination', type=Path)
+    emit.add_argument('--manifest', default=MANIFEST)
     args = parser.parse_args()
     try:
-        summary = check(public_tree=args.public_tree)[1] if args.command == 'check' else export(args.destination)
+        summary = (check(public_tree=args.public_tree, manifest_path=args.manifest)[1]
+                   if args.command == 'check' else
+                   export(args.destination, manifest_path=args.manifest))
     except (ValueError, OSError, KeyError) as error:
         print('Publication check failed:', error, file=sys.stderr)
         raise SystemExit(1)
