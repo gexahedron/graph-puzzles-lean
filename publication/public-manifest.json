@@ -360,18 +360,18 @@
       "target": "checks/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
-      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex"
+      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers.tex",
+      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.tex"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf",
-      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf"
+      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers.pdf",
+      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf"
     }
   ],
   "release": {
     "version": "0.2.1",
     "date": "2026-10-06",
-    "paper": "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex",
+    "paper": "papers/strong-five-cdc/strong_five_cycle_double_covers.tex",
     "sabidussi_paper": "papers/sabidussi/sabidussi_proof.pdf"
   }
 }

@@ -25,7 +25,7 @@ sources:
       and the layers are decomposed into ordinary circuits.
   - title: "Graph Puzzles III.2-preview: Strong five-cycle double covers"
     authors: ["Nikolay Ulyanov + AI-Slop"]
-    id: "papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex"
+    id: "papers/strong-five-cdc/strong_five_cycle_double_covers.tex"
     type: "paper"
     relationship: "formalizes"
     note: >-

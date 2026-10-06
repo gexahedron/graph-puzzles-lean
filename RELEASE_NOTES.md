@@ -1,8 +1,9 @@
 # Version 0.2.1
 
 This patch explicitly builds the audit module before running its standalone
-axiom check in CI and the source-guide instructions. The proofs and papers
-are unchanged from v0.2.0.
+axiom check in CI and the source-guide instructions. The proof and paper contents
+are unchanged from v0.2.0. The paper files are now named
+`strong_five_cycle_double_covers.tex` and `strong_five_cycle_double_covers.pdf`.
 
 This release accompanies *Graph Puzzles III.2-preview: Strong five-cycle
 double covers* (6 October 2026). It adds proofs of strong five-cycle double

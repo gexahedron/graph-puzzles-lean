@@ -1,8 +1,8 @@
 # Strong five-cycle double covers: paper and Lean
 
 This directory contains the exact supplied source
-[strong_five_cycle_double_covers_baskerville_kp_newpx.tex](strong_five_cycle_double_covers_baskerville_kp_newpx.tex)
-and its [matching 18-page PDF](strong_five_cycle_double_covers_baskerville_kp_newpx.pdf).
+[strong_five_cycle_double_covers.tex](strong_five_cycle_double_covers.tex)
+and its [matching 18-page PDF](strong_five_cycle_double_covers.pdf).
 The title is *Graph Puzzles III.2-preview: Strong five-cycle double covers*,
 dated 6 October 2026. The supplied attribution is preserved.
 

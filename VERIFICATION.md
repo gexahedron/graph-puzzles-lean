@@ -1,8 +1,8 @@
 # Verification of version 0.2.1
 
 This patch builds `GraphPuzzles.Audit` before the standalone axiom check in
-CI and the checking instructions. The proof sources and paper files are
-identical to v0.2.0.
+CI and the checking instructions. The proof source and paper contents are
+identical to v0.2.0; the paper filenames are shortened.
 
 A check with both compiled audit modules removed reproduced the missing
 dependency reported by CI. The explicit build restored them, and the 34

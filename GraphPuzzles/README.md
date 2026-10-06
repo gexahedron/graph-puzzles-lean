@@ -45,8 +45,8 @@ attribution remain in the dependency.
 
 ## Strong five-cycle double covers
 
-The [paper](../papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.pdf)
-and its [exact TeX source](../papers/strong-five-cdc/strong_five_cycle_double_covers_baskerville_kp_newpx.tex)
+The [paper](../papers/strong-five-cdc/strong_five_cycle_double_covers.pdf)
+and its [exact TeX source](../papers/strong-five-cdc/strong_five_cycle_double_covers.tex)
 accompany the proofs. Critical and permutation cubic graphs admit every
 prescribed circuit as an **entire member** of a five-cover. For numerical
 colouring defect three, the prescribed circuit is a **component** of a
