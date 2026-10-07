@@ -1,0 +1,199 @@
+.github/workflows/lean.yml
+  s_2abf5139c13ccf::t_9590eac40ef3e6 41-42
+CITATION.cff
+  s_2abf5139c13ccf::t_f9de7ff7d88286 8,11
+GraphPuzzles.lean
+  s_2abf5139c13ccf::t_02ada1e12cbb01 3
+GraphPuzzles/Audit.lean
+  s_2abf5139c13ccf::t_755e70e3dc5310 3
+GraphPuzzles/Claims.lean
+  s_2abf5139c13ccf::t_3816f61db19b05 4
+GraphPuzzles/Claims/SnarkFactorisation.lean
+  s_2abf5139c13ccf::t_00053b7baca9a8 1-59
+GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean
+  s_2abf5139c13ccf::t_4ac1dcc131aa39 1-126
+GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean
+  s_2abf5139c13ccf::t_8845a60eeead17 1-116
+GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean
+  s_2abf5139c13ccf::t_d60f0c78fc130a 1-278
+GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean
+  s_2abf5139c13ccf::t_cce95c50cce647 1-245
+GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean
+  s_2abf5139c13ccf::t_fac95eb49caacc 1-354
+GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean
+  s_2abf5139c13ccf::t_8b842f5546f6a4 1-171
+GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean
+  s_2abf5139c13ccf::t_17d1130cba6c1f 1-170
+GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean
+  s_2abf5139c13ccf::t_03aa7607f46ff1 1-451
+GraphPuzzles/Factorization/Bicritical/FactorGirth.lean
+  s_2abf5139c13ccf::t_13948a75e97123 1-352
+GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean
+  s_2abf5139c13ccf::t_4d7c8f940255eb 1-205
+GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean
+  s_2abf5139c13ccf::t_052129811cd283 1-136
+GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean
+  s_2abf5139c13ccf::t_bc8f161d4a48c9 1-42
+GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean
+  s_2abf5139c13ccf::t_3019bfc0fabb3d 1-143
+GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean
+  s_2abf5139c13ccf::t_e29ede30eae879 1-269
+GraphPuzzles/Factorization/Bicritical/FactorParity.lean
+  s_2abf5139c13ccf::t_8e0ecb29833f0e 1-423
+GraphPuzzles/Factorization/Diamond/FactorCanon.lean
+  s_2abf5139c13ccf::t_f5348127fab088 1-262
+GraphPuzzles/Factorization/Diamond/FactorDblCC.lean
+  s_2abf5139c13ccf::t_f9b46a5e377d71 1-643
+GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean
+  s_2abf5139c13ccf::t_3e80160dda1cd3 1-628
+GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean
+  s_2abf5139c13ccf::t_e8efe47a8e5a72 1-257
+GraphPuzzles/Factorization/Diamond/FactorDblJC.lean
+  s_2abf5139c13ccf::t_dac847ca7a4cab 1-614
+GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean
+  s_2abf5139c13ccf::t_6373e2141cf768 1-1188
+GraphPuzzles/Factorization/Diamond/FactorDiamond.lean
+  s_2abf5139c13ccf::t_df962bfc174884 1-250
+GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean
+  s_2abf5139c13ccf::t_8b1f410a51a1cb 1-250
+GraphPuzzles/Factorization/FactorAssoc.lean
+  s_2abf5139c13ccf::t_817aa26b9fba80 1-225
+GraphPuzzles/Factorization/FactorAtom.lean
+  s_2abf5139c13ccf::t_045331bfae66c6 1-404
+GraphPuzzles/Factorization/FactorChain.lean
+  s_2abf5139c13ccf::t_dabb1fa5b673c2 1-238
+GraphPuzzles/Factorization/FactorCuts.lean
+  s_2abf5139c13ccf::t_4116fd8fd0ff1e 1-413
+GraphPuzzles/Factorization/FactorGlue.lean
+  s_2abf5139c13ccf::t_cbacf52529f462 1-218
+GraphPuzzles/Factorization/FactorHeredity.lean
+  s_2abf5139c13ccf::t_43257d5a8c0930 1-529
+GraphPuzzles/Factorization/FactorJoinCap.lean
+  s_2abf5139c13ccf::t_ea5f9ca45abbfd 1-352
+GraphPuzzles/Factorization/FactorMain.lean
+  s_2abf5139c13ccf::t_203ac283cc3369 1-124
+GraphPuzzles/Factorization/FactorNineTwo.lean
+  s_2abf5139c13ccf::t_f76cf0279a4a01 1-379
+GraphPuzzles/Factorization/FactorPoleIso.lean
+  s_2abf5139c13ccf::t_86199235ae4593 1-630
+GraphPuzzles/Factorization/FactorProjection.lean
+  s_2abf5139c13ccf::t_8aaca02b855adf 1-401
+GraphPuzzles/Factorization/FactorQuasi.lean
+  s_2abf5139c13ccf::t_95006b705c3d81 1-225
+GraphPuzzles/Factorization/FactorQuasiHelpers.lean
+  s_2abf5139c13ccf::t_00642434aae132 1-130
+GraphPuzzles/Factorization/FactorQuasiStructure.lean
+  s_2abf5139c13ccf::t_a52e4e4855f7b5 1-280
+GraphPuzzles/Factorization/FactorRecap.lean
+  s_2abf5139c13ccf::t_153f4724f35bc9 1-526
+GraphPuzzles/Factorization/FactorSystem.lean
+  s_2abf5139c13ccf::t_9f961714bf770b 1-186
+GraphPuzzles/Factorization/FactorTransport.lean
+  s_2abf5139c13ccf::t_0e3915f437c0aa 1-100
+GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean
+  s_2abf5139c13ccf::t_5f6db4893d9a35 1-1863
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean
+  s_2abf5139c13ccf::t_446377441268f0 1-459
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean
+  s_2abf5139c13ccf::t_40ce38fc8ffc62 1-135
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean
+  s_2abf5139c13ccf::t_a3031e25b5d746 1-803
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean
+  s_2abf5139c13ccf::t_46074cc0bd2e89 1-97
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean
+  s_2abf5139c13ccf::t_29fbaf0880a4e9 1-454
+GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean
+  s_2abf5139c13ccf::t_6243e896c073c8 1-32
+GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean
+  s_2abf5139c13ccf::t_993f9f61512bb0 1-828
+GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean
+  s_2abf5139c13ccf::t_aec0e78bc51772 1-132
+GraphPuzzles/Factorization/Permutation/FactorPermCut.lean
+  s_2abf5139c13ccf::t_f1884d460ebe42 1-311
+GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean
+  s_2abf5139c13ccf::t_806dcda852f0a1 1-149
+GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean
+  s_2abf5139c13ccf::t_e9dadada384685 1-693
+GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean
+  s_2abf5139c13ccf::t_f42208667a5a55 1-486
+GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean
+  s_2abf5139c13ccf::t_04d222bbaed66c 1-187
+GraphPuzzles/FinGraph/FinGraph.lean
+  s_2abf5139c13ccf::t_fe32dffe9343ec 1-256
+GraphPuzzles/FinGraph/FinGraphBetween.lean
+  s_2abf5139c13ccf::t_ecb39e4dd4afbf 1-277
+GraphPuzzles/FinGraph/FinGraphColourOpen.lean
+  s_2abf5139c13ccf::t_97c03ad4c074b2 1-485
+GraphPuzzles/FinGraph/FinGraphColouring.lean
+  s_2abf5139c13ccf::t_a1e0c1d4770e32 1-292
+GraphPuzzles/FinGraph/FinGraphCompletion.lean
+  s_2abf5139c13ccf::t_08befe2146e433 1-338
+GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean
+  s_2abf5139c13ccf::t_2017032ddf8f75 1-381
+GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean
+  s_2abf5139c13ccf::t_85e08c30d85c5a 1-319
+GraphPuzzles/FinGraph/FinGraphCompletionIso.lean
+  s_2abf5139c13ccf::t_dc98dcf59c14fe 1-715
+GraphPuzzles/FinGraph/FinGraphCycleCut.lean
+  s_2abf5139c13ccf::t_3b2f3df49ffa74 1-246
+GraphPuzzles/FinGraph/FinGraphCycles.lean
+  s_2abf5139c13ccf::t_a56cb46dd81794 1-436
+GraphPuzzles/FinGraph/FinGraphHypo.lean
+  s_2abf5139c13ccf::t_033b59eb81a0c9 1-336
+GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean
+  s_2abf5139c13ccf::t_60ce077ba793bb 1-295
+GraphPuzzles/FinGraph/FinGraphIso.lean
+  s_2abf5139c13ccf::t_5932e0eaab5c32 1-397
+GraphPuzzles/FinGraph/FinGraphIsoColour.lean
+  s_2abf5139c13ccf::t_f2962ce88144de 1-242
+GraphPuzzles/FinGraph/FinGraphIsoMk.lean
+  s_2abf5139c13ccf::t_0835a1c5298976 1-125
+GraphPuzzles/FinGraph/FinGraphKempe.lean
+  s_2abf5139c13ccf::t_0c146fcdff7175 1-301
+GraphPuzzles/FinGraph/FinGraphPaths.lean
+  s_2abf5139c13ccf::t_d846c63e4ffe33 1-534
+GraphPuzzles/FinGraph/FinGraphSmallCycles.lean
+  s_2abf5139c13ccf::t_02026ade02fd37 1-87
+GraphPuzzles/FinGraph/FinGraphTypes.lean
+  s_2abf5139c13ccf::t_bb50c68e471063 1-110
+GraphPuzzles/Poles/PoleKempe.lean
+  s_2abf5139c13ccf::t_50fe678c4bb269 1-339
+GraphPuzzles/README.md
+  s_2abf5139c13ccf::t_64ade23b8c9854 13,61,73-96,102-105,114-116,133
+GraphPuzzles/Results/SnarkFactorisation.lean
+  s_2abf5139c13ccf::t_d5da32d5f710c0 1-12
+README.md
+  s_2abf5139c13ccf::t_44666587f802f9 11-12
+RELEASE_NOTES.md
+  s_2abf5139c13ccf::t_40b5d75c6a787c 1,3-4,6-11,13-15,17-19,21-22
+VERIFICATION.md
+  s_2abf5139c13ccf::t_7bd7554e076049 1,3-5,7-9,13-52
+checks/SnarkFactorisation.lean
+  s_2abf5139c13ccf::t_bcb94ed5c2158b 1-53
+formalization.yaml
+  s_2abf5139c13ccf::t_35b516ab75ea87 1,35-44
+lakefile.toml
+  s_2abf5139c13ccf::t_9375f766da126c 2
+papers/factorisations/README.md
+  s_2abf5139c13ccf::t_bca69e3753f77b 1-85
+papers/factorisations/unique_factorisation_snarks.tex
+  s_2abf5139c13ccf::t_055c4397ad5292 1-838
+publication/public-manifest.json
+  s_2abf5139c13ccf::t_75af5cb4332717 6-7,16,24,57-129,137,140,145-161,165,169-177,181,185-189,193,197,201-209,213,217-221,225,229,233,237-253,257,261,265-269,273,277,281,285-286,289-290,293-294,297-298,301-302,305-306,309-310,313-314,317-318,321-322,325-326,329-330,333-334,337-338,341-342,345-346,349-350,353-354,357-358,361-362,365-366,369-370,373-374,377-378,381-382,385-386,389-390,393-394,397-398,401-402,405-406,409-410,413-414,417-418,421-422,425-426,429-430,433-434,437-438,441-442,445-446,449-450,453-454,457-458,461-462,465-466,469-470,473-594,597-629,633-637,641-677,681-682,685-689,693-713,717-718,721-757,759-770,774-778
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "f7fc5fa5b54b1b1b580c730756446e46a6782007",
+  "prompts": {},
+  "sessions": {
+    "s_2abf5139c13ccf": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a10c0a-ca2c-7231-85f8-95ce99bcd54b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "gexahedron <3427698+gexahedron@users.noreply.github.com>"
+    }
+  }
+}
