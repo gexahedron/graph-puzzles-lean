@@ -1,4 +1,4 @@
-version: "0.2.1"
+version: "0.3.0"
 project:
   name: "Graph Puzzles in Lean"
   authors: ["Nikolay Ulyanov"]
@@ -32,3 +32,13 @@ sources:
       Prescribed circuit extension, critical and permutation cubic graphs,
       the single induced hexagon construction, and numerical colouring defect three.
       The source and matching PDF retain the supplied title and attribution.
+  - title: "Graph Puzzles IV.1-preview: Factorisations of hypohamiltonian and permutation snarks"
+    authors: ["Nikolay Ulyanov + AI-Slop"]
+    id: "papers/factorisations/unique_factorisation_snarks.tex"
+    type: "paper"
+    relationship: "formalizes"
+    note: >-
+      Unique terminal factor multisets, including multiplicities; preservation of the
+      hypohamiltonian, permutation and intersection classes at every decomposition;
+      Hamilton-cycle descent and the general good-class criterion.
+      Section 6 order-counting corollaries are not separate Lean declarations in this release.

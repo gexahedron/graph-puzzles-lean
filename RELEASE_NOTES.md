@@ -1,32 +1,22 @@
-# Version 0.2.1
+# Version 0.3.0: Factorisations of hypohamiltonian and permutation snarks
 
-This patch explicitly builds the audit module before running its standalone
-axiom check in CI and the source-guide instructions. The proof and paper contents
-are unchanged from v0.2.0. The paper files are now named
-`strong_five_cycle_double_covers.tex` and `strong_five_cycle_double_covers.pdf`.
+This release accompanies *Graph Puzzles IV.1-preview: Factorisations of
+hypohamiltonian and permutation snarks*.
 
-This release accompanies *Graph Puzzles III.2-preview: Strong five-cycle
-double covers* (6 October 2026). It adds proofs of strong five-cycle double
-covers for critical, permutation and colouring-defect-three snarks.
+- Unique multisets of cyclically five-edge-connected factors for hypohamiltonian
+  snarks, permutation snarks and hypohamiltonian permutation snarks, including multiplicities.
+- Preservation of each class at every decomposition along a cycle-separating four-edge cut.
+- Hamilton-cycle descent, the good-class criterion, and the atom/diamond and bicritical prerequisites.
+- The paper PDF and self-contained TeX source, with their original title, date and attribution.
+- A paper-to-Lean guide, statement checks and 33 new exact axiom guards.
 
-- A prescribed circuit is an entire member of a five-cycle double cover
-  exactly when deleting its vertices leaves a properly 3-edge-colourable graph.
-- Critical cubic graphs and cubic permutation graphs admit every prescribed
-  circuit as an entire cover member.
-- An induced hexagon with exterior spoke colours `1,1,2,2,3,3` gives the
-  standard component form of strong 5CDC.
-- The hexagon is constructed from numerical colouring defect three in a
-  snark, giving the defect-three corollary without an extra structural assumption.
+The existing Sabidussi, general CDC and strong-five results remain available.
+The dependency versions are unchanged. Section 6's order-counting and residue
+observations are not separate Lean theorems in this release.
 
-The [paper guide](papers/strong-five-cdc/README.md) maps these results to the
-Lean declarations and explains their hypotheses. The supplied paper source
-and matching PDF are included. The previously released Sabidussi and OpenAI
-CDC formalizations remain available through their existing entry points.
+Files `unique_factorisation_snarks.pdf` and `unique_factorisation_snarks.tex`
+are available with the source archive as release assets. The PDF is also
+[available on GitHub Pages](https://gexahedron.github.io/graph_theory/unique_factorisation_snarks.pdf).
 
-Lean, Mathlib and OpenAI CDC revisions retain their existing pins. The
-verification record describes the local build, axiom and publication-boundary
-checks for this release.
-
-The Sabidussi PDF is updated to the supplied local arXiv v2 submission.
-The main README introduces the project and links directly to the repository
-papers; formalization and build details are in the separate source guide.
+See the [paper guide](papers/factorisations/README.md) and
+[verification record](VERIFICATION.md) for precise statements and checks.

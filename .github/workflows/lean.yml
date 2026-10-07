@@ -38,6 +38,8 @@ jobs:
         run: lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
       - name: Verify strong five-cycle double cover statements
         run: lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
+      - name: Verify snark factorisation statements
+        run: lake env lean -j1 -M4096 checks/SnarkFactorisation.lean
       - name: Verify the Sabidussi solution wrapper
         run: lake --wfail build SabidussiSolution
       - name: Check the upstream production proof

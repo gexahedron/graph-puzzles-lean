@@ -3,7 +3,8 @@
   "scope": [
     "Sabidussi's compatibility conjecture with 4 colours and prerequisites",
     "Pinned OpenAI CDC proof and native graph bridge",
-    "Strong 5CDC: critical and permutation cubic graphs; induced hexagon; numerical defect-three snarks and prerequisites"
+    "Strong 5CDC: critical and permutation cubic graphs; induced hexagon; numerical defect-three snarks and prerequisites",
+    "Factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks, Hamilton-cycle descent and reviewed prerequisites"
   ],
   "roots": [
     "GraphPuzzles",
@@ -12,6 +13,7 @@
   "modules": [
     "GraphPuzzles",
     "GraphPuzzles.Audit",
+    "GraphPuzzles.Audit.SnarkFactorisation",
     "GraphPuzzles.Audit.StrongFiveCycleDoubleCover",
     "GraphPuzzles.Circuits.CircuitEulerTour",
     "GraphPuzzles.Circuits.OrdinaryCircuit",
@@ -19,6 +21,7 @@
     "GraphPuzzles.Claims",
     "GraphPuzzles.Claims.CycleDoubleCover",
     "GraphPuzzles.Claims.Sabidussi",
+    "GraphPuzzles.Claims.SnarkFactorisation",
     "GraphPuzzles.Claims.StrongFiveCycleDoubleCover",
     "GraphPuzzles.Core.Color",
     "GraphPuzzles.Core.CyclicWord",
@@ -51,6 +54,79 @@
     "GraphPuzzles.DefectThree.MatchingTriple",
     "GraphPuzzles.DefectThree.MatchingTripleStructure",
     "GraphPuzzles.DefectThree.StrongFive",
+    "GraphPuzzles.Factorization.Bicritical.FactorAdjacent",
+    "GraphPuzzles.Factorization.Bicritical.FactorBicriticalClass",
+    "GraphPuzzles.Factorization.Bicritical.FactorCapBicritical",
+    "GraphPuzzles.Factorization.Bicritical.FactorCapBicriticalA",
+    "GraphPuzzles.Factorization.Bicritical.FactorCapBicriticalB",
+    "GraphPuzzles.Factorization.Bicritical.FactorCapColouring",
+    "GraphPuzzles.Factorization.Bicritical.FactorCutEdges",
+    "GraphPuzzles.Factorization.Bicritical.FactorFourCycle",
+    "GraphPuzzles.Factorization.Bicritical.FactorGirth",
+    "GraphPuzzles.Factorization.Bicritical.FactorGirthCombinatorics",
+    "GraphPuzzles.Factorization.Bicritical.FactorHalfEdgeMap",
+    "GraphPuzzles.Factorization.Bicritical.FactorJoinBicritical",
+    "GraphPuzzles.Factorization.Bicritical.FactorJoinColouring",
+    "GraphPuzzles.Factorization.Bicritical.FactorJoinTransfer",
+    "GraphPuzzles.Factorization.Bicritical.FactorParity",
+    "GraphPuzzles.Factorization.Diamond.FactorCanon",
+    "GraphPuzzles.Factorization.Diamond.FactorDblCC",
+    "GraphPuzzles.Factorization.Diamond.FactorDblCJ",
+    "GraphPuzzles.Factorization.Diamond.FactorDblCommon",
+    "GraphPuzzles.Factorization.Diamond.FactorDblJC",
+    "GraphPuzzles.Factorization.Diamond.FactorDblJJ",
+    "GraphPuzzles.Factorization.Diamond.FactorDiamond",
+    "GraphPuzzles.Factorization.Diamond.FactorDiamondMain",
+    "GraphPuzzles.Factorization.FactorAssoc",
+    "GraphPuzzles.Factorization.FactorAtom",
+    "GraphPuzzles.Factorization.FactorChain",
+    "GraphPuzzles.Factorization.FactorCuts",
+    "GraphPuzzles.Factorization.FactorGlue",
+    "GraphPuzzles.Factorization.FactorHeredity",
+    "GraphPuzzles.Factorization.FactorJoinCap",
+    "GraphPuzzles.Factorization.FactorMain",
+    "GraphPuzzles.Factorization.FactorNineTwo",
+    "GraphPuzzles.Factorization.FactorPoleIso",
+    "GraphPuzzles.Factorization.FactorProjection",
+    "GraphPuzzles.Factorization.FactorQuasi",
+    "GraphPuzzles.Factorization.FactorQuasiHelpers",
+    "GraphPuzzles.Factorization.FactorQuasiStructure",
+    "GraphPuzzles.Factorization.FactorRecap",
+    "GraphPuzzles.Factorization.FactorSystem",
+    "GraphPuzzles.Factorization.FactorTransport",
+    "GraphPuzzles.Factorization.Hypohamiltonian.DotProduct",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoCapCycle",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoClass",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoDescent",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoDescentCore",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoJoinCycle",
+    "GraphPuzzles.Factorization.Hypohamiltonian.FactorHypoUnique",
+    "GraphPuzzles.Factorization.Permutation.FactorPermClosure",
+    "GraphPuzzles.Factorization.Permutation.FactorPermColouring",
+    "GraphPuzzles.Factorization.Permutation.FactorPermCut",
+    "GraphPuzzles.Factorization.Permutation.FactorPermDefs",
+    "GraphPuzzles.Factorization.Permutation.FactorPermGirth",
+    "GraphPuzzles.Factorization.Permutation.FactorPermPairing",
+    "GraphPuzzles.Factorization.Permutation.FactorPermSegment",
+    "GraphPuzzles.FinGraph.FinGraph",
+    "GraphPuzzles.FinGraph.FinGraphBetween",
+    "GraphPuzzles.FinGraph.FinGraphColourOpen",
+    "GraphPuzzles.FinGraph.FinGraphColouring",
+    "GraphPuzzles.FinGraph.FinGraphCompletion",
+    "GraphPuzzles.FinGraph.FinGraphCompletionCubic",
+    "GraphPuzzles.FinGraph.FinGraphCompletionCuts",
+    "GraphPuzzles.FinGraph.FinGraphCompletionIso",
+    "GraphPuzzles.FinGraph.FinGraphCycleCut",
+    "GraphPuzzles.FinGraph.FinGraphCycles",
+    "GraphPuzzles.FinGraph.FinGraphHypo",
+    "GraphPuzzles.FinGraph.FinGraphHypoBicritical",
+    "GraphPuzzles.FinGraph.FinGraphIso",
+    "GraphPuzzles.FinGraph.FinGraphIsoColour",
+    "GraphPuzzles.FinGraph.FinGraphIsoMk",
+    "GraphPuzzles.FinGraph.FinGraphKempe",
+    "GraphPuzzles.FinGraph.FinGraphPaths",
+    "GraphPuzzles.FinGraph.FinGraphSmallCycles",
+    "GraphPuzzles.FinGraph.FinGraphTypes",
     "GraphPuzzles.Graph.Boundary",
     "GraphPuzzles.Graph.Bridgeless",
     "GraphPuzzles.Graph.Connectivity",
@@ -58,320 +134,648 @@
     "GraphPuzzles.Graph.LoopMultigraph",
     "GraphPuzzles.Graph.LoopMultigraphIso",
     "GraphPuzzles.Graph.Model",
+    "GraphPuzzles.Poles.PoleKempe",
     "GraphPuzzles.Results.CycleDoubleCover",
     "GraphPuzzles.Results.Sabidussi",
+    "GraphPuzzles.Results.SnarkFactorisation",
     "GraphPuzzles.Results.StrongFiveCycleDoubleCover"
   ],
   "files": [
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/GraphPuzzles.lean",
-      "target": "GraphPuzzles.lean"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/Audit.lean",
-      "target": "GraphPuzzles/Audit.lean"
-    },
-    {
-      "source": "GraphPuzzles/Circuits/CircuitEulerTour.lean",
-      "target": "GraphPuzzles/Circuits/CircuitEulerTour.lean"
-    },
-    {
-      "source": "GraphPuzzles/Circuits/OrdinaryCircuit.lean",
-      "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/Claims.lean",
-      "target": "GraphPuzzles/Claims.lean"
-    },
-    {
-      "source": "GraphPuzzles/Claims/CycleDoubleCover.lean",
-      "target": "GraphPuzzles/Claims/CycleDoubleCover.lean"
-    },
-    {
-      "source": "GraphPuzzles/Claims/Sabidussi.lean",
-      "target": "GraphPuzzles/Claims/Sabidussi.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/Color.lean",
-      "target": "GraphPuzzles/Core/Color.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/CyclicWord.lean",
-      "target": "GraphPuzzles/Core/CyclicWord.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/LocalPattern.lean",
-      "target": "GraphPuzzles/Core/LocalPattern.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/OddBalance.lean",
-      "target": "GraphPuzzles/Core/OddBalance.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/Parity.lean",
-      "target": "GraphPuzzles/Core/Parity.lean"
-    },
-    {
-      "source": "GraphPuzzles/Core/Tactics.lean",
-      "target": "GraphPuzzles/Core/Tactics.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/DominatingCircuit.lean",
-      "target": "GraphPuzzles/CycleCovers/DominatingCircuit.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean",
-      "target": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/General/Decomposition.lean",
-      "target": "GraphPuzzles/CycleCovers/General/Decomposition.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/General/Statement.lean",
-      "target": "GraphPuzzles/CycleCovers/General/Statement.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/General/Theorem.lean",
-      "target": "GraphPuzzles/CycleCovers/General/Theorem.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/General/Transport.lean",
-      "target": "GraphPuzzles/CycleCovers/General/Transport.lean"
-    },
-    {
-      "source": "GraphPuzzles/CycleCovers/General/Upstream.lean",
-      "target": "GraphPuzzles/CycleCovers/General/Upstream.lean"
-    },
-    {
-      "source": "GraphPuzzles/Graph/Bridgeless.lean",
-      "target": "GraphPuzzles/Graph/Bridgeless.lean"
-    },
-    {
-      "source": "GraphPuzzles/Graph/LoopGraphBridge.lean",
-      "target": "GraphPuzzles/Graph/LoopGraphBridge.lean"
-    },
-    {
-      "source": "GraphPuzzles/Graph/LoopMultigraph.lean",
-      "target": "GraphPuzzles/Graph/LoopMultigraph.lean"
-    },
-    {
-      "source": "GraphPuzzles/Graph/LoopMultigraphIso.lean",
-      "target": "GraphPuzzles/Graph/LoopMultigraphIso.lean"
-    },
-    {
-      "source": "GraphPuzzles/Graph/Model.lean",
-      "target": "GraphPuzzles/Graph/Model.lean"
-    },
-    {
-      "source": "GraphPuzzles/Results/CycleDoubleCover.lean",
-      "target": "GraphPuzzles/Results/CycleDoubleCover.lean"
-    },
-    {
-      "source": "GraphPuzzles/Results/Sabidussi.lean",
-      "target": "GraphPuzzles/Results/Sabidussi.lean"
-    },
-    {
-      "source": "LICENSE",
-      "target": "LICENSE"
-    },
-    {
-      "source": ".gitignore",
-      "target": ".gitignore"
-    },
-    {
-      "source": "lean-toolchain",
-      "target": "lean-toolchain"
-    },
-    {
-      "source": "lake-manifest.json",
-      "target": "lake-manifest.json"
-    },
-    {
-      "source": "SabidussiChallenge.lean",
-      "target": "SabidussiChallenge.lean"
-    },
-    {
-      "source": "SabidussiSolution.lean",
-      "target": "SabidussiSolution.lean"
-    },
-    {
-      "source": "checks/CycleDoubleCover.lean",
-      "target": "checks/CycleDoubleCover.lean"
-    },
-    {
-      "source": "tools/publication.py",
-      "target": "tools/publication.py"
-    },
-    {
-      "source": "comparator/sabidussi_compatibility.json",
-      "target": "comparator/sabidussi_compatibility.json"
-    },
-    {
-      "source": ".github/workflows/comparator.yml",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/.github/workflows/comparator.yml",
       "target": ".github/workflows/comparator.yml"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/manifest.json",
-      "target": "publication/public-manifest.json"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/README.md",
-      "target": "README.md"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/SOURCE_GUIDE.md",
-      "target": "GraphPuzzles/README.md"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/VERIFICATION.md",
-      "target": "VERIFICATION.md"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/lakefile.toml",
-      "target": "lakefile.toml"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/formalization.yaml",
-      "target": "formalization.yaml"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/CITATION.cff",
-      "target": "CITATION.cff"
-    },
-    {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/lean.yml",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/.github/workflows/lean.yml",
       "target": ".github/workflows/lean.yml"
     },
     {
-      "source": "sabidussi_proof.pdf",
-      "target": "papers/sabidussi/sabidussi_proof.pdf"
+      "source": "publication/releases/factorisations-v0.3.0/export-files/.gitignore",
+      "target": ".gitignore"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/General/README.md",
-      "target": "GraphPuzzles/CycleCovers/General/README.md"
+      "source": "publication/releases/factorisations-v0.3.0/export-files/CITATION.cff",
+      "target": "CITATION.cff"
     },
     {
-      "source": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles.lean",
+      "target": "GraphPuzzles.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit.lean",
+      "target": "GraphPuzzles/Audit.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit/SnarkFactorisation.lean",
+      "target": "GraphPuzzles/Audit/SnarkFactorisation.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/ParityColoring.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/CircuitEulerTour.lean",
+      "target": "GraphPuzzles/Circuits/CircuitEulerTour.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/OrdinaryCircuit.lean",
+      "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/ParityColoring.lean",
       "target": "GraphPuzzles/Circuits/ParityColoring.lean"
     },
     {
-      "source": "GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims.lean",
+      "target": "GraphPuzzles/Claims.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/CycleDoubleCover.lean",
+      "target": "GraphPuzzles/Claims/CycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/Sabidussi.lean",
+      "target": "GraphPuzzles/Claims/Sabidussi.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/SnarkFactorisation.lean",
+      "target": "GraphPuzzles/Claims/SnarkFactorisation.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "GraphPuzzles/Core/FiniteCounts.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Color.lean",
+      "target": "GraphPuzzles/Core/Color.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/CyclicWord.lean",
+      "target": "GraphPuzzles/Core/CyclicWord.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/FiniteCounts.lean",
       "target": "GraphPuzzles/Core/FiniteCounts.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/CircuitExtension.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/LocalPattern.lean",
+      "target": "GraphPuzzles/Core/LocalPattern.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/OddBalance.lean",
+      "target": "GraphPuzzles/Core/OddBalance.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Parity.lean",
+      "target": "GraphPuzzles/Core/Parity.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Tactics.lean",
+      "target": "GraphPuzzles/Core/Tactics.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtension.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtension.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/CircuitExtensionExact.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionExact.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtensionExact.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/CoverTransportBasic.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CoverTransportBasic.lean",
       "target": "GraphPuzzles/CycleCovers/CoverTransportBasic.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/StrongFive.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuit.lean",
+      "target": "GraphPuzzles/CycleCovers/DominatingCircuit.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuitCore.lean",
+      "target": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Decomposition.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Decomposition.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/README.md",
+      "target": "GraphPuzzles/CycleCovers/General/README.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Statement.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Statement.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Theorem.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Theorem.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Transport.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Transport.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Upstream.lean",
+      "target": "GraphPuzzles/CycleCovers/General/Upstream.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/StrongFive.lean",
       "target": "GraphPuzzles/CycleCovers/StrongFive.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/StrongProperties.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/StrongProperties.lean",
       "target": "GraphPuzzles/CycleCovers/StrongProperties.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/TJoin.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/TJoin.lean",
       "target": "GraphPuzzles/CycleCovers/TJoin.lean"
     },
     {
-      "source": "GraphPuzzles/CycleCovers/TwoCircuitFactor.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/TwoCircuitFactor.lean",
       "target": "GraphPuzzles/CycleCovers/TwoCircuitFactor.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/DefectThreeCore.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/DefectThreeCore.lean",
       "target": "GraphPuzzles/DefectThree/DefectThreeCore.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/HexagonCore.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonCore.lean",
       "target": "GraphPuzzles/DefectThree/HexagonCore.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/HexagonDisjointFive.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonDisjointFive.lean",
       "target": "GraphPuzzles/DefectThree/HexagonDisjointFive.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/HexagonMatching.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonMatching.lean",
       "target": "GraphPuzzles/DefectThree/HexagonMatching.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/HexagonPairing.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonPairing.lean",
       "target": "GraphPuzzles/DefectThree/HexagonPairing.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/HexagonStrong.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonStrong.lean",
       "target": "GraphPuzzles/DefectThree/HexagonStrong.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/MatchingTriple.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/MatchingTriple.lean",
       "target": "GraphPuzzles/DefectThree/MatchingTriple.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/MatchingTripleStructure.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/MatchingTripleStructure.lean",
       "target": "GraphPuzzles/DefectThree/MatchingTripleStructure.lean"
     },
     {
-      "source": "GraphPuzzles/DefectThree/StrongFive.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/StrongFive.lean",
       "target": "GraphPuzzles/DefectThree/StrongFive.lean"
     },
     {
-      "source": "GraphPuzzles/Graph/Boundary.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirth.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorGirth.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorParity.lean",
+      "target": "GraphPuzzles/Factorization/Bicritical/FactorParity.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorCanon.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorCanon.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCC.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDblCC.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJC.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDblJC.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamond.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDiamond.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean",
+      "target": "GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorAssoc.lean",
+      "target": "GraphPuzzles/Factorization/FactorAssoc.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorAtom.lean",
+      "target": "GraphPuzzles/Factorization/FactorAtom.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorChain.lean",
+      "target": "GraphPuzzles/Factorization/FactorChain.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorCuts.lean",
+      "target": "GraphPuzzles/Factorization/FactorCuts.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorGlue.lean",
+      "target": "GraphPuzzles/Factorization/FactorGlue.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorHeredity.lean",
+      "target": "GraphPuzzles/Factorization/FactorHeredity.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorJoinCap.lean",
+      "target": "GraphPuzzles/Factorization/FactorJoinCap.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorMain.lean",
+      "target": "GraphPuzzles/Factorization/FactorMain.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorNineTwo.lean",
+      "target": "GraphPuzzles/Factorization/FactorNineTwo.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorPoleIso.lean",
+      "target": "GraphPuzzles/Factorization/FactorPoleIso.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorProjection.lean",
+      "target": "GraphPuzzles/Factorization/FactorProjection.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasi.lean",
+      "target": "GraphPuzzles/Factorization/FactorQuasi.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasiHelpers.lean",
+      "target": "GraphPuzzles/Factorization/FactorQuasiHelpers.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasiStructure.lean",
+      "target": "GraphPuzzles/Factorization/FactorQuasiStructure.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorRecap.lean",
+      "target": "GraphPuzzles/Factorization/FactorRecap.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorSystem.lean",
+      "target": "GraphPuzzles/Factorization/FactorSystem.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorTransport.lean",
+      "target": "GraphPuzzles/Factorization/FactorTransport.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean",
+      "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermCut.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermCut.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean",
+      "target": "GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraph.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraph.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphBetween.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphBetween.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphColourOpen.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphColourOpen.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphColouring.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphColouring.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletion.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCompletion.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionIso.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCompletionIso.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCycleCut.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCycleCut.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCycles.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphCycles.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphHypo.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphHypo.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIso.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphIso.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoColour.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphIsoColour.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoMk.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphIsoMk.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphKempe.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphKempe.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphPaths.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphPaths.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphSmallCycles.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphSmallCycles.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphTypes.lean",
+      "target": "GraphPuzzles/FinGraph/FinGraphTypes.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Boundary.lean",
       "target": "GraphPuzzles/Graph/Boundary.lean"
     },
     {
-      "source": "GraphPuzzles/Graph/Connectivity.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Bridgeless.lean",
+      "target": "GraphPuzzles/Graph/Bridgeless.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Connectivity.lean",
       "target": "GraphPuzzles/Graph/Connectivity.lean"
     },
     {
-      "source": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopGraphBridge.lean",
+      "target": "GraphPuzzles/Graph/LoopGraphBridge.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopMultigraph.lean",
+      "target": "GraphPuzzles/Graph/LoopMultigraph.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopMultigraphIso.lean",
+      "target": "GraphPuzzles/Graph/LoopMultigraphIso.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Model.lean",
+      "target": "GraphPuzzles/Graph/Model.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Poles/PoleKempe.lean",
+      "target": "GraphPuzzles/Poles/PoleKempe.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/README.md",
+      "target": "GraphPuzzles/README.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/CycleDoubleCover.lean",
+      "target": "GraphPuzzles/Results/CycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/Sabidussi.lean",
+      "target": "GraphPuzzles/Results/Sabidussi.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/SnarkFactorisation.lean",
+      "target": "GraphPuzzles/Results/SnarkFactorisation.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/PAPER_GUIDE.md",
-      "target": "papers/strong-five-cdc/README.md"
+      "source": "publication/releases/factorisations-v0.3.0/export-files/LICENSE",
+      "target": "LICENSE"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/RELEASE_NOTES.md",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/README.md",
+      "target": "README.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/RELEASE_NOTES.md",
       "target": "RELEASE_NOTES.md"
     },
     {
-      "source": "checks/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/SabidussiChallenge.lean",
+      "target": "SabidussiChallenge.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/SabidussiSolution.lean",
+      "target": "SabidussiSolution.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/VERIFICATION.md",
+      "target": "VERIFICATION.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/CycleDoubleCover.lean",
+      "target": "checks/CycleDoubleCover.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/SnarkFactorisation.lean",
+      "target": "checks/SnarkFactorisation.lean"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/StrongFiveCycleDoubleCover.lean",
       "target": "checks/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers.tex",
+      "source": "publication/releases/factorisations-v0.3.0/export-files/comparator/sabidussi_compatibility.json",
+      "target": "comparator/sabidussi_compatibility.json"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/formalization.yaml",
+      "target": "formalization.yaml"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/lake-manifest.json",
+      "target": "lake-manifest.json"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/lakefile.toml",
+      "target": "lakefile.toml"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/lean-toolchain",
+      "target": "lean-toolchain"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/README.md",
+      "target": "papers/factorisations/README.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/unique_factorisation_snarks.pdf",
+      "target": "papers/factorisations/unique_factorisation_snarks.pdf"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/unique_factorisation_snarks.tex",
+      "target": "papers/factorisations/unique_factorisation_snarks.tex"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/sabidussi/sabidussi_proof.pdf",
+      "target": "papers/sabidussi/sabidussi_proof.pdf"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/README.md",
+      "target": "papers/strong-five-cdc/README.md"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.pdf",
+      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.tex",
       "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.tex"
     },
     {
-      "source": "publication/releases/strong-five-cdc-v0.2.1/paper/strong_five_cycle_double_covers.pdf",
-      "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf"
+      "source": "publication/releases/factorisations-v0.3.0/export-files/tools/publication.py",
+      "target": "tools/publication.py"
+    },
+    {
+      "source": "publication/releases/factorisations-v0.3.0/manifest.json",
+      "target": "publication/public-manifest.json"
     }
   ],
   "release": {
-    "version": "0.2.1",
-    "date": "2026-10-06",
-    "paper": "papers/strong-five-cdc/strong_five_cycle_double_covers.tex",
+    "version": "0.3.0",
+    "date": "2026-10-07",
+    "paper": "papers/factorisations/unique_factorisation_snarks.tex",
+    "paper_pdf": "papers/factorisations/unique_factorisation_snarks.pdf",
+    "strong_five_paper": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf",
     "sabidussi_paper": "papers/sabidussi/sabidussi_proof.pdf"
   }
 }

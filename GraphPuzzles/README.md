@@ -10,6 +10,7 @@ the source layout, and how to build and check the proofs.
 | Sabidussi's compatibility conjecture with 4 colours | `GraphPuzzles.Results.Sabidussi` |
 | Cycle double covers of finite bridgeless graphs | `GraphPuzzles.Results.CycleDoubleCover` |
 | Strong 5-cycle double covers for critical, permutation and colouring-defect-three snarks | `GraphPuzzles.Results.StrongFiveCycleDoubleCover` |
+| Unique factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks | `GraphPuzzles.Results.SnarkFactorisation` |
 
 Import `GraphPuzzles` for the results together, or import one of the entry
 points above. The declarations share the `GraphPuzzles` namespace.
@@ -57,7 +58,7 @@ Import `GraphPuzzles.Results.StrongFiveCycleDoubleCover` for the underlying
 proofs or `GraphPuzzles.Claims.StrongFiveCycleDoubleCover` for the paper
 statements. The [paper-to-Lean guide](../papers/strong-five-cdc/README.md)
 lists the theorem names, hypotheses and conventions.
-[Release notes](../RELEASE_NOTES.md) describe version 0.2.1.
+The factorisation release retains these proof sources and paper files unchanged.
 
 The extension proof is in `CycleCovers/CircuitExtension{,Corollaries,Exact}.lean`.
 `CycleCovers/TwoCircuitFactor.lean` constructs the permutation-graph colouring;
@@ -69,11 +70,39 @@ construction to obtain the numerical defect-three conclusion.
 `CycleCovers/CoverTransportBasic.lean` transports ordinary covers through
 vertex and edge relabelling and endpoint reversals.
 
+## Snark factorisations
+
+The [paper](../papers/factorisations/unique_factorisation_snarks.pdf) and its
+[TeX source](../papers/factorisations/unique_factorisation_snarks.tex) accompany
+proofs of unique factorisation for hypohamiltonian snarks, permutation snarks
+and their intersection. Decompositions use cycle-separating four-edge cuts.
+Terminal factors are cyclically five-edge-connected and remain in the
+original class. Uniqueness compares multisets up to graph isomorphism,
+including repeated isomorphism types.
+
+Import `GraphPuzzles.Results.SnarkFactorisation` for the proofs or
+`GraphPuzzles.Claims.SnarkFactorisation` for the combined paper statements.
+The [paper-to-Lean guide](../papers/factorisations/README.md) lists the
+statements, intermediate closure proofs and the formalization scope.
+The permutation theorem proves its class hypotheses directly; it does not
+assume the conjecture that permutation snarks are bicritical.
+
+`Factorization/FactorChain.lean` proves abstract multiset uniqueness;
+`Factorization/FactorMain.lean` applies it to a good class of finite graphs.
+The `Hypohamiltonian/` and `Permutation/` subdirectories prove the class
+instances and descent lemmas. The `Diamond/` subdirectory proves the
+commuting refinements used by the atom argument. Bicritical factorisation
+and its local structural lemmas are included as prerequisites.
+
 ## Graph model and source layout
 
 The graph model allows labelled parallel edges and loops; each loop
 contributes two incidences to degree. Vertices and edges have independent
 types. `Graph/Model.lean` contains the trusted graph and circuit data.
+The factorisation proofs also use `FinGraph`, which represents finite
+labelled graphs and multipoles by finite sets of natural-number labels.
+Its Hamilton cycles, proper colourings, cuts, completions and isomorphisms
+are defined in `FinGraph/`.
 
 | Directory | Contents |
 | --- | --- |
@@ -82,6 +111,9 @@ types. `Graph/Model.lean` contains the trusted graph and circuit data.
 | `Circuits/` | Ordinary circuits, Euler traversals and parity colourings |
 | `CycleCovers/` | Dominating-circuit covers, exact circuit extension, strong five-covers and the general CDC bridge |
 | `DefectThree/` | Matching triples, hexagonal core extraction and strong five-covers |
+| `FinGraph/` | Finite graphs, multipoles, colourings, Hamilton cycles, completions and isomorphisms |
+| `Poles/` | The Kempe-walk construction used by four-pole colourings |
+| `Factorization/` | Atom and diamond arguments, class closure and unique terminal factors |
 | `Results/` | Imports for the mathematical results |
 | `Claims/` | Statements with explicit graph hypotheses and conclusions |
 
@@ -98,6 +130,7 @@ LEAN_NUM_THREADS=1 lake --wfail build GraphPuzzles.Audit
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/SnarkFactorisation.lean
 LEAN_NUM_THREADS=1 lake --wfail build SabidussiSolution
 python3 tools/publication.py check --public-tree
 ```

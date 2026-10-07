@@ -1,0 +1,838 @@
+% !TEX TS-program = pdflatexmk
+\RequirePackage{iftex}
+\ifPDFTeX
+  \pdfoutput=1
+  \pdfminorversion=7
+  \input glyphtounicode
+  \pdfgentounicode=1
+\fi
+\ifdefined\pdfinterwordspaceon\pdfinterwordspaceon\fi
+\documentclass[justified,notoc,twoside,nobib,nofonts]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\ifPDFTeX
+  \usepackage[tracking]{microtype}
+\else
+  \usepackage{microtype}
+\fi
+\usepackage{amsthm,thmtools,thm-restate}
+\usepackage{amsmath,amssymb,mathtools}
+% Text and mathematics.
+\usepackage[nomath,oldstylenums]{kpfonts}
+\edef\KPbodyfamily{\rmdefault}
+\renewcommand{\rmdefault}{zpltlf}
+\usepackage{newpxmath}
+\let\rmdefault\KPbodyfamily
+\renewcommand{\familydefault}{\rmdefault}
+
+% BaskervilleF headings use native Type 1 fonts and work with pdfLaTeX.
+\newcommand{\BaskervilleHeading}{%
+  \fontencoding{T1}\fontfamily{BaskervilleF-LF}%
+  \fontseries{m}\fontshape{n}\selectfont}
+\titleformat{\section}[hang]
+  {\BaskervilleHeading\fontsize{15}{18}\selectfont}
+  {\thesection}{1em}{}
+\titleformat{\subsection}[hang]
+  {\BaskervilleHeading\fontsize{13}{16}\selectfont}
+  {\thesubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+  {\BaskervilleHeading}{\theparagraph}{1em}{}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\maketitle}{\LARGE\itshape\@title}
+  {\BaskervilleHeading\fontsize{22}{26}\selectfont\raggedright\@title}
+  {}{\PackageError{unique-factorisation-snarks}{Title font patch failed}{}}
+% The author and email are printed immediately below the title block.
+\patchcmd{\maketitle}{\@@author\@@date}{\@@date}
+  {}{\PackageError{unique-factorisation-snarks}{Author block patch failed}{}}
+\makeatother
+\usepackage{booktabs,array,enumitem,needspace}
+\usepackage[numbers,square]{natbib}
+\usepackage{xcolor}
+\usepackage{xurl,hyperref,cleveref}
+\urlstyle{same}
+\geometry{a4paper,top=23mm,bottom=46mm,left=28mm,right=56mm,marginparwidth=3cm}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{secnumdepth}{2}
+\AtBeginDocument{\fontsize{12}{15}\selectfont}
+\fancyhead[LE]{\thepage\quad\textsmallcaps{nikolay ulyanov}}
+\fancyhead[RO]{\textsmallcaps{factorisations of snarks}\quad\thepage}
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[name=Corollary,sibling=theorem]{corollary}
+\declaretheorem[name=Definition,sibling=theorem,style=definition]{definition}
+\setlist[enumerate]{label=\textup{(\roman*)},leftmargin=*,itemsep=2pt,topsep=4pt}
+\crefname{theorem}{theorem}{theorems}
+\crefname{lemma}{lemma}{lemmas}
+\crefname{definition}{definition}{definitions}
+\setcitestyle{numbers,square}
+
+% Full references appear in the margin at their first citation.
+% Keep the canonical margin-selection block below when cloning this paper.
+\makeatletter
+\newdimen\@gp@fnmarkwidth
+\newcommand{\bothcite}[2][0cm]{%
+  \citep{#2}\sidenote[][#1]{\raggedright\csname paper@#2\endcsname}%
+  \kern\@gp@fnmarkwidth\@gp@cite@space}
+\def\@gp@cite@space{\@ifnextchar.{\@gp@cite@halfspace}{\@gp@cite@comma}}
+\def\@gp@cite@comma{\@ifnextchar,{\@gp@cite@halfspace}{\@gp@cite@semicolon}}
+\def\@gp@cite@semicolon{\@ifnextchar;{\@gp@cite@halfspace}{\@gp@cite@colon}}
+\def\@gp@cite@colon{\@ifnextchar:{\@gp@cite@halfspace}{\@gp@cite@exclamation}}
+\def\@gp@cite@exclamation{\@ifnextchar!{\@gp@cite@halfspace}{\@gp@cite@question}}
+\def\@gp@cite@question{\@ifnextchar?{\@gp@cite@halfspace}{\@gp@cite@openparen}}
+\def\@gp@cite@openparen{\@ifnextchar({\@gp@cite@halfspace}{\@gp@cite@closeparen}}
+\def\@gp@cite@closeparen{\@ifnextchar){\@gp@cite@halfspace}{\@gp@cite@bracket}}
+\def\@gp@cite@bracket{\@ifnextchar]{\@gp@cite@halfspace}{\@gp@cite@normalspace}}
+\def\@gp@cite@halfspace{\nobreak\hskip.5\fontdimen2\font\relax}
+\def\@gp@cite@normalspace{\nobreak\space}
+% GP margin selection v1 (pdfLaTeX). Keep this block in the standalone source.
+\makeatletter
+\@ifundefined{@gp@fnmarkwidth}{\newdimen\@gp@fnmarkwidth}{}
+\ifPDFTeX
+\def\@makefnmark{%
+  \hbox{%
+    \setbox\z@=\hbox{\@textsuperscript{\normalfont\footnotesize\@thefnmark}}%
+    \global\@gp@fnmarkwidth=\wd\z@%
+    \setbox\tw@=\copy\z@%
+    \immediate\pdfxform\tw@%
+    \pdfannot width\wd\z@ height\ht\z@ depth\dp\z@{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /AP << /N \the\pdflastxform\space 0 R >>%
+    }%
+  }%
+}
+\fi
+% Selection-safe margin text: annotation appearances, with separate URI links.
+\ifPDFTeX
+\newbox\@gp@marginbox
+\newdimen\@gp@marginwidth
+\newdimen\@gp@marginheight
+\newdimen\@gp@marginfirstheight
+\newdimen\@gp@marginpadding
+\newdimen\@gp@marginskip
+\newdimen\@gp@margindepth
+\newcount\@gp@marginserial
+\long\def\@gp@marginappearance#1{%
+  \begingroup
+  \global\let\@gp@marginuri\@empty
+  \setbox\@gp@marginbox=\vtop{%
+    \hsize=\marginparwidth
+    \def\href##1##2{%
+      \ifx\@gp@marginuri\@empty
+        \xdef\@gp@marginuri{\detokenize{##1}}%
+      \else
+        \PackageError{gp-margin-selection}{More than one URI in a margin note}%
+          {Use a separate note for each reference.}%
+      \fi
+      \textcolor{\@urlcolor}{##2}%
+    }%
+    #1\par
+  }%
+  \@gp@marginfirstheight=\ht\@gp@marginbox
+  \setbox\@gp@marginbox=\vbox{\unvbox\@gp@marginbox}%
+  \@gp@marginpadding=\baselineskip
+  \advance\@gp@marginpadding-\prevdepth
+  \advance\@gp@marginpadding-\@gp@marginfirstheight
+  \ifdim\@gp@marginpadding<\lineskiplimit
+    \@gp@marginpadding=\lineskip
+  \fi
+  \@gp@marginskip=\baselineskip
+  \advance\@gp@marginskip-\prevdepth
+  \advance\@gp@marginskip-\ht\@gp@marginbox
+  \ifdim\@gp@marginskip<\lineskiplimit
+    \@gp@marginskip=\lineskip
+  \fi
+  \advance\@gp@marginpadding-\@gp@marginskip
+  \vskip\@gp@marginpadding
+  \@gp@marginwidth=\wd\@gp@marginbox
+  \@gp@marginheight=\ht\@gp@marginbox
+  \@gp@margindepth=\dp\@gp@marginbox
+  \immediate\pdfxform\@gp@marginbox
+  \edef\@gp@marginform{\the\pdflastxform}%
+  \global\advance\@gp@marginserial\@ne
+  \hbox{%
+    \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /NM (GPmargin-\the\@gp@marginserial)%
+      /AP << /N \@gp@marginform\space 0 R >>%
+    }%
+    \ifx\@gp@marginuri\@empty\else
+      \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+        /Subtype /Link /F 4 /Border [0 0 0]%
+        /A << /S /URI /URI (\pdfescapestring{\@gp@marginuri}) >>%
+      }%
+    \fi
+    \vrule width0pt height\@gp@marginheight depth\@gp@margindepth
+    \kern\@gp@marginwidth
+  }%
+  \endgroup
+}
+\else
+\long\def\@gp@marginappearance#1{#1}
+\fi
+\renewcommand\@footnotetext[2][0pt]{%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \def\baselinestretch{\setspace@singlespace}%
+    \reset@font\footnotesize%
+    \@tufte@margin@par%
+    \vspace*{-1\baselineskip}%
+    \@gp@marginappearance{%
+      \noindent
+      \protected@edef\@currentlabel{%
+        \csname p@footnote\endcsname\@thefnmark%
+      }%
+      \color@begingroup
+        \@makefntext{\ignorespaces#2}%
+      \color@endgroup
+    }%
+  }%
+}
+\renewcommand\marginnote[2][0pt]{%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@infootnote@cite%
+  }{}%
+  \gdef\@tufte@citations{}%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \@tufte@marginnote@font\@tufte@marginnote@justification%
+    \@tufte@margin@par\vspace*{-1\baselineskip}%
+    \@gp@marginappearance{\noindent #2}%
+  }%
+  \@tufte@print@citations%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@normal@cite%
+  }{}%
+}
+\makeatother
+
+\expandafter\def\csname paper@CS10\endcsname{%
+  Miroslav Chladn\'y and Martin \v{S}koviera.
+  \emph{Factorisation of snarks}.
+  Electronic Journal of Combinatorics 17(1) (2010), R32.
+  \href{https://doi.org/10.37236/304}{\nolinkurl{doi:10.37236/304}}.}
+\expandafter\def\csname paper@GZ18\endcsname{%
+  Jan Goedgebeur and Carol T. Zamfirescu.
+  \emph{On hypohamiltonian snarks and a theorem of Fiorini}.
+  Ars Mathematica Contemporanea 14(2) (2018), 227--249.
+  \href{https://doi.org/10.26493/1855-3974.1176.9b7}{\nolinkurl{doi:10.26493/1855-3974.1176.9b7}}.}
+\expandafter\def\csname paper@MS19\endcsname{%
+  Edita M\'a\v{c}ajov\'a and Martin \v{S}koviera.
+  \emph{Permutation snarks of order $2\pmod 8$}.
+  Acta Mathematica Universitatis Comenianae 88(3) (2019), 929--934.
+  \href{https://www.iam.fmph.uniba.sk/amuc/ojs/index.php/amuc/article/view/1313}{journal version}.}
+\expandafter\def\csname paper@MS25\endcsname{%
+  Edita M\'a\v{c}ajov\'a and Martin \v{S}koviera.
+  \emph{Are there any permutation snarks on $6\pmod 8$ vertices?}
+  Procedia Computer Science 273 (2025), 163--168.
+  \href{https://doi.org/10.1016/j.procs.2025.10.294}{\nolinkurl{doi:10.1016/j.procs.2025.10.294}}.}
+\expandafter\def\csname paper@BGHM13\endcsname{%
+  Gunnar Brinkmann, Jan Goedgebeur, Jonas H\"agglund and Klas Markstr\"om.
+  \emph{Generation and properties of snarks}.
+  Journal of Combinatorial Theory, Series B 103(4) (2013), 468--488.
+  \href{https://doi.org/10.1016/j.jctb.2013.05.001}{\nolinkurl{doi:10.1016/j.jctb.2013.05.001}}.}
+\expandafter\def\csname paper@NS95\endcsname{%
+  Roman Nedela and Martin \v{S}koviera.
+  \emph{Atoms of cyclic connectivity in cubic graphs}.
+  Mathematica Slovaca 45(5) (1995), 481--499.
+  \href{https://dml.cz/dmlcz/132921}{DML-CZ:132921}.}
+\newcommand{\paperreference}[1]{\csname paper@#1\endcsname}
+\makeatother
+
+\title[Graph Puzzles IV.1-preview: Factorisations of snarks]{Graph Puzzles IV.1-preview: Factorisations of hypohamiltonian and permutation snarks}
+\author{Nikolay Ulyanov + AI-Slop}
+\date{6 October 2026}
+\hypersetup{
+  pdftitle={Graph Puzzles IV.1-preview: Factorisations of hypohamiltonian and permutation snarks},
+  pdfauthor={Nikolay Ulyanov + AI-Slop},
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\begin{document}
+\selectlanguage{english}
+\maketitle
+Nikolay Ulyanov\textsuperscript{*} + AI-Slop%
+\marginnote{\textsuperscript{*}{\scriptsize\href{mailto:ulyanick@gmail.com}{ulyanick@gmail.com}}}\par
+
+\begin{abstract}
+\noindent\newthought{Abstract: }
+Every hypohamiltonian snark and every permutation snark has a unique
+multiset of cyclically $5$-edge-connected factors of the same class under
+successive decompositions along cycle-separating $4$-edge-cuts.
+We prove that hypohamiltonicity passes from a dot product to both of its
+snark factors. Together with the factorisation theorem for bicritical
+snarks, this answers a question of Goedgebeur and Zamfirescu.
+For permutation snarks, we extend the atom argument of Chladn\'y and
+\v{S}koviera using colourable cut multipoles and closure under their
+canonical completions. The two conclusions also hold within the class
+of hypohamiltonian permutation snarks.
+\end{abstract}
+\noindent\rule{\linewidth}{0.4pt}
+
+\Needspace{12\baselineskip}
+\section{Introduction}
+
+The dot product combines two snarks across a $4$-edge-cut. Reversing this
+operation repeatedly expresses a snark in terms of factors with higher
+cyclic connectivity. Chladn\'y and \v{S}koviera~\bothcite{CS10}
+proved that a bicritical snark has a unique multiset of cyclically
+$5$-edge-connected bicritical factors. Their theorem identifies the
+isomorphism types of the factors and their multiplicities, independently
+of the cuts chosen during the decomposition.
+
+A graph is \emph{hypohamiltonian} if it is non-Hamiltonian and every
+single-vertex deletion is Hamiltonian. Hypohamiltonian snarks are
+bicritical. Goedgebeur and Zamfirescu~\bothcite{GZ18}
+asked whether every hypohamiltonian snark of cyclic connectivity four
+is a dot product of two hypohamiltonian snarks
+\citep[Problem~4.3]{GZ18}. We prove that both snark factors of any
+hypohamiltonian dot product are hypohamiltonian. The unique
+factorisation theorem for bicritical snarks then gives the following
+result.
+
+\begin{restatable}{theorem}{hypofactorisation}\label{thm:hypo}
+Every hypohamiltonian snark has a unique multiset, up to isomorphism and
+with multiplicities, of cyclically $5$-edge-connected hypohamiltonian
+snark factors. Every intermediate factor in a decomposition along
+cycle-separating $4$-edge-cuts is hypohamiltonian.
+\end{restatable}
+
+A \emph{permutation $2$-factor} consists of two induced cycles. A snark
+admitting such a $2$-factor is a \emph{permutation snark}. Its two cycles
+have equal odd length, and their complement is a perfect matching
+between them. M\'a\v{c}ajov\'a and \v{S}koviera~\bothcite{MS19}
+proved that every cycle-separating $4$-edge-cut of a permutation snark
+determines two smaller permutation snarks
+\citep[Section~2 and Theorem~2.1]{MS19}.
+
+Permutation snarks are conjectured to be bicritical; see
+M\'a\v{c}ajov\'a and \v{S}koviera~\bothcite{MS25}, Section~1.
+Together with the factorisation theorem for bicritical snarks,
+this conjecture makes it natural to ask whether permutation snarks
+also have unique factorisations. We use the closure property above
+to prove the following result.
+
+\begin{restatable}{theorem}{permfactorisation}\label{thm:perm}
+Every permutation snark has a unique multiset, up to isomorphism and
+with multiplicities, of cyclically $5$-edge-connected permutation
+snark factors. Every intermediate factor in a decomposition along
+cycle-separating $4$-edge-cuts is a permutation snark.
+\end{restatable}
+
+Permutation snarks include non-hypohamiltonian graphs. There is a
+$26$-vertex example obtained as a successive dot product of three
+Petersen graphs, and there is also a $50$-vertex example with cyclic
+connectivity five.
+Brinkmann, Goedgebeur, H\"agglund and Markstr\"om~\bothcite{BGHM13}
+enumerated $64$ permutation snarks on $26$ vertices
+\citep[Table~3]{BGHM13}.
+Thus the hypohamiltonian permutation snarks form a proper subclass
+of the permutation snarks, also within the cyclically
+$5$-edge-connected class. The two factorisation theorems apply to
+the same completed factors at each cut, giving the following result
+for their intersection.
+
+\begin{restatable}{corollary}{intersectionfactorisation}\label{cor:intersection}
+Every hypohamiltonian permutation snark has a unique multiset, up to
+isomorphism and with multiplicities, of cyclically $5$-edge-connected
+hypohamiltonian permutation snark factors. Every intermediate factor
+has both properties.
+\end{restatable}
+
+\Needspace{12\baselineskip}
+\section{Dot products and cut multipoles}\label{sec:preliminaries}
+
+All graphs are finite. We use \emph{snark} for a simple cubic graph of
+girth at least five, cyclically $4$-edge-connected, and with chromatic
+index four. A \emph{cycle} is a connected $2$-regular subgraph.
+For $X\subseteq V(G)$, write $\partial_G X$ for the edges with exactly
+one end in $X$. The cut is \emph{cycle-separating} when both $G[X]$ and
+$G[V(G)\setminus X]$ contain a cycle. We write $\lambda_c(G)$ for
+cyclic edge-connectivity, $g(G)$ for girth, and $|G|$ for $|V(G)|$.
+
+\subsection{The dot product}
+
+Let $A$ and $B$ be disjoint snarks. Choose independent edges $ab,cd$ of
+$A$ and an edge $xy$ of $B$, with
+\[
+ N_B(x)=\{a',b',y\},\qquad N_B(y)=\{c',d',x\}.
+\]
+The four vertices $a',b',c',d'$ are distinct. Put
+\[
+ L=A-\{ab,cd\},\qquad R=B-\{x,y\},
+\]
+where edges are deleted from $A$ and vertices from $B$. The dot product
+with this attachment is
+\begin{equation}\label{eq:dot-product}
+ G=A\mathbin{\cdot}B
+   =L\cup R+\{aa',bb',cc',dd'\}.
+\end{equation}
+The four joining edges form the \emph{bond} $F$. Its two couples are
+$\{aa',bb'\}$ and $\{cc',dd'\}$. This is the convention of
+\citep[Section~2]{CS10} and \citep[Section~2]{GZ18}.
+The order satisfies
+\begin{equation}\label{eq:order}
+ |G|-2=(|A|-2)+(|B|-2).
+\end{equation}
+
+A cycle-separating $4$-edge-cut in a snark is a matching. Indeed, if a
+vertex is incident with at least two cut edges, moving it to the other
+shore reduces the size of the cut and preserves a cycle in each shore.
+The resulting cut has size at most three, contrary to cyclic
+$4$-edge-connectivity. Thus each shore has four distinct boundary
+vertices.
+
+\subsection{Canonical completions}
+
+Disconnecting the four edges of a cut leaves a \emph{$4$-pole} on each
+shore: a cubic multipole with four semiedges. A proper $3$-edge-colouring
+of a multipole assigns colours to its ordinary edges and semiedges,
+with three distinct colours incident at each vertex. We use the
+multipole terminology of \citep[Section~3]{CS10}.
+
+Up to a permutation of colours, the Parity Lemma permits four types
+of boundary colouring:
+\[
+ 1111,\qquad1122,\qquad1212,\qquad1221.
+\]
+Every colourable $4$-pole admits at least two of these types. If two
+colourable $4$-poles join to a snark, their sets of types are disjoint,
+so each admits exactly two. Such a pole is \emph{colour-open}.
+Its four semiedges have a unique partition into two couples. In the
+\emph{isochromatic} case, the semiedges of each couple receive the same
+colour in every colouring. In the \emph{heterochromatic} case, the
+semiedges of each couple receive distinct colours in every colouring.
+The two poles of the cut have opposite types, and their couples agree
+across the cut \citep[Propositions~3.1--3.5]{CS10}.
+
+The \emph{canonical snark completion} of a heterochromatic pole joins
+the semiedges within each couple. For an isochromatic pole, it attaches
+each couple to a new vertex and joins the two new vertices. These
+completions are unique up to isomorphism. They recover the two factors
+in \eqref{eq:dot-product}, with the heterochromatic completion playing
+the role of $A$ and the isochromatic completion the role of $B$.
+
+A \emph{composition chain} of $G$ is a multiset obtained from $\{G\}$
+by successively replacing a member with its two canonical factors
+at a cycle-separating $4$-edge-cut. A chain is \emph{terminal} when every
+member is cyclically $5$-edge-connected. Two chains are
+\emph{equivalent} if their members can be matched, including
+multiplicities, by graph isomorphisms. We use the terminology of
+\citep[Section~7]{CS10}.
+
+\Needspace{12\baselineskip}
+\section{Hypohamiltonian factors}\label{sec:hypohamiltonian}
+
+We first record the boundary restrictions imposed by the
+non-Hamiltonicity of the two factors.
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:boundary}
+In \eqref{eq:dot-product}, let $A$ and $B$ be non-Hamiltonian graphs.
+A spanning path in $L$ with terminal ends joins different pairs among
+$\{a,b\}$ and $\{c,d\}$. A spanning path in $R$ with terminal ends
+joins $a'$ to $b'$ or $c'$ to $d'$.
+Two disjoint paths spanning $L$, with ends $a,b,c,d$, pair $a$ with $b$
+and $c$ with $d$. Two disjoint paths spanning $R$, with ends
+$a',b',c',d'$, pair $a'$ with $b'$ and $c'$ with $d'$.
+\end{lemma}
+\begin{proof}
+A spanning $a$--$b$ path in $L$ closes to a Hamiltonian cycle of $A$
+when $ab$ is restored; the same holds for $c,d$. A spanning path in
+$R$ whose ends belong to different pairs closes through $x,y$ to a
+Hamiltonian cycle of $B$.
+
+For a spanning pair of paths in $L$, either cross pairing of the four
+ends becomes one Hamiltonian cycle after restoring $ab$ and $cd$.
+For a spanning pair in $R$, either cross pairing becomes one
+Hamiltonian cycle after adjoining $a'xb'$ and $c'yd'$.
+The remaining pairing is the one stated in each case.
+\end{proof}
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:descent}
+If a dot product $G=A\mathbin{\cdot}B$ of snarks is hypohamiltonian,
+then both $A$ and $B$ are hypohamiltonian.
+\end{lemma}
+\begin{proof}
+Use the notation of \eqref{eq:dot-product}. A Hamiltonian cubic graph
+is $3$-edge-colourable, so both factors are non-Hamiltonian.
+A Hamiltonian cycle in any vertex-deleted subgraph of $G$ meets $F$
+in two or four edges. With two crossings, its restriction to the
+undeleted shore is a spanning path; with four, that restriction
+consists of two disjoint spanning paths.
+
+Fix $v\in V(A)$ and take a Hamiltonian cycle $C$ in $G-v$.
+If $C$ uses two bond edges, \cref{lem:boundary} shows that its spanning
+path in $R$ has ends $a',b'$ or $c',d'$. Replace the whole segment
+through $R$, including its bond edges, with $ab$ or $cd$, respectively.
+If $C$ uses all four bond edges, its two spanning paths in $R$ pair
+$a'$ with $b'$ and $c'$ with $d'$. Replace these two segments with
+$ab$ and $cd$. Each replacement preserves the cyclic order of the
+remaining vertices of $C$. The resulting cycle spans $A-v$.
+Thus $A-v$ is Hamiltonian for every $v\in V(A)$.
+
+Now fix $w\in V(B)\setminus\{x,y\}$ and take a Hamiltonian cycle in
+$G-w$. With two bond edges, the spanning path in $L$ joins different
+terminal pairs. For example, a path from $a$ to $c$ is replaced,
+together with its bond edges, by $a'xyc'$. The other choices give the
+corresponding path through $x,y$.
+With four bond edges, the two spanning paths in $L$ pair $a$ with $b$
+and $c$ with $d$. Replace them, together with their bond edges, by
+$a'xb'$ and $c'yd'$. The resulting cycle spans $B-w$ in either case.
+
+It remains to recover Hamiltonian cycles after deleting $x$ or $y$.
+Take a Hamiltonian cycle of $G-a$. The missing bond edge $aa'$ forces
+exactly two crossings. Its spanning path in $R$ has ends $c',d'$ by
+\cref{lem:boundary}. Adjoining $c'yd'$ gives a Hamiltonian cycle of
+$B-x$. A Hamiltonian cycle of $G-c$ similarly has a spanning
+$a'$--$b'$ path in $R$; adjoining $a'xb'$ gives a Hamiltonian cycle
+of $B-y$. Hence both factors are hypohamiltonian.
+\end{proof}
+
+A snark is \emph{bicritical} if deleting any two distinct vertices
+yields a $3$-edge-colourable graph. Hypohamiltonian snarks have this
+property \citep[Section~1]{GZ18}. For distinct $u,v$, deleting $v$
+from a Hamiltonian cycle of $G-u$ leaves a spanning path in
+$G-\{u,v\}$. Colour the path alternately with colours $1,2$.
+The remaining edges form a matching and receive colour $3$.
+
+\Needspace{11\baselineskip}
+\hypofactorisation*
+\begin{proof}
+Let $G$ be hypohamiltonian and let $S$ be any cycle-separating
+$4$-edge-cut. By bicriticality and \citep[Theorem~7.1]{CS10},
+$S$ determines a dot product $G=A\mathbin{\cdot}B$ of smaller
+bicritical snarks. By \cref{lem:descent}, both factors are
+hypohamiltonian. Repeating the argument keeps every factor
+hypohamiltonian.
+
+Each decomposition replaces a graph with two smaller graphs, so
+every chain has a terminal refinement. Its members are cyclically
+$5$-edge-connected hypohamiltonian snarks. The bicritical
+unique-factorisation theorem \citep[Theorem~C, or Theorem~10.3]{CS10}
+identifies any two such terminal chains up to isomorphism and order,
+including multiplicities.
+\end{proof}
+
+In particular, every hypohamiltonian snark of cyclic connectivity four
+is a dot product of two hypohamiltonian snarks. This gives an
+affirmative answer to \citep[Problem~4.3]{GZ18}.
+
+\Needspace{12\baselineskip}
+\section{A factorisation criterion}\label{sec:criterion}
+
+The permutation result uses the atom argument for bicritical snarks
+\citep[Sections~8--10]{CS10}. We formulate the argument with the
+closure hypotheses that enter its proof.
+
+Let $\mathcal C$ be a class of snarks closed under isomorphism.
+Assume that every cycle-separating $4$-edge-cut in a member of
+$\mathcal C$ has two colourable shore poles, and that both canonical
+completions belong to $\mathcal C$.
+For a cyclic fragment $X$, write $\widetilde X$ for the completion of
+its shore pole and $G/\widetilde X$ for the completion of the
+complementary pole.
+
+Suppose $\lambda_c(G)=4$. A \emph{cyclic fragment} is an induced
+shore of a cycle-separating $4$-edge-cut, and an \emph{atom} is a
+cyclic fragment minimal under inclusion. Since $4<g(G)$, the atom
+theorem of Nedela and \v{S}koviera~\bothcite{NS95}
+places every atom wholly on one side of every cycle-separating
+$4$-edge-cut; see also \citep[Theorem~7.2]{CS10}.
+The cut $\partial_G X$ of an atom is \emph{atomic}.
+A cycle-separating cut with a shore $X\cup\{u,v\}$, where $u,v$ are
+adjacent outside vertices each joined once to $X$, is
+\emph{quasiatomic}. These are the cuts associated with $X$.
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:atom-switching}
+Let $G\in\mathcal C$ have cyclic connectivity four and let $X$ be an
+atom. A cut associated with $X$ gives factors isomorphic to
+$\widetilde X$ and $G/\widetilde X$.
+For any other cycle-separating $4$-edge-cut $S$, one $S$-factor $P$
+contains $X$ as an atom, and a corresponding cut $p_X(S)$ is
+cycle-separating in $G/\widetilde X$.
+The two refinements obtained by using $S$ and the atomic cut in
+either order give equivalent three-member chains.
+\end{lemma}
+\begin{proof}
+We follow the cut analysis of \citep[Proposition~8.2, Lemmas~9.1--9.2,
+Propositions~9.3--9.4, and Lemma~10.1]{CS10}. The hypotheses above
+provide colour-open poles and their completions at every step;
+each completed graph has girth at least five and cyclic connectivity
+at least four.
+
+First consider a quasiatomic shore $X\cup\{u,v\}$.
+Its pole is heterochromatic: an isochromatic completion would
+place the adjacent vertices $u,v$ beside the two new cap vertices
+and create a triangle or a quadrilateral. Joining its boundary
+couples instead completes the pole of $X$ by an adjacent pair.
+Thus the completed shore is isomorphic to $\widetilde X$.
+In the complementary completion, the same isomorphism exchanges the
+original pair $u,v$ with the added pair and fixes the other vertices.
+The associated cuts therefore give equivalent factor pairs.
+
+For the remaining cuts, put $T=\partial_G X$.
+The following two restrictions control the completions:
+\begin{equation}\label{eq:overlap}
+ |S\cap T|\ne3,\qquad
+ |S\cap T|=2\ \Longrightarrow\
+ S\cap T\text{ is a couple of neither cut}.
+\end{equation}
+For three common edges, the two remaining edges of $S\cup T$
+separate a cyclic $2$-pole from $X$, contrary to cyclic
+$4$-edge-connectivity. Here the $2$-pole has vertices, so the cubic
+degree count forces it to contain a cycle.
+For two common edges forming an $S$-couple, complete the $S$-shore
+containing $X$. A heterochromatic completion produces a
+cycle-separating $2$-edge-cut; an isochromatic completion produces an
+independent $3$-edge-cut. Both contradict cyclic
+$4$-edge-connectivity of the completed factor.
+If the two common edges form a $T$-couple, restricting colourings of
+the larger shore pole to the pole of $X$ transfers the corresponding
+equality or inequality of colours to them. They consequently
+form an $S$-couple as well. This proves \eqref{eq:overlap}.
+
+The atom theorem puts $X$ inside one $S$-shore. Its completion $P$
+keeps $X$ induced: an added edge within $X$ would join the two common
+edges as an $S$-couple, contrary to \eqref{eq:overlap}.
+If $P-X$ is acyclic, the cubic $4$-pole degree count leaves two
+adjacent vertices; reversing the completion identifies $S$ as an
+atomic or quasiatomic cut. For the cuts under consideration,
+$P-X$ therefore contains a cycle. Thus $X$ remains a cyclic fragment
+of $P$. Its minimality follows because every cyclic fragment
+properly contained in $X$ in $P$ would also be a cyclic fragment of
+$G$. Hence $X$ is an atom of $P$.
+
+To describe the corresponding cut, replace the pole of $X$ with
+its colour-equivalent acyclic $4$-pole. For a heterochromatic pole,
+this acyclic pole consists of two adjacent vertices with two
+semiedges at each; for an isochromatic pole, it consists of two
+isolated edges. The resulting graph is $G/\widetilde X$.
+The map $p_X$ keeps edges outside $X$ and maps the four boundary
+edges to their replacement edges. In the second case, the two
+edges of each couple have the same image.
+By \eqref{eq:overlap}, $p_X(S)$ has four distinct edges.
+The shore of $G-S$ containing $X$ also has vertices outside $X$,
+since $S\ne\partial_G X$. After deleting $p_X(S)$, these vertices
+remain separated from the other shore. Thus $p_X(S)$ is an edge-cut.
+
+The images are also independent. In the adjacent-vertex replacement,
+an adjacency could arise only from a boundary couple contained in
+$S$, which \eqref{eq:overlap} excludes. In the isolated-edge
+replacement, an inherited edge might become adjacent to a new
+joined edge. Move their common vertex to the other shore of the
+projected cut. This gives a $3$-edge-cut, which isolates a vertex in
+the completed snark. The other two projected edges therefore meet
+there. Their preimages in $S$ are independent, so one is a second
+boundary edge of $X$. The resulting configuration consists of $X$
+and the adjacent pair of these two outside vertices; its boundary
+is $S$. This is precisely the quasiatomic configuration.
+Thus $p_X(S)$ is independent. Both shores of an independent cut in
+a cubic graph have minimum degree at least two, and hence contain
+cycles. This proves the asserted projection property.
+
+Finally, let $P,Q$ be the $S$-factors, with $X\subseteq P$.
+Decomposing $P$ at $X$ gives the chain
+\[
+ \{\widetilde X,\ P/\widetilde X,\ Q\}.
+\]
+If the atomic cut is used first, decomposing $G/\widetilde X$ at
+$p_X(S)$ leaves the pole defining $Q$ intact. The other pole is
+obtained from the pole defining $P$ by the colour-equivalent
+replacement of $X$. Colour-equivalent substitution preserves its
+boundary colourings, so its canonical completion is
+$P/\widetilde X$. The two chains are equivalent.
+\end{proof}
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:splitting}
+For $G\in\mathcal C$ of cyclic connectivity four and an atom $X$,
+every terminal chain of $G$ is equivalent to the union of a terminal
+chain of $\widetilde X$ and a terminal chain of $G/\widetilde X$.
+\end{lemma}
+\begin{proof}
+Follow $X$ through a terminal chain. By \cref{lem:atom-switching},
+each cut outside the associated cuts preserves $X$ as an atom in
+one factor. Eventually an associated cut is used, since a terminal
+factor has cyclic connectivity at least five.
+Replace that step with the atomic cut using the first assertion of
+\cref{lem:atom-switching}.
+
+Move the atomic step towards the start of the chain. It commutes
+with a preceding step in a different factor. When the preceding
+step created the factor containing $X$, the last assertion of
+\cref{lem:atom-switching} interchanges these two steps and preserves
+the resulting three factors up to isomorphism. Transport the later
+refinements across these isomorphisms. Each interchange moves the
+atomic step one position earlier, so finitely many interchanges
+place it first. The subsequent steps refine its two factors,
+yielding the two terminal chains in the statement.
+This is the splitting argument of \citep[Lemma~10.2]{CS10}.
+\end{proof}
+
+\Needspace{11\baselineskip}
+\begin{theorem}\label{thm:criterion}
+Let $\mathcal C$ be a class of snarks closed under isomorphism.
+Suppose that the shore poles of every cycle-separating $4$-edge-cut
+in a member of $\mathcal C$ are colourable, and that their canonical
+snark completions belong to $\mathcal C$.
+Then every member of $\mathcal C$ has a unique multiset, up to
+isomorphism and with multiplicities, of cyclically
+$5$-edge-connected factors in $\mathcal C$.
+\end{theorem}
+\begin{proof}
+A canonical decomposition has two factors in $\mathcal C$ satisfying
+\eqref{eq:order}. Each has at least ten vertices, so both are smaller
+than the parent. Thus every chain has a terminal refinement, and
+the terminal members have cyclic connectivity at least five.
+
+For uniqueness, use induction on $|G|$. A cyclically
+$5$-edge-connected member has the single-member terminal chain
+$\{G\}$. Otherwise choose an atom $X$ and let $\mathcal F$ and
+$\mathcal F'$ be two terminal chains. By \cref{lem:splitting},
+\[
+ \begin{aligned}
+ \mathcal F&\simeq\mathcal F_1\uplus\mathcal F_2,\\
+ \mathcal F'&\simeq\mathcal F'_1\uplus\mathcal F'_2,
+ \end{aligned}
+\]
+where the first subchains factor $\widetilde X$ and the second
+factor $G/\widetilde X$. Both graphs are smaller members of
+$\mathcal C$. The induction hypothesis gives
+$\mathcal F_1\simeq\mathcal F'_1$ and
+$\mathcal F_2\simeq\mathcal F'_2$, and hence
+$\mathcal F\simeq\mathcal F'$.
+\end{proof}
+
+\Needspace{12\baselineskip}
+\section{Permutation factors}\label{sec:permutation}
+
+We verify the two closure hypotheses of \cref{thm:criterion} using
+a permutation $2$-factor. The fixed-cut closure is the result of
+\citep[Section~2]{MS19}; the following proof also describes its
+colour-open completions.
+
+\Needspace{9\baselineskip}
+\begin{lemma}\label{lem:permutation-cut}
+Let $G$ be a permutation snark with permutation $2$-factor
+$C_1\cup C_2$, and let $S$ be a cycle-separating $4$-edge-cut.
+The cut consists of two edges of each $C_i$. Each shore pole is
+colourable, and its canonical completion is a permutation snark.
+\end{lemma}
+\begin{proof}
+Write $M=E(G)\setminus E(C_1\cup C_2)$ and let the common length of
+the cycles be $m$. Each cycle is cut by $S$.
+Indeed, if a whole $C_i$ lies in one shore, every vertex in the
+other shore sends its matching edge across $S$. That shore then
+has at most four vertices, and girth at least five makes it
+acyclic. This contradicts cycle separation.
+Each cycle contributes a positive even number of cut edges.
+Thus $S$ has two edges on each cycle, and every edge of $M$ stays
+within a shore.
+
+Each shore contains one path from each $C_i$. Its matching edges
+pair their vertices, so the two paths have the same order $r$.
+Colour the matching edges $3$ and alternate $1,2$ along each path,
+including the two boundary semiedges at its ends.
+The initial colour on each path can be chosen independently.
+This gives a proper colouring of the shore pole.
+
+The two path ends form the boundary couples. If $r$ is even, the
+semiedges at the ends of each path receive the same colour.
+The independent phase choices give types $1111$ and $1122$, with
+the two paths defining the pairs. The pole is isochromatic and its
+completion adds one vertex to close each path, together with a
+matching edge between the new vertices.
+If $r$ is odd, the end semiedges receive distinct colours, and the
+phase choices give types $1212$ and $1221$. The pole is
+heterochromatic and its completion joins the ends of each path.
+In both cases the completed graph has two induced cycles and a
+perfect matching between them. Its canonical completion has
+chromatic index four. An uncolourable cycle permutation graph is
+cyclically $4$-edge-connected and has girth at least five
+\citep[Section~1]{MS19}; hence the completed graph is a permutation
+snark.
+\end{proof}
+
+\Needspace{11\baselineskip}
+\permfactorisation*
+\begin{proof}
+Apply \cref{thm:criterion} to the class of permutation snarks.
+By \cref{lem:permutation-cut}, every cycle-separating $4$-edge-cut
+has colourable shore poles, and both canonical factors are
+permutation snarks. The theorem gives existence and uniqueness
+of the terminal factor multiset. The same closure statement
+applied at each step keeps all intermediate factors in the
+permutation class.
+\end{proof}
+
+\Needspace{11\baselineskip}
+\intersectionfactorisation*
+\begin{proof}
+At any cycle-separating $4$-edge-cut of a hypohamiltonian permutation
+snark, \cref{lem:permutation-cut} gives two canonical permutation
+snark factors. By \cref{lem:descent}, both are hypohamiltonian.
+This applies at every later step. Existence and uniqueness follow
+from \cref{thm:hypo,thm:perm}. In particular, the hypohamiltonian,
+permutation and bicritical decompositions of this graph have the
+same terminal multiset.
+\end{proof}
+
+\Needspace{12\baselineskip}
+\section{Orders of composition factors}
+
+The order identity \eqref{eq:order} gives a bound on the number of
+terminal factors and a congruence for their orders.
+
+\Needspace{12\baselineskip}
+\begin{corollary}\label{cor:orders}
+Let $H_1,\ldots,H_t$ be the terminal factors of a hypohamiltonian
+or permutation snark $G$. Then
+\[
+ |G|-2=\sum_{i=1}^{t}(|H_i|-2),
+ \qquad t\le\frac{|G|-2}{8}.
+\]
+For a permutation snark, each $|H_i|\equiv2\pmod4$ and
+\[
+ \frac{|G|-2}{4}\equiv
+   \sum_{i=1}^{t}\frac{|H_i|-2}{4}\pmod2.
+\]
+\end{corollary}
+\begin{proof}
+Iterate \eqref{eq:order} along the decomposition. Every snark factor
+has order at least ten, giving the bound on $t$.
+For permutation factors, the two induced cycles have equal odd
+length, so their orders are $2\pmod4$. Dividing the order identity
+by four gives the congruence.
+\end{proof}
+
+Consequently the existence of a permutation snark of order
+$6\pmod8$ is equivalent to the existence of a cyclically
+$5$-edge-connected permutation snark of that order residue.
+Indeed, an odd value of $(|G|-2)/4$ forces an odd contribution from
+at least one terminal factor.
+
+\Needspace{12\baselineskip}
+\begingroup
+\fontsize{10}{12}\selectfont
+\setlength{\bibsep}{5pt}
+\begin{thebibliography}{BGHM13}
+\bibitem[CS10]{CS10}\paperreference{CS10}
+\bibitem[GZ18]{GZ18}\paperreference{GZ18}
+\bibitem[MS19]{MS19}\paperreference{MS19}
+\bibitem[MS25]{MS25}\paperreference{MS25}
+\bibitem[BGHM13]{BGHM13}\paperreference{BGHM13}
+\bibitem[NS95]{NS95}\paperreference{NS95}
+\end{thebibliography}
+\endgroup
+\end{document}

@@ -8,5 +8,7 @@ The proofs include:
 - [The cycle double cover theorem for bridgeless graphs](https://github.com/openai/cdc-lean), using OpenAI's Lean formalization.
 - [Strong 5-cycle double covers for critical snarks, snarks with colouring defect 3, and permutation snarks](papers/strong-five-cdc/strong_five_cycle_double_covers.pdf).
 
+- [Unique factorisations of hypohamiltonian and permutation snarks](papers/factorisations/unique_factorisation_snarks.pdf).
+
 Interested readers can find details about the formalization and instructions
 for checking the proofs in the [formalization guide](GraphPuzzles/README.md).
