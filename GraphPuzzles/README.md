@@ -11,6 +11,7 @@ the source layout, and how to build and check the proofs.
 | Cycle double covers of finite bridgeless graphs | `GraphPuzzles.Results.CycleDoubleCover` |
 | Strong 5-cycle double covers for critical, permutation and colouring-defect-three snarks | `GraphPuzzles.Results.StrongFiveCycleDoubleCover` |
 | Unique factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks | `GraphPuzzles.Results.SnarkFactorisation` |
+| Four perfect matchings for snarks with a two-circuit 2-factor | `GraphPuzzles.Results.TwoCircuitFourMatchings` |
 
 Import `GraphPuzzles` for the results together, or import one of the entry
 points above. The declarations share the `GraphPuzzles` namespace.
@@ -58,7 +59,7 @@ Import `GraphPuzzles.Results.StrongFiveCycleDoubleCover` for the underlying
 proofs or `GraphPuzzles.Claims.StrongFiveCycleDoubleCover` for the paper
 statements. The [paper-to-Lean guide](../papers/strong-five-cdc/README.md)
 lists the theorem names, hypotheses and conventions.
-The factorisation release retains these proof sources and paper files unchanged.
+These proof sources and paper files are retained unchanged.
 
 The extension proof is in `CycleCovers/CircuitExtension{,Corollaries,Exact}.lean`.
 `CycleCovers/TwoCircuitFactor.lean` constructs the permutation-graph colouring;
@@ -94,6 +95,31 @@ instances and descent lemmas. The `Diamond/` subdirectory proves the
 commuting refinements used by the atom argument. Bicritical factorisation
 and its local structural lemmas are included as prerequisites.
 
+## Four perfect matchings
+
+The [paper](../papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.pdf)
+and [standalone TeX source](../papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.tex)
+prove that a snark other than the Petersen graph, with a 2-factor consisting
+of two circuits, has a cover by four perfect matchings. The cover includes
+the matching complementary to the specified factor. Chords are allowed;
+the result includes permutation snarks. The perfect matching index is
+exactly four.
+
+Import `GraphPuzzles.Claims.TwoCircuitFourMatchings` for the prescribed-cover,
+exact-index and permutation statements. The
+[paper-to-Lean guide](../papers/two-circuit-four-matchings/README.md) maps the
+paper's results and hypotheses to declarations.
+
+`Matching/FourCover.lean` constructs the odd-path reduction and lifts the
+cover back to the original graph. `Cuts/SeparatingCut.lean` proves that the
+cross-spoke cut is separating. `Matching/KMTheorem.lean` assembles the final
+proof. Both mathematical ingredients are proved in Lean:
+`Poles/ThreePoleTransfer.lean` supplies Karabáš–Máčajová's Hamiltonian
+three-pole theorem, and `Bricks/CamposLucchesi.lean` supplies the separating-cut
+theorem. Their reviewed prerequisites include Tutte's theorem via Mathlib,
+Edmonds' rational matching polytope, matching-covered graphs, tight cuts,
+near-bricks, odd ears, reductions and the Petersen exception.
+
 ## Graph model and source layout
 
 The graph model allows labelled parallel edges and loops; each loop
@@ -112,7 +138,9 @@ are defined in `FinGraph/`.
 | `CycleCovers/` | Dominating-circuit covers, exact circuit extension, strong five-covers and the general CDC bridge |
 | `DefectThree/` | Matching triples, hexagonal core extraction and strong five-covers |
 | `FinGraph/` | Finite graphs, multipoles, colourings, Hamilton cycles, completions and isomorphisms |
-| `Poles/` | The Kempe-walk construction used by four-pole colourings |
+| `Poles/` | Hamiltonian three-poles, their four-covers, and Kempe-walk colourings |
+| `Matching/` | Perfect matchings, Tutte bridge, rational matching polytope and four-cover assembly |
+| `Bricks/`, `Cuts/`, `Ears/`, `Reduction/`, `Petersen/` | Reviewed matching-theory prerequisites for Campos–Lucchesi |
 | `Factorization/` | Atom and diamond arguments, class closure and unique terminal factors |
 | `Results/` | Imports for the mathematical results |
 | `Claims/` | Statements with explicit graph hypotheses and conclusions |
@@ -131,6 +159,7 @@ LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 GraphPuzzles/Audit.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/SnarkFactorisation.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/TwoCircuitFourMatchings.lean
 LEAN_NUM_THREADS=1 lake --wfail build SabidussiSolution
 python3 tools/publication.py check --public-tree
 ```

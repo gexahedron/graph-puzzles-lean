@@ -1,0 +1,631 @@
+% !TEX TS-program = pdflatexmk
+\RequirePackage{iftex}
+\ifPDFTeX
+  \pdfoutput=1
+  \pdfminorversion=7
+  \input glyphtounicode
+  \pdfgentounicode=1
+\fi
+\ifdefined\pdfinterwordspaceon\pdfinterwordspaceon\fi
+\documentclass[justified,notoc,twoside,nobib,nofonts]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\ifPDFTeX
+  \usepackage[tracking]{microtype}
+\else
+  \usepackage{microtype}
+\fi
+\usepackage{amsthm,thmtools,thm-restate}
+\usepackage{amsmath,amssymb,mathtools}
+% Text and mathematics.
+\usepackage[nomath,oldstylenums]{kpfonts}
+\edef\KPbodyfamily{\rmdefault}
+\renewcommand{\rmdefault}{zpltlf}
+\usepackage{newpxmath}
+\let\rmdefault\KPbodyfamily
+\renewcommand{\familydefault}{\rmdefault}
+
+% BaskervilleF headings use native Type 1 fonts and work with pdfLaTeX.
+\newcommand{\BaskervilleHeading}{%
+  \fontencoding{T1}\fontfamily{BaskervilleF-LF}%
+  \fontseries{m}\fontshape{n}\selectfont}
+\titleformat{\section}[hang]
+  {\BaskervilleHeading\fontsize{15}{18}\selectfont}
+  {\thesection}{1em}{}
+\titleformat{\subsection}[hang]
+  {\BaskervilleHeading\fontsize{13}{16}\selectfont}
+  {\thesubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+  {\BaskervilleHeading}{\theparagraph}{1em}{}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\maketitle}{\LARGE\itshape\@title}
+  {\BaskervilleHeading\fontsize{22}{26}\selectfont\raggedright\@title}
+  {}{\PackageError{two-circuit-four-matchings}{Title font patch failed}{}}
+% The author and email are printed immediately below the title block.
+\patchcmd{\maketitle}{\@@author\@@date}{\@@date}
+  {}{\PackageError{two-circuit-four-matchings}{Author block patch failed}{}}
+\makeatother
+\usepackage{booktabs,array,enumitem,needspace}
+\usepackage[numbers,square]{natbib}
+\usepackage{xcolor}
+\usepackage{xurl,hyperref,cleveref}
+\urlstyle{same}
+\geometry{a4paper,top=23mm,bottom=46mm,left=28mm,right=56mm,marginparwidth=3cm}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{secnumdepth}{2}
+\AtBeginDocument{\fontsize{12}{15}\selectfont}
+\fancyhead[LE]{\thepage\quad\textsmallcaps{nikolay ulyanov}}
+\fancyhead[RO]{\textsmallcaps{four perfect matchings}\quad\thepage}
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[name=Corollary,sibling=theorem]{corollary}
+\declaretheorem[name=Definition,sibling=theorem,style=definition]{definition}
+\setlist[enumerate]{label=\textup{(\roman*)},leftmargin=*,itemsep=2pt,topsep=4pt}
+\crefname{theorem}{theorem}{theorems}
+\crefname{lemma}{lemma}{lemmas}
+\crefname{definition}{definition}{definitions}
+\setcitestyle{numbers,square}
+
+% Full references appear in the margin at their first citation.
+% Keep the canonical margin-selection block below when cloning this paper.
+\makeatletter
+\newdimen\@gp@fnmarkwidth
+\newcommand{\bothcite}[2][0cm]{%
+  \citep{#2}\sidenote[][#1]{\raggedright\csname paper@#2\endcsname}%
+  \kern\@gp@fnmarkwidth\@gp@cite@space}
+\def\@gp@cite@space{\@ifnextchar.{\@gp@cite@halfspace}{\@gp@cite@comma}}
+\def\@gp@cite@comma{\@ifnextchar,{\@gp@cite@halfspace}{\@gp@cite@semicolon}}
+\def\@gp@cite@semicolon{\@ifnextchar;{\@gp@cite@halfspace}{\@gp@cite@colon}}
+\def\@gp@cite@colon{\@ifnextchar:{\@gp@cite@halfspace}{\@gp@cite@exclamation}}
+\def\@gp@cite@exclamation{\@ifnextchar!{\@gp@cite@halfspace}{\@gp@cite@question}}
+\def\@gp@cite@question{\@ifnextchar?{\@gp@cite@halfspace}{\@gp@cite@openparen}}
+\def\@gp@cite@openparen{\@ifnextchar({\@gp@cite@halfspace}{\@gp@cite@closeparen}}
+\def\@gp@cite@closeparen{\@ifnextchar){\@gp@cite@halfspace}{\@gp@cite@bracket}}
+\def\@gp@cite@bracket{\@ifnextchar]{\@gp@cite@halfspace}{\@gp@cite@normalspace}}
+\def\@gp@cite@halfspace{\nobreak\hskip.5\fontdimen2\font\relax}
+\def\@gp@cite@normalspace{\nobreak\space}
+% GP margin selection v1 (pdfLaTeX). Keep this block in the standalone source.
+\makeatletter
+\@ifundefined{@gp@fnmarkwidth}{\newdimen\@gp@fnmarkwidth}{}
+\ifPDFTeX
+\def\@makefnmark{%
+  \hbox{%
+    \setbox\z@=\hbox{\@textsuperscript{\normalfont\footnotesize\@thefnmark}}%
+    \global\@gp@fnmarkwidth=\wd\z@%
+    \setbox\tw@=\copy\z@%
+    \immediate\pdfxform\tw@%
+    \pdfannot width\wd\z@ height\ht\z@ depth\dp\z@{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /AP << /N \the\pdflastxform\space 0 R >>%
+    }%
+  }%
+}
+\fi
+% Selection-safe margin text: annotation appearances, with separate URI links.
+\ifPDFTeX
+\newbox\@gp@marginbox
+\newdimen\@gp@marginwidth
+\newdimen\@gp@marginheight
+\newdimen\@gp@marginfirstheight
+\newdimen\@gp@marginpadding
+\newdimen\@gp@marginskip
+\newdimen\@gp@margindepth
+\newcount\@gp@marginserial
+\long\def\@gp@marginappearance#1{%
+  \begingroup
+  \global\let\@gp@marginuri\@empty
+  \setbox\@gp@marginbox=\vtop{%
+    \hsize=\marginparwidth
+    \def\href##1##2{%
+      \ifx\@gp@marginuri\@empty
+        \xdef\@gp@marginuri{\detokenize{##1}}%
+      \else
+        \PackageError{gp-margin-selection}{More than one URI in a margin note}%
+          {Use a separate note for each reference.}%
+      \fi
+      \textcolor{\@urlcolor}{##2}%
+    }%
+    #1\par
+  }%
+  \@gp@marginfirstheight=\ht\@gp@marginbox
+  \setbox\@gp@marginbox=\vbox{\unvbox\@gp@marginbox}%
+  \@gp@marginpadding=\baselineskip
+  \advance\@gp@marginpadding-\prevdepth
+  \advance\@gp@marginpadding-\@gp@marginfirstheight
+  \ifdim\@gp@marginpadding<\lineskiplimit
+    \@gp@marginpadding=\lineskip
+  \fi
+  \@gp@marginskip=\baselineskip
+  \advance\@gp@marginskip-\prevdepth
+  \advance\@gp@marginskip-\ht\@gp@marginbox
+  \ifdim\@gp@marginskip<\lineskiplimit
+    \@gp@marginskip=\lineskip
+  \fi
+  \advance\@gp@marginpadding-\@gp@marginskip
+  \vskip\@gp@marginpadding
+  \@gp@marginwidth=\wd\@gp@marginbox
+  \@gp@marginheight=\ht\@gp@marginbox
+  \@gp@margindepth=\dp\@gp@marginbox
+  \immediate\pdfxform\@gp@marginbox
+  \edef\@gp@marginform{\the\pdflastxform}%
+  \global\advance\@gp@marginserial\@ne
+  \hbox{%
+    \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /NM (GPmargin-\the\@gp@marginserial)%
+      /AP << /N \@gp@marginform\space 0 R >>%
+    }%
+    \ifx\@gp@marginuri\@empty\else
+      \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+        /Subtype /Link /F 4 /Border [0 0 0]%
+        /A << /S /URI /URI (\pdfescapestring{\@gp@marginuri}) >>%
+      }%
+    \fi
+    \vrule width0pt height\@gp@marginheight depth\@gp@margindepth
+    \kern\@gp@marginwidth
+  }%
+  \endgroup
+}
+\else
+\long\def\@gp@marginappearance#1{#1}
+\fi
+\renewcommand\@footnotetext[2][0pt]{%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \def\baselinestretch{\setspace@singlespace}%
+    \reset@font\footnotesize%
+    \@tufte@margin@par%
+    \vspace*{-1\baselineskip}%
+    \@gp@marginappearance{%
+      \noindent
+      \protected@edef\@currentlabel{%
+        \csname p@footnote\endcsname\@thefnmark%
+      }%
+      \color@begingroup
+        \@makefntext{\ignorespaces#2}%
+      \color@endgroup
+    }%
+  }%
+}
+\renewcommand\marginnote[2][0pt]{%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@infootnote@cite%
+  }{}%
+  \gdef\@tufte@citations{}%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \@tufte@marginnote@font\@tufte@marginnote@justification%
+    \@tufte@margin@par\vspace*{-1\baselineskip}%
+    \@gp@marginappearance{\noindent #2}%
+  }%
+  \@tufte@print@citations%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@normal@cite%
+  }{}%
+}
+\makeatother
+
+\expandafter\def\csname paper@KM26\endcsname{%
+  J\'an Karab\'a\v{s} and Edita M\'a\v{c}ajov\'a.
+  \emph{On $4$-perfect-matching covers of cubic graphs with two adjacent
+  odd circuits in a $2$-factor}.
+  \href{https://arxiv.org/abs/2605.09475}{\nolinkurl{arXiv:2605.09475}}
+  (2026).}
+\expandafter\def\csname paper@LCKM18\endcsname{%
+  C.~L. Lucchesi, M.~H. de Carvalho, N.~Kothari and U.~S.~R. Murty.
+  \emph{On two unsolved problems concerning matching covered graphs}.
+  SIAM Journal on Discrete Mathematics 32(2) (2018), 1478--1504.
+  \href{https://doi.org/10.1137/17M1138704}{\nolinkurl{doi:10.1137/17M1138704}}.}
+\expandafter\def\csname paper@Tutte47\endcsname{%
+  W.~T. Tutte.
+  \emph{The factorization of linear graphs}.
+  Journal of the London Mathematical Society 22(2) (1947), 107--111.
+  \href{https://doi.org/10.1112/jlms/s1-22.2.107}{\nolinkurl{doi:10.1112/jlms/s1-22.2.107}}.}
+\expandafter\def\csname paper@KCLL20\endcsname{%
+  N.~Kothari, M.~H. de Carvalho, C.~L. Lucchesi and C.~H.~C. Little.
+  \emph{On essentially $4$-edge-connected cubic bricks}.
+  Electronic Journal of Combinatorics 27(1) (2020), P1.22.
+  \href{https://doi.org/10.37236/8594}{\nolinkurl{doi:10.37236/8594}}.}
+\expandafter\def\csname paper@Edmonds65\endcsname{%
+  Jack Edmonds.
+  \emph{Maximum matching and a polyhedron with $0,1$-vertices}.
+  Journal of Research of the National Bureau of Standards,
+  Section B 69B (1965), 125--130.
+  \href{https://doi.org/10.6028/jres.069B.013}{\nolinkurl{doi:10.6028/jres.069B.013}}.}
+\expandafter\def\csname paper@CL00\endcsname{%
+  C.~N. Campos and C.~L. Lucchesi.
+  \emph{On the relation between the Petersen graph and the characteristic
+  of separating cuts in matching covered graphs}.
+  Technical Report IC-00-22, Institute of Computing,
+  University of Campinas (2000).
+  \href{https://www.ic.unicamp.br/~reltech/2000/00-22.pdf}{report}.}
+\newcommand{\paperreference}[1]{\csname paper@#1\endcsname}
+\makeatother
+
+\newcommand{\Petersen}{P_{10}}
+\newcommand{\three}{\{1,2,3\}}
+\DeclareMathOperator{\odd}{odd}
+
+\title[Graph Puzzles IV.2-preview: Four perfect matchings]{Graph Puzzles IV.2-preview: Four perfect matchings for snarks with a two-circuit $2$-factor}
+\author{Nikolay Ulyanov + AI-Slop}
+\date{6 October 2026}
+\hypersetup{
+  pdftitle={Graph Puzzles IV.2-preview: Four perfect matchings for snarks with a two-circuit 2-factor},
+  pdfauthor={Nikolay Ulyanov + AI-Slop},
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\begin{document}
+\selectlanguage{english}
+\maketitle
+Nikolay Ulyanov\textsuperscript{*} + AI-Slop%
+\marginnote{\textsuperscript{*}{\scriptsize\href{mailto:ulyanick@gmail.com}{ulyanick@gmail.com}}}\par
+
+\begin{abstract}
+\noindent\newthought{Abstract: }
+Let $G$ be a snark distinct from the Petersen graph, and let $M$ be a
+perfect matching such that $G-M$ consists of two circuits. We prove that
+$M$ belongs to a cover of $E(G)$ by four perfect matchings. Consequently,
+$G$ has perfect matching index four. The proof combines the
+Campos--Lucchesi theorem on separating cuts with the
+Karab\'a\v{s}--M\'a\v{c}ajov\'a theorem on Hamiltonian cubic $3$-poles.
+We show that the cut between the two factor circuits is separating,
+use a perfect matching meeting this cut in three edges to reduce the
+graph, and extend a cover of the reduced graph along odd paths.
+The result applies, in particular, to every permutation snark distinct
+from the Petersen graph.
+\end{abstract}
+
+\section{Introduction}
+
+The \emph{perfect matching index} $\tau(G)$ of a bridgeless cubic graph
+$G$ is the least number of perfect matchings whose union is $E(G)$.
+Three perfect matchings cover $G$ precisely when they form the colour
+classes of a $3$-edge-colouring. Covers by four perfect matchings are
+therefore the next case for snarks.
+
+Graphs are finite and loopless. Throughout this paper, a \emph{snark}
+is a connected, bridgeless, simple
+cubic graph of girth at least five and cyclic edge-connectivity at least
+four that has chromatic index four. A graph is cyclically
+$4$-edge-connected if each edge-cut whose two shores contain circuits
+has size at least four. We write $\Petersen$ for the Petersen graph.
+A \emph{circuit} is a connected $2$-regular subgraph, and a \emph{$2$-factor}
+is a spanning $2$-regular subgraph.
+
+Karab\'a\v{s} and M\'a\v{c}ajov\'a \bothcite{KM26} proved that a cubic
+graph has a cover by four perfect matchings when it has a $2$-factor
+consisting of two odd circuits joined by exactly three edges of the
+complementary perfect matching. Their Conjecture~3.9 asks whether every
+cubic graph with a two-circuit $2$-factor has perfect matching index at
+most four, with the Petersen graph as the exception. We prove this
+assertion for snarks, with an additional conclusion concerning the
+complementary perfect matching.
+
+\Needspace{9\baselineskip}
+\begin{restatable}{theorem}{fourmatchings}\label{thm:main}
+Let $G\not\cong\Petersen$ be a snark, and let $M$ be a perfect matching
+such that $G-M=A\cup B$ has exactly two circuit components.
+There are perfect matchings $M_1,M_2,M_3$ of $G$ such that
+\[
+  E(G)=M\cup M_1\cup M_2\cup M_3.
+\]
+In particular, $\tau(G)=4$.
+\end{restatable}
+
+An edge of $M$ joining $A$ and $B$ is a \emph{spoke}; one with both
+ends on one circuit is a \emph{chord}. The theorem allows any number of
+chords. A snark with a $2$-factor consisting of two induced circuits is
+called a \emph{permutation snark}. We obtain the following consequence.
+
+\begin{corollary}\label{cor:permutation}
+Every permutation snark distinct from $\Petersen$ has perfect matching
+index four. For each $2$-factor consisting of two induced circuits, its
+complementary perfect matching belongs to a cover by four perfect
+matchings.
+\end{corollary}
+\begin{proof}
+Apply \cref{thm:main} to the complementary perfect matching of the
+given $2$-factor.
+\end{proof}
+
+The cut between the two factor circuits is separating. A theorem of
+Campos and Lucchesi gives a perfect matching meeting it in three edges.
+We suppress odd paths to obtain a graph covered by the three-spoke
+theorem, then extend its cover to $G$ while retaining $M$.
+
+\section{Matching-covered contractions}
+
+For $X\subseteq V(G)$, the cut $\delta_G(X)$ consists of the edges with
+exactly one end in $X$; the sets $X$ and $V(G)\setminus X$ are its
+\emph{shores}. A cut is \emph{trivial} if one shore consists of a single
+vertex. We write $G/X$ for the graph obtained by contracting $X$ to
+one vertex and deleting the resulting loops. Contraction and suppression
+may produce parallel edges, which we retain as distinct edges. For an
+edge set $S$, let $V(S)$ be the set of its end vertices. Path length
+always counts edges.
+
+We use the terminology of matching-covered graphs as in Lucchesi,
+de Carvalho, Kothari and Murty \bothcite{LCKM18}.
+A graph is \emph{matching covered} if it is connected and each edge
+belongs to a perfect matching. A cut is \emph{separating} if both
+cut-contractions are matching covered. It is \emph{tight} if every
+perfect matching meets it in exactly one edge. A \emph{brick} is a
+nonbipartite matching-covered graph whose tight cuts are all trivial.
+A graph $J$ is \emph{factor-critical} if $J-v$ has a perfect matching
+for every $v\in V(J)$.
+
+\Needspace{9\baselineskip}
+The following lemma will establish that the cut between $A$ and $B$
+is separating.
+
+\begin{lemma}\label{lem:contraction}
+Let $H$ be a connected bridgeless loopless multigraph, and let
+$b\in V(H)$. Suppose that $b$ has odd degree, every vertex of $H-b$
+has degree three in $H$, and $H-b$ is factor-critical.
+Then $H$ is matching covered.
+\end{lemma}
+\begin{proof}
+Each edge $bu$ belongs to a perfect matching: take a perfect matching
+of $H-b-u$ and add $bu$. Consider an edge $uv$ with $u,v\ne b$.
+Suppose that $H-u-v$ has no perfect matching. By Tutte's theorem
+\bothcite{Tutte47}, there is a set
+$X\subseteq V(H)\setminus\{u,v\}$ such that $H-X-u-v$ has more than
+$|X|$ odd components. Since $H-u-v$ has even order, the number $q$
+of these components satisfies
+\begin{equation}\label{eq:tutte}
+  q\ge |X|+2.
+\end{equation}
+
+If $b\in X$, choose a perfect matching of $H-b-u$. Delete the $|X|$
+vertices in $(X\setminus\{b\})\cup\{v\}$ from this graph.
+Each odd component of the remaining graph contains a vertex whose
+partner in the chosen matching was deleted. Distinct odd components
+require distinct deleted partners. Hence $q\le |X|$, contradicting
+\eqref{eq:tutte}.
+
+If $b\notin X$, put $R=X\cup\{u,v\}$. All vertices of $R$ have degree
+three, and $uv\in E(H[R])$, so
+\begin{equation}\label{eq:upper}
+  |\delta_H(R)|=3|R|-2|E(H[R])|\le 3|X|+4.
+\end{equation}
+All vertices of $H$ have odd degree. Each odd component $K$ of $H-R$
+therefore has an odd edge boundary. Connectedness and bridgelessness
+give $|\delta_H(V(K))|\ge 3$. These boundaries are disjoint subsets of
+$\delta_H(R)$, and \eqref{eq:tutte} yields
+\[
+  |\delta_H(R)|\ge 3q\ge 3|X|+6,
+\]
+contrary to \eqref{eq:upper}. Thus $H-u-v$ has a perfect matching.
+Adding $uv$ proves that this edge also belongs to a perfect matching.
+\end{proof}
+
+We also recall the standard connection between snarks and bricks.
+For cubic matching-covered graphs, every tight cut has size three;
+see Kothari, de Carvalho, Lucchesi and Little \bothcite[-2.5cm]{KCLL20},
+Theorem~8 and Corollary~9. The argument below gives the needed consequence.
+
+\begin{lemma}\label{lem:brick}
+Every snark is a simple brick.
+\end{lemma}
+\begin{proof}
+Let $G$ be a snark, and assign $x_e=1/3$ to every $e\in E(G)$.
+This vector satisfies the degree equations
+$x(\delta_G(v))=1$ for all $v\in V(G)$. For every odd vertex set $X$,
+the cut $\delta_G(X)$ has odd size. Bridgelessness gives
+$|\delta_G(X)|\ge 3$, and hence $x(\delta_G(X))\ge 1$.
+Edmonds' perfect matching polytope theorem \bothcite[-3cm]{Edmonds65}
+therefore expresses $x$ as a convex combination of incidence vectors
+of perfect matchings. Since $x_e>0$ for every edge, $G$ is matching covered.
+
+If $D$ is a tight cut, every perfect matching has exactly one edge
+in $D$. The same convex combination gives
+\[
+  1=x(D)=\frac{|D|}{3},
+\]
+so $|D|=3$. Cyclic $4$-edge-connectivity implies that one shore of $D$
+induces a forest. If that forest has $h$ vertices and $c$ components,
+then its boundary has size
+\[
+  3h-2(h-c)=h+2c.
+\]
+Since $h,c\ge 1$ and $h+2c=3$, the shore consists of a single vertex.
+Thus every tight cut is trivial. Finally, a cubic bipartite graph is
+$3$-edge-colourable, so $G$ is nonbipartite and hence a brick.
+\end{proof}
+
+We use the following consequence of Campos and Lucchesi
+\bothcite{CL00}, Theorem~1.1. Their result is stated for near-bricks;
+the case of simple bricks is also recorded in
+\citep{LCKM18}, footnote~2 on p.~1496.
+
+\begin{theorem}[Campos--Lucchesi]\label{thm:CL}
+Let $G\not\cong\Petersen$ be a simple brick, and let $C$ be a nontrivial
+separating cut of $G$. There is a perfect matching $N$ of $G$ such that
+\[
+  |N\cap C|=3.
+\]
+\end{theorem}
+
+We now apply \cref{lem:contraction} to the given $2$-factor.
+
+\begin{lemma}\label{lem:separating}
+Let $G$ be a snark, and let $M$ be a perfect matching for which
+$G-M=A\cup B$ has two circuit components.
+Then $A$ and $B$ are odd circuits, and
+$C=\delta_G(V(A))$ is a nontrivial separating cut.
+\end{lemma}
+\begin{proof}
+The circuits $A$ and $B$ have the same parity, because $G$ has even
+order. If both were even, their edges could be coloured alternately
+with two colours and the edges of $M$ with a third. Hence both are odd.
+All edges of $C$ belong to $M$, so
+\[
+  |C|\equiv |V(A)|\equiv 1\pmod 2.
+\]
+The cut separates two circuits. Cyclic $4$-edge-connectivity therefore
+gives $|C|\ge 5$.
+
+Consider $H=G/V(B)$, with contraction vertex $b$.
+Every vertex of $H-b$ has degree three in $H$, while
+$d_H(b)=|C|$ is odd. The graph $H-b$ contains the spanning odd circuit
+$A$, so deleting any vertex leaves a spanning path of even order and
+therefore a perfect matching. Thus $H-b$ is factor-critical.
+Each edge of $A$ lies on that circuit, each chord lies on a circuit
+formed with a path of $A$, and each edge incident with $b$ lies on a
+circuit formed with another such edge and a path of $A$. Consequently,
+$H$ is connected and bridgeless. By \cref{lem:contraction}, it is
+matching covered.
+
+Interchanging $A$ and $B$ proves that $G/V(A)$ is matching covered as
+well. Thus $C$ is separating. Both shores contain circuits of length
+at least five, so $C$ is nontrivial.
+\end{proof}
+
+\section{The case of three spokes}
+
+A cubic \emph{$3$-pole} has three dangling edges, each with a single
+end vertex; every vertex is incident with three edges. A perfect
+matching of a $3$-pole is a set of ordinary and dangling edges meeting
+each vertex exactly once. If a $3$-pole $H$ has a spanning circuit $R$,
+then $Q=E(H)\setminus E(R)$ is a perfect matching and contains all
+three dangling edges.
+
+Theorem~3.1 of Karab\'a\v{s} and M\'a\v{c}ajov\'a \citep{KM26} has
+the following form.
+
+\begin{theorem}[Karab\'a\v{s}--M\'a\v{c}ajov\'a]\label{thm:KM}
+Let $H$ be a Hamiltonian cubic $3$-pole with a distinguished spanning
+circuit $R$. There is a cover of $H$ by four perfect matchings, one
+of which is $Q=E(H)\setminus E(R)$, such that every dangling edge
+belongs to exactly two of the four matchings.
+\end{theorem}
+
+For the reduction in the next section, we need the conclusion with
+the complementary matching specified. It follows by gluing the two
+$3$-poles, as in \citep{KM26}, Corollary~3.7.
+
+\begin{lemma}\label{lem:three-spokes}
+Let $H$ be a loopless cubic multigraph, and let $S$ be a perfect matching
+such that $H-S$ consists of two odd circuits. If exactly three edges
+of $S$ join the two circuits, there are perfect matchings $L_1,L_2,L_3$
+of $H$ such that
+\[
+  E(H)=S\cup L_1\cup L_2\cup L_3.
+\]
+\end{lemma}
+\begin{proof}
+Cut the three edges joining the circuits. Each circuit, together with
+its chords and three dangling edges, forms a Hamiltonian cubic
+$3$-pole. Apply \cref{thm:KM} to each pole, using label $4$ for the
+matching complementary to its spanning circuit and labels $1,2,3$
+for the other three matchings.
+
+Each pole has odd order. A perfect matching of such a pole contains
+an odd number of dangling edges. In the cover supplied by
+\cref{thm:KM}, the three dangling edges occur once each among the
+matchings labelled $1,2,3$. Each of these three matchings therefore
+contains exactly one dangling edge. Permute the labels $1,2,3$ on
+one pole so that the labels agree on the pairs of dangling edges
+that are to be joined. Gluing gives four perfect matchings of $H$.
+The matching labelled $4$ is precisely $S$, and every edge is covered.
+\end{proof}
+
+\Needspace{11\baselineskip}
+\section{Proof of the main theorem}
+
+\Needspace{8\baselineskip}
+\fourmatchings*
+\begin{proof}
+By \cref{lem:brick}, $G$ is a simple brick. By
+\cref{lem:separating}, the cut $C=\delta_G(V(A))$ is nontrivial and
+separating. Theorem~\ref{thm:CL} supplies a perfect matching $N$ with
+$|N\cap C|=3$. Put
+\[
+  S=M\cap N.
+\]
+Since $C\subseteq M$, exactly three edges of $S$ join $A$ and $B$.
+The edges of $N\setminus M$ form a perfect matching of
+\[
+  (A\cup B)-V(S).
+\]
+Between consecutive vertices of $V(S)$ on either factor circuit,
+the internal vertices therefore occur in even number. Every path
+of the circuit between consecutive retained vertices has odd length.
+
+Delete the edges of $M\setminus S$, and suppress the resulting vertices
+of degree two along $A$ and $B$. Denote the resulting cubic multigraph
+by $G'$. Its retained matching is $S$, and $G'-S=A'\cup B'$ consists
+of two circuits. If $c_A$ and $c_B$ are the numbers of chords of $S$
+on $A$ and $B$, respectively, then
+\[
+  |V(A')|=3+2c_A,\qquad |V(B')|=3+2c_B.
+\]
+Thus both circuits are odd and have at least three vertices. The graph
+$G'$ is loopless, and exactly three edges of $S$ join $A'$ and $B'$.
+By \cref{lem:three-spokes}, it has a cover
+\[
+  E(G')=S\cup L_1\cup L_2\cup L_3
+\]
+by four perfect matchings.
+
+We extend this cover to $G$ using the alternating assignment along
+odd paths from \citep{KM26}, Lemma~3.2. Give an edge $e$ of $G'$ the
+set of labels
+\[
+  \lambda(e)=\{i\in\three:e\in L_i\}
+       \cup\begin{cases}\{4\},&e\in S,\\ \varnothing,&e\notin S.\end{cases}
+\]
+\Needspace{6\baselineskip}
+At each vertex, the label sets on the three incident edges partition
+$\{1,2,3,4\}$. Each set is nonempty. If $e\in E(A'\cup B')$, then
+$T=\lambda(e)$ is a subset of $\three$ of size one or two, because
+the edge of $S$ at either end carries label $4$ and the other circuit
+edge has a nonempty label set.
+
+Replace $e$ by its original odd path in $A\cup B$. Give the successive
+edges of that path the label sets
+\begin{equation}\label{eq:extension}
+  T,\quad \three\setminus T,\quad T,\quad
+  \three\setminus T,\quad\ldots,\quad T.
+\end{equation}
+Keep the labels on every edge of $S$, and give each restored edge of
+$M\setminus S$ the label set $\{4\}$.
+At a retained vertex, the incident label sets agree with those in
+$G'$. At a restored vertex, the two circuit edges carry complementary
+subsets of $\three$, and the matching edge carries $\{4\}$.
+Hence each of the four labels occurs on exactly one edge incident
+with every vertex of $G$, and every edge carries at least one label.
+
+For $i\in\three$, let $M_i$ be the set of edges carrying label $i$.
+These are perfect matchings of $G$, and the edges carrying label $4$
+are exactly the edges of $M$. Thus
+\[
+  E(G)=M\cup M_1\cup M_2\cup M_3.
+\]
+A cover of a cubic graph by three perfect matchings assigns each of
+its three incident edges to a different matching at every vertex,
+and therefore gives a $3$-edge-colouring. Since $G$ is a snark,
+$\tau(G)=4$.
+\end{proof}
+
+\clearpage
+\begin{thebibliography}{Edmonds65}
+\bibitem[KM26]{KM26}\paperreference{KM26}
+\bibitem[LCKM18]{LCKM18}\paperreference{LCKM18}
+\bibitem[Tutte47]{Tutte47}\paperreference{Tutte47}
+\bibitem[KCLL20]{KCLL20}\paperreference{KCLL20}
+\bibitem[Edmonds65]{Edmonds65}\paperreference{Edmonds65}
+\bibitem[CL00]{CL00}\paperreference{CL00}
+\end{thebibliography}
+
+\end{document}

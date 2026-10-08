@@ -4,7 +4,8 @@
     "Sabidussi's compatibility conjecture with 4 colours and prerequisites",
     "Pinned OpenAI CDC proof and native graph bridge",
     "Strong 5CDC: critical and permutation cubic graphs; induced hexagon; numerical defect-three snarks and prerequisites",
-    "Factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks, Hamilton-cycle descent and reviewed prerequisites"
+    "Factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks, Hamilton-cycle descent and reviewed prerequisites",
+    "Four perfect matchings retaining the complementary matching of each two-circuit factor of a proper snark other than Petersen; exact matching index four; permutation corollary; proved Campos\u2013Lucchesi and Karab\u00e1\u0161\u2013M\u00e1\u010dajov\u00e1 ingredients and reviewed prerequisites"
   ],
   "roots": [
     "GraphPuzzles",
@@ -15,6 +16,21 @@
     "GraphPuzzles.Audit",
     "GraphPuzzles.Audit.SnarkFactorisation",
     "GraphPuzzles.Audit.StrongFiveCycleDoubleCover",
+    "GraphPuzzles.Audit.TwoCircuitFourMatchings",
+    "GraphPuzzles.Bricks.BicriticalSplicing",
+    "GraphPuzzles.Bricks.BraceContraction",
+    "GraphPuzzles.Bricks.BraceRemovability",
+    "GraphPuzzles.Bricks.BraceRemovabilityLarge",
+    "GraphPuzzles.Bricks.Brick",
+    "GraphPuzzles.Bricks.BrickCharacterization",
+    "GraphPuzzles.Bricks.BrickConnectivity",
+    "GraphPuzzles.Bricks.BrickEdgeConnectivity",
+    "GraphPuzzles.Bricks.BrickSplicing",
+    "GraphPuzzles.Bricks.CamposLucchesi",
+    "GraphPuzzles.Bricks.NearBrick",
+    "GraphPuzzles.Bricks.NearBrickCuts",
+    "GraphPuzzles.Bricks.RobustNearBrick",
+    "GraphPuzzles.Circuits.CircuitArcs",
     "GraphPuzzles.Circuits.CircuitEulerTour",
     "GraphPuzzles.Circuits.OrdinaryCircuit",
     "GraphPuzzles.Circuits.ParityColoring",
@@ -23,6 +39,7 @@
     "GraphPuzzles.Claims.Sabidussi",
     "GraphPuzzles.Claims.SnarkFactorisation",
     "GraphPuzzles.Claims.StrongFiveCycleDoubleCover",
+    "GraphPuzzles.Claims.TwoCircuitFourMatchings",
     "GraphPuzzles.Core.Color",
     "GraphPuzzles.Core.CyclicWord",
     "GraphPuzzles.Core.FiniteCounts",
@@ -30,6 +47,52 @@
     "GraphPuzzles.Core.OddBalance",
     "GraphPuzzles.Core.Parity",
     "GraphPuzzles.Core.Tactics",
+    "GraphPuzzles.Cuts.CohesiveCrossingTransport",
+    "GraphPuzzles.Cuts.CohesiveCuts",
+    "GraphPuzzles.Cuts.CohesiveUncrossing",
+    "GraphPuzzles.Cuts.Contraction.BipartiteContraction",
+    "GraphPuzzles.Cuts.Contraction.BipartiteExpansion",
+    "GraphPuzzles.Cuts.Contraction.BipartiteFiberLift",
+    "GraphPuzzles.Cuts.Contraction.ContractionBarrierLift",
+    "GraphPuzzles.Cuts.Contraction.ContractionBarrierStructure",
+    "GraphPuzzles.Cuts.Contraction.ContractionCommute",
+    "GraphPuzzles.Cuts.Contraction.ContractionConnectivity",
+    "GraphPuzzles.Cuts.Contraction.ContractionIso",
+    "GraphPuzzles.Cuts.Contraction.ContractionTwoSeparation",
+    "GraphPuzzles.Cuts.Contraction.DoubleBicontraction",
+    "GraphPuzzles.Cuts.Contraction.EndpointIsoContraction",
+    "GraphPuzzles.Cuts.CrossingTightCut",
+    "GraphPuzzles.Cuts.CutCharacteristic",
+    "GraphPuzzles.Cuts.CutCrossing",
+    "GraphPuzzles.Cuts.CutDegreeBound",
+    "GraphPuzzles.Cuts.CutOrder",
+    "GraphPuzzles.Cuts.CutUncrossing",
+    "GraphPuzzles.Cuts.CutWitness",
+    "GraphPuzzles.Cuts.InadmissibleCut",
+    "GraphPuzzles.Cuts.MatchingFaces",
+    "GraphPuzzles.Cuts.MinimalCutReduction",
+    "GraphPuzzles.Cuts.MinimalCutRobust",
+    "GraphPuzzles.Cuts.MinimalTightShore",
+    "GraphPuzzles.Cuts.SeparatingCut",
+    "GraphPuzzles.Cuts.SeparatingCutLift",
+    "GraphPuzzles.Cuts.SeparatingCutMatchingPatch",
+    "GraphPuzzles.Cuts.SeparatingCutTheory",
+    "GraphPuzzles.Cuts.Shores.AdjacentShoreAttachments",
+    "GraphPuzzles.Cuts.Shores.AdjacentShorePatch",
+    "GraphPuzzles.Cuts.Shores.CrossingAttachments",
+    "GraphPuzzles.Cuts.Shores.DeletedAdjacentShoreMatching",
+    "GraphPuzzles.Cuts.Shores.DeletedShoreMatching",
+    "GraphPuzzles.Cuts.Shores.DeletedTightShore",
+    "GraphPuzzles.Cuts.Shores.PeripheralVertex",
+    "GraphPuzzles.Cuts.Shores.ShoreConnectivity",
+    "GraphPuzzles.Cuts.Shores.TerminalConnectivity",
+    "GraphPuzzles.Cuts.Shores.UniqueShoreNeighbors",
+    "GraphPuzzles.Cuts.Shores.VertexDeletionConnectivity",
+    "GraphPuzzles.Cuts.TightCutDecomposition",
+    "GraphPuzzles.Cuts.TightCutPairDeletion",
+    "GraphPuzzles.Cuts.TightCutRestriction",
+    "GraphPuzzles.Cuts.TightCutTransport",
+    "GraphPuzzles.Cuts.TrivialCutCharacteristic",
     "GraphPuzzles.CycleCovers.CircuitExtension",
     "GraphPuzzles.CycleCovers.CircuitExtensionCorollaries",
     "GraphPuzzles.CycleCovers.CircuitExtensionExact",
@@ -54,6 +117,27 @@
     "GraphPuzzles.DefectThree.MatchingTriple",
     "GraphPuzzles.DefectThree.MatchingTripleStructure",
     "GraphPuzzles.DefectThree.StrongFive",
+    "GraphPuzzles.Ears.ClosedOddEar",
+    "GraphPuzzles.Ears.EarChordHub",
+    "GraphPuzzles.Ears.EarChordRerouting",
+    "GraphPuzzles.Ears.EarCrossingRerouting",
+    "GraphPuzzles.Ears.EarExternalRerouting",
+    "GraphPuzzles.Ears.EarHubFactorCritical",
+    "GraphPuzzles.Ears.EarInternalDegree",
+    "GraphPuzzles.Ears.EarRerouting",
+    "GraphPuzzles.Ears.EdgeChainOperations",
+    "GraphPuzzles.Ears.FirstEarRotation",
+    "GraphPuzzles.Ears.IndexedOddEar",
+    "GraphPuzzles.Ears.LabeledEar",
+    "GraphPuzzles.Ears.LastOddEar",
+    "GraphPuzzles.Ears.LongEarSeparation",
+    "GraphPuzzles.Ears.MaximalOddEar",
+    "GraphPuzzles.Ears.OddEar",
+    "GraphPuzzles.Ears.OddEarAvoidance",
+    "GraphPuzzles.Ears.OddEarDecomposition",
+    "GraphPuzzles.Ears.OddEarExistence",
+    "GraphPuzzles.Ears.OddEarInduced",
+    "GraphPuzzles.Ears.OddEarMatching",
     "GraphPuzzles.Factorization.Bicritical.FactorAdjacent",
     "GraphPuzzles.Factorization.Bicritical.FactorBicriticalClass",
     "GraphPuzzles.Factorization.Bicritical.FactorCapBicritical",
@@ -130,652 +214,1757 @@
     "GraphPuzzles.Graph.Boundary",
     "GraphPuzzles.Graph.Bridgeless",
     "GraphPuzzles.Graph.Connectivity",
+    "GraphPuzzles.Graph.CubicDegrees",
     "GraphPuzzles.Graph.LoopGraphBridge",
     "GraphPuzzles.Graph.LoopMultigraph",
     "GraphPuzzles.Graph.LoopMultigraphIso",
     "GraphPuzzles.Graph.Model",
+    "GraphPuzzles.Matching.AlternatingPrefix",
+    "GraphPuzzles.Matching.Barriers.BarrierBicritical",
+    "GraphPuzzles.Matching.Barriers.BarrierCore",
+    "GraphPuzzles.Matching.Barriers.BarrierInternalEdge",
+    "GraphPuzzles.Matching.Barriers.BarrierMatching",
+    "GraphPuzzles.Matching.Barriers.BarrierObstruction",
+    "GraphPuzzles.Matching.Barriers.BarrierPrecedence",
+    "GraphPuzzles.Matching.Barriers.ClosedParts",
+    "GraphPuzzles.Matching.Barriers.ComponentRefinement",
+    "GraphPuzzles.Matching.Barriers.ComponentRetention",
+    "GraphPuzzles.Matching.Barriers.DeletedBarrierCount",
+    "GraphPuzzles.Matching.Barriers.MatchingBarrier",
+    "GraphPuzzles.Matching.Barriers.MaximalBarrier",
+    "GraphPuzzles.Matching.Barriers.PrincipalBarrier",
+    "GraphPuzzles.Matching.Barriers.RestrictedBarrier",
+    "GraphPuzzles.Matching.Barriers.VertexMatchingBarrier",
+    "GraphPuzzles.Matching.Bipartite.BipartiteHall",
+    "GraphPuzzles.Matching.Bipartite.DMBarrierShore",
+    "GraphPuzzles.Matching.Bipartite.DulmageMendelsohn",
+    "GraphPuzzles.Matching.Bipartite.FactorCriticalBipartite",
+    "GraphPuzzles.Matching.Bipartite.FactorCriticalContraction",
+    "GraphPuzzles.Matching.Bipartite.HallCore",
+    "GraphPuzzles.Matching.Bipartite.Konig",
+    "GraphPuzzles.Matching.Bipartite.TwoPoleBipartite",
+    "GraphPuzzles.Matching.Bipartite.VertexMatchingBipartite",
+    "GraphPuzzles.Matching.FourCover",
+    "GraphPuzzles.Matching.FourVertexMatching",
+    "GraphPuzzles.Matching.Fractional.FiniteCoupling",
+    "GraphPuzzles.Matching.Fractional.FractionalArithmetic",
+    "GraphPuzzles.Matching.Fractional.FractionalContraction",
+    "GraphPuzzles.Matching.Fractional.FractionalMatching",
+    "GraphPuzzles.Matching.Fractional.FractionalPeel",
+    "GraphPuzzles.Matching.Fractional.FractionalTutte",
+    "GraphPuzzles.Matching.Fractional.MatchingCombination",
+    "GraphPuzzles.Matching.Fractional.MatchingCombinationGlue",
+    "GraphPuzzles.Matching.Fractional.MatchingPolytope",
+    "GraphPuzzles.Matching.KMTheorem",
+    "GraphPuzzles.Matching.MatchingBoundarySaturation",
+    "GraphPuzzles.Matching.MatchingCommonEdge",
+    "GraphPuzzles.Matching.MatchingContraction",
+    "GraphPuzzles.Matching.MatchingCovered",
+    "GraphPuzzles.Matching.MatchingHub",
+    "GraphPuzzles.Matching.MatchingInduced",
+    "GraphPuzzles.Matching.MatchingIso",
+    "GraphPuzzles.Matching.MatchingOn",
+    "GraphPuzzles.Matching.MatchingOnRestriction",
+    "GraphPuzzles.Matching.MatchingReachability",
+    "GraphPuzzles.Matching.MatchingSubgraph",
+    "GraphPuzzles.Matching.PathMatching",
+    "GraphPuzzles.Matching.TutteBridge",
+    "GraphPuzzles.Matching.VertexMatching",
+    "GraphPuzzles.Matching.VertexMatchingExtension",
+    "GraphPuzzles.Petersen.CaseSix.PetersenCaseSixAdjacent",
+    "GraphPuzzles.Petersen.CaseSix.PetersenCaseSixBase",
+    "GraphPuzzles.Petersen.CaseSix.PetersenCaseSixOne",
+    "GraphPuzzles.Petersen.CaseSix.PetersenCaseSixOpposite",
+    "GraphPuzzles.Petersen.CaseSix.PetersenCaseSixTwo",
+    "GraphPuzzles.Petersen.Minors.DeletedPetersenFibers",
+    "GraphPuzzles.Petersen.Minors.DeletedPetersenSingleFiber",
+    "GraphPuzzles.Petersen.Minors.OneFiberPetersenContraction",
+    "GraphPuzzles.Petersen.Minors.TightMinorBipartiteFibers",
+    "GraphPuzzles.Petersen.Minors.TightMinorFibers",
+    "GraphPuzzles.Petersen.Minors.TightMinorMatching",
+    "GraphPuzzles.Petersen.Minors.TightPetersenBipartite",
+    "GraphPuzzles.Petersen.Minors.TightPetersenMinor",
+    "GraphPuzzles.Petersen.Minors.TightPetersenNeighborhood",
+    "GraphPuzzles.Petersen.Minors.TightPetersenRigidity",
+    "GraphPuzzles.Petersen.Minors.TightPetersenShore",
+    "GraphPuzzles.Petersen.Minors.TightQuotientIso",
+    "GraphPuzzles.Petersen.PetersenAddedEdge",
+    "GraphPuzzles.Petersen.PetersenAddedEdgeCertificate",
+    "GraphPuzzles.Petersen.PetersenAdjacentExpansionMatching",
+    "GraphPuzzles.Petersen.PetersenBoundaryFibers",
+    "GraphPuzzles.Petersen.PetersenCutConclusion",
+    "GraphPuzzles.Petersen.PetersenCuts",
+    "GraphPuzzles.Petersen.PetersenExpansion",
+    "GraphPuzzles.Petersen.PetersenExpansionGluing",
+    "GraphPuzzles.Petersen.PetersenFiberNeighbors",
+    "GraphPuzzles.Petersen.PetersenFiberTransport",
+    "GraphPuzzles.Petersen.PetersenInternalEdge",
+    "GraphPuzzles.Petersen.PetersenMatching",
+    "GraphPuzzles.Petersen.PetersenMatchingBoundary",
+    "GraphPuzzles.Petersen.PetersenNeighborhood",
+    "GraphPuzzles.Petersen.PetersenOneExpansionMatching",
+    "GraphPuzzles.Petersen.PetersenTwoExpansionMatching",
+    "GraphPuzzles.Petersen.PetersenTwoRestoredFibers",
+    "GraphPuzzles.Poles.Pole",
+    "GraphPuzzles.Poles.PoleAlternating",
+    "GraphPuzzles.Poles.PoleColouring",
     "GraphPuzzles.Poles.PoleKempe",
+    "GraphPuzzles.Poles.PoleReduce",
+    "GraphPuzzles.Poles.PoleRotate",
+    "GraphPuzzles.Poles.PoleSuppression",
+    "GraphPuzzles.Poles.PoleTheorem",
+    "GraphPuzzles.Poles.ThreePole",
+    "GraphPuzzles.Poles.ThreePoleTransfer",
+    "GraphPuzzles.Reduction.Induction.DeletedSeparatingCut",
+    "GraphPuzzles.Reduction.Induction.EdgeDeletionInduction",
+    "GraphPuzzles.Reduction.Induction.NearBrickCrossingInduction",
+    "GraphPuzzles.Reduction.Induction.NearBrickInduction",
+    "GraphPuzzles.Reduction.Induction.NearBrickSimpleInduction",
+    "GraphPuzzles.Reduction.Induction.WitnessContraction",
+    "GraphPuzzles.Reduction.Induction.WitnessCrossingInduction",
+    "GraphPuzzles.Reduction.Induction.WitnessInduction",
+    "GraphPuzzles.Reduction.Induction.WitnessNoncrossingInduction",
+    "GraphPuzzles.Reduction.Induction.WitnessUncrossing",
+    "GraphPuzzles.Reduction.Parallel.ParallelContraction",
+    "GraphPuzzles.Reduction.Parallel.ParallelCutTransport",
+    "GraphPuzzles.Reduction.Parallel.ParallelEdges",
+    "GraphPuzzles.Reduction.Parallel.ParallelInduction",
+    "GraphPuzzles.Reduction.Parallel.ParallelMatchingTransport",
+    "GraphPuzzles.Reduction.Parallel.ParallelPetersenTransport",
+    "GraphPuzzles.Reduction.Parallel.ParallelReduction",
+    "GraphPuzzles.Reduction.Parallel.ParallelSimplification",
+    "GraphPuzzles.Reduction.Parallel.ParallelStructureTransport",
+    "GraphPuzzles.Reduction.Parallel.SpanningSimpleIso",
+    "GraphPuzzles.Reduction.Removable.DependenceClass",
+    "GraphPuzzles.Reduction.Removable.DependentAvoidance",
+    "GraphPuzzles.Reduction.Removable.DependentBarrier",
+    "GraphPuzzles.Reduction.Removable.DependentBipartite",
+    "GraphPuzzles.Reduction.Removable.DoubletonBipartite",
+    "GraphPuzzles.Reduction.Removable.DoubletonCrossing",
+    "GraphPuzzles.Reduction.Removable.EdgeConnectivity",
+    "GraphPuzzles.Reduction.Removable.EdgeDependence",
+    "GraphPuzzles.Reduction.Removable.EdgeRestriction",
+    "GraphPuzzles.Reduction.Removable.RemovableClass",
+    "GraphPuzzles.Reduction.Removable.RemovableClassContraction",
+    "GraphPuzzles.Reduction.Removable.RemovableContraction",
+    "GraphPuzzles.Reduction.Removable.RemovableContractionBasics",
+    "GraphPuzzles.Reduction.Removable.RemovableCut",
+    "GraphPuzzles.Reduction.Removable.RemovableNearBrick",
+    "GraphPuzzles.Reduction.Wheels.CubicTwoWheelReduction",
+    "GraphPuzzles.Reduction.Wheels.DegreeTwoContraction",
+    "GraphPuzzles.Reduction.Wheels.OddWheel",
+    "GraphPuzzles.Reduction.Wheels.OddWheelBicontraction",
+    "GraphPuzzles.Reduction.Wheels.OddWheelCutDeletion",
+    "GraphPuzzles.Reduction.Wheels.OddWheelCutReduction",
+    "GraphPuzzles.Reduction.Wheels.OddWheelNearBrick",
+    "GraphPuzzles.Reduction.Wheels.OddWheelRemovability",
+    "GraphPuzzles.Reduction.Wheels.OddWheelShoreBicontraction",
+    "GraphPuzzles.Reduction.Wheels.OddWheelStructure",
+    "GraphPuzzles.Reduction.Wheels.OddWheelTheorem",
+    "GraphPuzzles.Reduction.Wheels.OddWheelTriangle",
+    "GraphPuzzles.Reduction.Wheels.PentagonalPair",
+    "GraphPuzzles.Reduction.Wheels.PentagonalPairTransport",
+    "GraphPuzzles.Reduction.Wheels.PentagonalShore",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelBicontraction",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelCubic",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelDeletionInduction",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelNoncubic",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelNoncubicInduction",
+    "GraphPuzzles.Reduction.Wheels.TwoWheelRestorationShore",
     "GraphPuzzles.Results.CycleDoubleCover",
     "GraphPuzzles.Results.Sabidussi",
     "GraphPuzzles.Results.SnarkFactorisation",
-    "GraphPuzzles.Results.StrongFiveCycleDoubleCover"
+    "GraphPuzzles.Results.StrongFiveCycleDoubleCover",
+    "GraphPuzzles.Results.TwoCircuitFourMatchings"
   ],
   "files": [
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/.github/workflows/comparator.yml",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/.github/workflows/comparator.yml",
       "target": ".github/workflows/comparator.yml"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/.github/workflows/lean.yml",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/.github/workflows/lean.yml",
       "target": ".github/workflows/lean.yml"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/.gitignore",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/.gitignore",
       "target": ".gitignore"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/CITATION.cff",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/CITATION.cff",
       "target": "CITATION.cff"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles.lean",
       "target": "GraphPuzzles.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Audit.lean",
       "target": "GraphPuzzles/Audit.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit/SnarkFactorisation.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Audit/SnarkFactorisation.lean",
       "target": "GraphPuzzles/Audit/SnarkFactorisation.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Audit/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/CircuitEulerTour.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Audit/TwoCircuitFourMatchings.lean",
+      "target": "GraphPuzzles/Audit/TwoCircuitFourMatchings.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BicriticalSplicing.lean",
+      "target": "GraphPuzzles/Bricks/BicriticalSplicing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BraceContraction.lean",
+      "target": "GraphPuzzles/Bricks/BraceContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BraceRemovability.lean",
+      "target": "GraphPuzzles/Bricks/BraceRemovability.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BraceRemovabilityLarge.lean",
+      "target": "GraphPuzzles/Bricks/BraceRemovabilityLarge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/Brick.lean",
+      "target": "GraphPuzzles/Bricks/Brick.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BrickCharacterization.lean",
+      "target": "GraphPuzzles/Bricks/BrickCharacterization.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BrickConnectivity.lean",
+      "target": "GraphPuzzles/Bricks/BrickConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BrickEdgeConnectivity.lean",
+      "target": "GraphPuzzles/Bricks/BrickEdgeConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/BrickSplicing.lean",
+      "target": "GraphPuzzles/Bricks/BrickSplicing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/CamposLucchesi.lean",
+      "target": "GraphPuzzles/Bricks/CamposLucchesi.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/NearBrick.lean",
+      "target": "GraphPuzzles/Bricks/NearBrick.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/NearBrickCuts.lean",
+      "target": "GraphPuzzles/Bricks/NearBrickCuts.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Bricks/RobustNearBrick.lean",
+      "target": "GraphPuzzles/Bricks/RobustNearBrick.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Circuits/CircuitArcs.lean",
+      "target": "GraphPuzzles/Circuits/CircuitArcs.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Circuits/CircuitEulerTour.lean",
       "target": "GraphPuzzles/Circuits/CircuitEulerTour.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/OrdinaryCircuit.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Circuits/OrdinaryCircuit.lean",
       "target": "GraphPuzzles/Circuits/OrdinaryCircuit.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Circuits/ParityColoring.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Circuits/ParityColoring.lean",
       "target": "GraphPuzzles/Circuits/ParityColoring.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims.lean",
       "target": "GraphPuzzles/Claims.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/CycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims/CycleDoubleCover.lean",
       "target": "GraphPuzzles/Claims/CycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/Sabidussi.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims/Sabidussi.lean",
       "target": "GraphPuzzles/Claims/Sabidussi.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/SnarkFactorisation.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims/SnarkFactorisation.lean",
       "target": "GraphPuzzles/Claims/SnarkFactorisation.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Claims/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Color.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Claims/TwoCircuitFourMatchings.lean",
+      "target": "GraphPuzzles/Claims/TwoCircuitFourMatchings.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/Color.lean",
       "target": "GraphPuzzles/Core/Color.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/CyclicWord.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/CyclicWord.lean",
       "target": "GraphPuzzles/Core/CyclicWord.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/FiniteCounts.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/FiniteCounts.lean",
       "target": "GraphPuzzles/Core/FiniteCounts.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/LocalPattern.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/LocalPattern.lean",
       "target": "GraphPuzzles/Core/LocalPattern.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/OddBalance.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/OddBalance.lean",
       "target": "GraphPuzzles/Core/OddBalance.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Parity.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/Parity.lean",
       "target": "GraphPuzzles/Core/Parity.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Core/Tactics.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Core/Tactics.lean",
       "target": "GraphPuzzles/Core/Tactics.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtension.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CohesiveCrossingTransport.lean",
+      "target": "GraphPuzzles/Cuts/CohesiveCrossingTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CohesiveCuts.lean",
+      "target": "GraphPuzzles/Cuts/CohesiveCuts.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CohesiveUncrossing.lean",
+      "target": "GraphPuzzles/Cuts/CohesiveUncrossing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/BipartiteContraction.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/BipartiteContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/BipartiteExpansion.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/BipartiteExpansion.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/BipartiteFiberLift.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/BipartiteFiberLift.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionBarrierLift.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionBarrierLift.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionBarrierStructure.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionBarrierStructure.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionCommute.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionCommute.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionConnectivity.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionIso.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionIso.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/ContractionTwoSeparation.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/ContractionTwoSeparation.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/DoubleBicontraction.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/DoubleBicontraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Contraction/EndpointIsoContraction.lean",
+      "target": "GraphPuzzles/Cuts/Contraction/EndpointIsoContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CrossingTightCut.lean",
+      "target": "GraphPuzzles/Cuts/CrossingTightCut.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutCharacteristic.lean",
+      "target": "GraphPuzzles/Cuts/CutCharacteristic.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutCrossing.lean",
+      "target": "GraphPuzzles/Cuts/CutCrossing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutDegreeBound.lean",
+      "target": "GraphPuzzles/Cuts/CutDegreeBound.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutOrder.lean",
+      "target": "GraphPuzzles/Cuts/CutOrder.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutUncrossing.lean",
+      "target": "GraphPuzzles/Cuts/CutUncrossing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/CutWitness.lean",
+      "target": "GraphPuzzles/Cuts/CutWitness.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/InadmissibleCut.lean",
+      "target": "GraphPuzzles/Cuts/InadmissibleCut.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/MatchingFaces.lean",
+      "target": "GraphPuzzles/Cuts/MatchingFaces.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/MinimalCutReduction.lean",
+      "target": "GraphPuzzles/Cuts/MinimalCutReduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/MinimalCutRobust.lean",
+      "target": "GraphPuzzles/Cuts/MinimalCutRobust.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/MinimalTightShore.lean",
+      "target": "GraphPuzzles/Cuts/MinimalTightShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/SeparatingCut.lean",
+      "target": "GraphPuzzles/Cuts/SeparatingCut.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/SeparatingCutLift.lean",
+      "target": "GraphPuzzles/Cuts/SeparatingCutLift.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/SeparatingCutMatchingPatch.lean",
+      "target": "GraphPuzzles/Cuts/SeparatingCutMatchingPatch.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/SeparatingCutTheory.lean",
+      "target": "GraphPuzzles/Cuts/SeparatingCutTheory.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/AdjacentShoreAttachments.lean",
+      "target": "GraphPuzzles/Cuts/Shores/AdjacentShoreAttachments.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/AdjacentShorePatch.lean",
+      "target": "GraphPuzzles/Cuts/Shores/AdjacentShorePatch.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/CrossingAttachments.lean",
+      "target": "GraphPuzzles/Cuts/Shores/CrossingAttachments.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/DeletedAdjacentShoreMatching.lean",
+      "target": "GraphPuzzles/Cuts/Shores/DeletedAdjacentShoreMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/DeletedShoreMatching.lean",
+      "target": "GraphPuzzles/Cuts/Shores/DeletedShoreMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/DeletedTightShore.lean",
+      "target": "GraphPuzzles/Cuts/Shores/DeletedTightShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/PeripheralVertex.lean",
+      "target": "GraphPuzzles/Cuts/Shores/PeripheralVertex.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/ShoreConnectivity.lean",
+      "target": "GraphPuzzles/Cuts/Shores/ShoreConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/TerminalConnectivity.lean",
+      "target": "GraphPuzzles/Cuts/Shores/TerminalConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/UniqueShoreNeighbors.lean",
+      "target": "GraphPuzzles/Cuts/Shores/UniqueShoreNeighbors.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/Shores/VertexDeletionConnectivity.lean",
+      "target": "GraphPuzzles/Cuts/Shores/VertexDeletionConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/TightCutDecomposition.lean",
+      "target": "GraphPuzzles/Cuts/TightCutDecomposition.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/TightCutPairDeletion.lean",
+      "target": "GraphPuzzles/Cuts/TightCutPairDeletion.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/TightCutRestriction.lean",
+      "target": "GraphPuzzles/Cuts/TightCutRestriction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/TightCutTransport.lean",
+      "target": "GraphPuzzles/Cuts/TightCutTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Cuts/TrivialCutCharacteristic.lean",
+      "target": "GraphPuzzles/Cuts/TrivialCutCharacteristic.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/CircuitExtension.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtension.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtensionCorollaries.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionExact.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/CircuitExtensionExact.lean",
       "target": "GraphPuzzles/CycleCovers/CircuitExtensionExact.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/CoverTransportBasic.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/CoverTransportBasic.lean",
       "target": "GraphPuzzles/CycleCovers/CoverTransportBasic.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuit.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuit.lean",
       "target": "GraphPuzzles/CycleCovers/DominatingCircuit.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuitCore.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/DominatingCircuitCore.lean",
       "target": "GraphPuzzles/CycleCovers/DominatingCircuitCore.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Decomposition.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/Decomposition.lean",
       "target": "GraphPuzzles/CycleCovers/General/Decomposition.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/README.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/README.md",
       "target": "GraphPuzzles/CycleCovers/General/README.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Statement.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/Statement.lean",
       "target": "GraphPuzzles/CycleCovers/General/Statement.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Theorem.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/Theorem.lean",
       "target": "GraphPuzzles/CycleCovers/General/Theorem.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Transport.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/Transport.lean",
       "target": "GraphPuzzles/CycleCovers/General/Transport.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/General/Upstream.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/General/Upstream.lean",
       "target": "GraphPuzzles/CycleCovers/General/Upstream.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/StrongFive.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/StrongFive.lean",
       "target": "GraphPuzzles/CycleCovers/StrongFive.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/StrongProperties.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/StrongProperties.lean",
       "target": "GraphPuzzles/CycleCovers/StrongProperties.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/TJoin.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/TJoin.lean",
       "target": "GraphPuzzles/CycleCovers/TJoin.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/CycleCovers/TwoCircuitFactor.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/CycleCovers/TwoCircuitFactor.lean",
       "target": "GraphPuzzles/CycleCovers/TwoCircuitFactor.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/DefectThreeCore.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/DefectThreeCore.lean",
       "target": "GraphPuzzles/DefectThree/DefectThreeCore.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonCore.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/HexagonCore.lean",
       "target": "GraphPuzzles/DefectThree/HexagonCore.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonDisjointFive.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/HexagonDisjointFive.lean",
       "target": "GraphPuzzles/DefectThree/HexagonDisjointFive.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonMatching.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/HexagonMatching.lean",
       "target": "GraphPuzzles/DefectThree/HexagonMatching.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonPairing.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/HexagonPairing.lean",
       "target": "GraphPuzzles/DefectThree/HexagonPairing.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/HexagonStrong.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/HexagonStrong.lean",
       "target": "GraphPuzzles/DefectThree/HexagonStrong.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/MatchingTriple.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/MatchingTriple.lean",
       "target": "GraphPuzzles/DefectThree/MatchingTriple.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/MatchingTripleStructure.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/MatchingTripleStructure.lean",
       "target": "GraphPuzzles/DefectThree/MatchingTripleStructure.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/DefectThree/StrongFive.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/DefectThree/StrongFive.lean",
       "target": "GraphPuzzles/DefectThree/StrongFive.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/ClosedOddEar.lean",
+      "target": "GraphPuzzles/Ears/ClosedOddEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarChordHub.lean",
+      "target": "GraphPuzzles/Ears/EarChordHub.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarChordRerouting.lean",
+      "target": "GraphPuzzles/Ears/EarChordRerouting.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarCrossingRerouting.lean",
+      "target": "GraphPuzzles/Ears/EarCrossingRerouting.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarExternalRerouting.lean",
+      "target": "GraphPuzzles/Ears/EarExternalRerouting.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarHubFactorCritical.lean",
+      "target": "GraphPuzzles/Ears/EarHubFactorCritical.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarInternalDegree.lean",
+      "target": "GraphPuzzles/Ears/EarInternalDegree.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EarRerouting.lean",
+      "target": "GraphPuzzles/Ears/EarRerouting.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/EdgeChainOperations.lean",
+      "target": "GraphPuzzles/Ears/EdgeChainOperations.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/FirstEarRotation.lean",
+      "target": "GraphPuzzles/Ears/FirstEarRotation.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/IndexedOddEar.lean",
+      "target": "GraphPuzzles/Ears/IndexedOddEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/LabeledEar.lean",
+      "target": "GraphPuzzles/Ears/LabeledEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/LastOddEar.lean",
+      "target": "GraphPuzzles/Ears/LastOddEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/LongEarSeparation.lean",
+      "target": "GraphPuzzles/Ears/LongEarSeparation.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/MaximalOddEar.lean",
+      "target": "GraphPuzzles/Ears/MaximalOddEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEar.lean",
+      "target": "GraphPuzzles/Ears/OddEar.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEarAvoidance.lean",
+      "target": "GraphPuzzles/Ears/OddEarAvoidance.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEarDecomposition.lean",
+      "target": "GraphPuzzles/Ears/OddEarDecomposition.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEarExistence.lean",
+      "target": "GraphPuzzles/Ears/OddEarExistence.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEarInduced.lean",
+      "target": "GraphPuzzles/Ears/OddEarInduced.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Ears/OddEarMatching.lean",
+      "target": "GraphPuzzles/Ears/OddEarMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorAdjacent.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorBicriticalClass.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicritical.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalA.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorCapBicriticalB.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorCapColouring.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorCutEdges.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorFourCycle.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirth.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirth.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorGirth.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorGirthCombinatorics.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorHalfEdgeMap.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinBicritical.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinColouring.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorJoinTransfer.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorParity.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Bicritical/FactorParity.lean",
       "target": "GraphPuzzles/Factorization/Bicritical/FactorParity.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorCanon.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorCanon.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorCanon.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCC.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCC.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDblCC.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDblCJ.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDblCommon.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJC.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJC.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDblJC.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDblJJ.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamond.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamond.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDiamond.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean",
       "target": "GraphPuzzles/Factorization/Diamond/FactorDiamondMain.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorAssoc.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorAssoc.lean",
       "target": "GraphPuzzles/Factorization/FactorAssoc.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorAtom.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorAtom.lean",
       "target": "GraphPuzzles/Factorization/FactorAtom.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorChain.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorChain.lean",
       "target": "GraphPuzzles/Factorization/FactorChain.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorCuts.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorCuts.lean",
       "target": "GraphPuzzles/Factorization/FactorCuts.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorGlue.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorGlue.lean",
       "target": "GraphPuzzles/Factorization/FactorGlue.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorHeredity.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorHeredity.lean",
       "target": "GraphPuzzles/Factorization/FactorHeredity.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorJoinCap.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorJoinCap.lean",
       "target": "GraphPuzzles/Factorization/FactorJoinCap.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorMain.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorMain.lean",
       "target": "GraphPuzzles/Factorization/FactorMain.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorNineTwo.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorNineTwo.lean",
       "target": "GraphPuzzles/Factorization/FactorNineTwo.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorPoleIso.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorPoleIso.lean",
       "target": "GraphPuzzles/Factorization/FactorPoleIso.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorProjection.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorProjection.lean",
       "target": "GraphPuzzles/Factorization/FactorProjection.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasi.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorQuasi.lean",
       "target": "GraphPuzzles/Factorization/FactorQuasi.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasiHelpers.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorQuasiHelpers.lean",
       "target": "GraphPuzzles/Factorization/FactorQuasiHelpers.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorQuasiStructure.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorQuasiStructure.lean",
       "target": "GraphPuzzles/Factorization/FactorQuasiStructure.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorRecap.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorRecap.lean",
       "target": "GraphPuzzles/Factorization/FactorRecap.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorSystem.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorSystem.lean",
       "target": "GraphPuzzles/Factorization/FactorSystem.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/FactorTransport.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/FactorTransport.lean",
       "target": "GraphPuzzles/Factorization/FactorTransport.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/DotProduct.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoCapCycle.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoClass.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescent.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoDescentCore.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoJoinCycle.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean",
       "target": "GraphPuzzles/Factorization/Hypohamiltonian/FactorHypoUnique.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermClosure.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermColouring.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermCut.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermCut.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermCut.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermDefs.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermGirth.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermPairing.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean",
       "target": "GraphPuzzles/Factorization/Permutation/FactorPermSegment.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraph.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraph.lean",
       "target": "GraphPuzzles/FinGraph/FinGraph.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphBetween.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphBetween.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphBetween.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphColourOpen.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphColourOpen.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphColourOpen.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphColouring.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphColouring.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphColouring.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletion.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletion.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCompletion.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCompletionCubic.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCompletionCuts.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionIso.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCompletionIso.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCompletionIso.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCycleCut.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCycleCut.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCycleCut.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphCycles.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphCycles.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphCycles.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphHypo.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphHypo.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphHypo.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphHypoBicritical.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIso.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphIso.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphIso.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoColour.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoColour.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphIsoColour.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoMk.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphIsoMk.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphIsoMk.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphKempe.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphKempe.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphKempe.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphPaths.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphPaths.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphPaths.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphSmallCycles.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphSmallCycles.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphSmallCycles.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/FinGraph/FinGraphTypes.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/FinGraph/FinGraphTypes.lean",
       "target": "GraphPuzzles/FinGraph/FinGraphTypes.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Boundary.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/Boundary.lean",
       "target": "GraphPuzzles/Graph/Boundary.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Bridgeless.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/Bridgeless.lean",
       "target": "GraphPuzzles/Graph/Bridgeless.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Connectivity.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/Connectivity.lean",
       "target": "GraphPuzzles/Graph/Connectivity.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopGraphBridge.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/CubicDegrees.lean",
+      "target": "GraphPuzzles/Graph/CubicDegrees.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/LoopGraphBridge.lean",
       "target": "GraphPuzzles/Graph/LoopGraphBridge.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopMultigraph.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/LoopMultigraph.lean",
       "target": "GraphPuzzles/Graph/LoopMultigraph.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/LoopMultigraphIso.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/LoopMultigraphIso.lean",
       "target": "GraphPuzzles/Graph/LoopMultigraphIso.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Graph/Model.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Graph/Model.lean",
       "target": "GraphPuzzles/Graph/Model.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Poles/PoleKempe.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/AlternatingPrefix.lean",
+      "target": "GraphPuzzles/Matching/AlternatingPrefix.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierBicritical.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierBicritical.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierCore.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierCore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierInternalEdge.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierInternalEdge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierMatching.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierObstruction.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierObstruction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/BarrierPrecedence.lean",
+      "target": "GraphPuzzles/Matching/Barriers/BarrierPrecedence.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/ClosedParts.lean",
+      "target": "GraphPuzzles/Matching/Barriers/ClosedParts.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/ComponentRefinement.lean",
+      "target": "GraphPuzzles/Matching/Barriers/ComponentRefinement.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/ComponentRetention.lean",
+      "target": "GraphPuzzles/Matching/Barriers/ComponentRetention.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/DeletedBarrierCount.lean",
+      "target": "GraphPuzzles/Matching/Barriers/DeletedBarrierCount.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/MatchingBarrier.lean",
+      "target": "GraphPuzzles/Matching/Barriers/MatchingBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/MaximalBarrier.lean",
+      "target": "GraphPuzzles/Matching/Barriers/MaximalBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/PrincipalBarrier.lean",
+      "target": "GraphPuzzles/Matching/Barriers/PrincipalBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/RestrictedBarrier.lean",
+      "target": "GraphPuzzles/Matching/Barriers/RestrictedBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Barriers/VertexMatchingBarrier.lean",
+      "target": "GraphPuzzles/Matching/Barriers/VertexMatchingBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/BipartiteHall.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/BipartiteHall.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/DMBarrierShore.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/DMBarrierShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/DulmageMendelsohn.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/DulmageMendelsohn.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/FactorCriticalBipartite.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/FactorCriticalBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/FactorCriticalContraction.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/FactorCriticalContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/HallCore.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/HallCore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/Konig.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/Konig.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/TwoPoleBipartite.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/TwoPoleBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Bipartite/VertexMatchingBipartite.lean",
+      "target": "GraphPuzzles/Matching/Bipartite/VertexMatchingBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/FourCover.lean",
+      "target": "GraphPuzzles/Matching/FourCover.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/FourVertexMatching.lean",
+      "target": "GraphPuzzles/Matching/FourVertexMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FiniteCoupling.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FiniteCoupling.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FractionalArithmetic.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FractionalArithmetic.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FractionalContraction.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FractionalContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FractionalMatching.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FractionalMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FractionalPeel.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FractionalPeel.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/FractionalTutte.lean",
+      "target": "GraphPuzzles/Matching/Fractional/FractionalTutte.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/MatchingCombination.lean",
+      "target": "GraphPuzzles/Matching/Fractional/MatchingCombination.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/MatchingCombinationGlue.lean",
+      "target": "GraphPuzzles/Matching/Fractional/MatchingCombinationGlue.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/Fractional/MatchingPolytope.lean",
+      "target": "GraphPuzzles/Matching/Fractional/MatchingPolytope.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/KMTheorem.lean",
+      "target": "GraphPuzzles/Matching/KMTheorem.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingBoundarySaturation.lean",
+      "target": "GraphPuzzles/Matching/MatchingBoundarySaturation.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingCommonEdge.lean",
+      "target": "GraphPuzzles/Matching/MatchingCommonEdge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingContraction.lean",
+      "target": "GraphPuzzles/Matching/MatchingContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingCovered.lean",
+      "target": "GraphPuzzles/Matching/MatchingCovered.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingHub.lean",
+      "target": "GraphPuzzles/Matching/MatchingHub.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingInduced.lean",
+      "target": "GraphPuzzles/Matching/MatchingInduced.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingIso.lean",
+      "target": "GraphPuzzles/Matching/MatchingIso.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingOn.lean",
+      "target": "GraphPuzzles/Matching/MatchingOn.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingOnRestriction.lean",
+      "target": "GraphPuzzles/Matching/MatchingOnRestriction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingReachability.lean",
+      "target": "GraphPuzzles/Matching/MatchingReachability.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/MatchingSubgraph.lean",
+      "target": "GraphPuzzles/Matching/MatchingSubgraph.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/PathMatching.lean",
+      "target": "GraphPuzzles/Matching/PathMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/TutteBridge.lean",
+      "target": "GraphPuzzles/Matching/TutteBridge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/VertexMatching.lean",
+      "target": "GraphPuzzles/Matching/VertexMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Matching/VertexMatchingExtension.lean",
+      "target": "GraphPuzzles/Matching/VertexMatchingExtension.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/CaseSix/PetersenCaseSixAdjacent.lean",
+      "target": "GraphPuzzles/Petersen/CaseSix/PetersenCaseSixAdjacent.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/CaseSix/PetersenCaseSixBase.lean",
+      "target": "GraphPuzzles/Petersen/CaseSix/PetersenCaseSixBase.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/CaseSix/PetersenCaseSixOne.lean",
+      "target": "GraphPuzzles/Petersen/CaseSix/PetersenCaseSixOne.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/CaseSix/PetersenCaseSixOpposite.lean",
+      "target": "GraphPuzzles/Petersen/CaseSix/PetersenCaseSixOpposite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/CaseSix/PetersenCaseSixTwo.lean",
+      "target": "GraphPuzzles/Petersen/CaseSix/PetersenCaseSixTwo.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/DeletedPetersenFibers.lean",
+      "target": "GraphPuzzles/Petersen/Minors/DeletedPetersenFibers.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/DeletedPetersenSingleFiber.lean",
+      "target": "GraphPuzzles/Petersen/Minors/DeletedPetersenSingleFiber.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/OneFiberPetersenContraction.lean",
+      "target": "GraphPuzzles/Petersen/Minors/OneFiberPetersenContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightMinorBipartiteFibers.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightMinorBipartiteFibers.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightMinorFibers.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightMinorFibers.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightMinorMatching.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightMinorMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightPetersenBipartite.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightPetersenBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightPetersenMinor.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightPetersenMinor.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightPetersenNeighborhood.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightPetersenNeighborhood.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightPetersenRigidity.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightPetersenRigidity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightPetersenShore.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightPetersenShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/Minors/TightQuotientIso.lean",
+      "target": "GraphPuzzles/Petersen/Minors/TightQuotientIso.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenAddedEdge.lean",
+      "target": "GraphPuzzles/Petersen/PetersenAddedEdge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenAddedEdgeCertificate.lean",
+      "target": "GraphPuzzles/Petersen/PetersenAddedEdgeCertificate.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenAdjacentExpansionMatching.lean",
+      "target": "GraphPuzzles/Petersen/PetersenAdjacentExpansionMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenBoundaryFibers.lean",
+      "target": "GraphPuzzles/Petersen/PetersenBoundaryFibers.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenCutConclusion.lean",
+      "target": "GraphPuzzles/Petersen/PetersenCutConclusion.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenCuts.lean",
+      "target": "GraphPuzzles/Petersen/PetersenCuts.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenExpansion.lean",
+      "target": "GraphPuzzles/Petersen/PetersenExpansion.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenExpansionGluing.lean",
+      "target": "GraphPuzzles/Petersen/PetersenExpansionGluing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenFiberNeighbors.lean",
+      "target": "GraphPuzzles/Petersen/PetersenFiberNeighbors.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenFiberTransport.lean",
+      "target": "GraphPuzzles/Petersen/PetersenFiberTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenInternalEdge.lean",
+      "target": "GraphPuzzles/Petersen/PetersenInternalEdge.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenMatching.lean",
+      "target": "GraphPuzzles/Petersen/PetersenMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenMatchingBoundary.lean",
+      "target": "GraphPuzzles/Petersen/PetersenMatchingBoundary.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenNeighborhood.lean",
+      "target": "GraphPuzzles/Petersen/PetersenNeighborhood.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenOneExpansionMatching.lean",
+      "target": "GraphPuzzles/Petersen/PetersenOneExpansionMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenTwoExpansionMatching.lean",
+      "target": "GraphPuzzles/Petersen/PetersenTwoExpansionMatching.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Petersen/PetersenTwoRestoredFibers.lean",
+      "target": "GraphPuzzles/Petersen/PetersenTwoRestoredFibers.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/Pole.lean",
+      "target": "GraphPuzzles/Poles/Pole.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleAlternating.lean",
+      "target": "GraphPuzzles/Poles/PoleAlternating.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleColouring.lean",
+      "target": "GraphPuzzles/Poles/PoleColouring.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleKempe.lean",
       "target": "GraphPuzzles/Poles/PoleKempe.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/README.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleReduce.lean",
+      "target": "GraphPuzzles/Poles/PoleReduce.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleRotate.lean",
+      "target": "GraphPuzzles/Poles/PoleRotate.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleSuppression.lean",
+      "target": "GraphPuzzles/Poles/PoleSuppression.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/PoleTheorem.lean",
+      "target": "GraphPuzzles/Poles/PoleTheorem.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/ThreePole.lean",
+      "target": "GraphPuzzles/Poles/ThreePole.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Poles/ThreePoleTransfer.lean",
+      "target": "GraphPuzzles/Poles/ThreePoleTransfer.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/README.md",
       "target": "GraphPuzzles/README.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/CycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/DeletedSeparatingCut.lean",
+      "target": "GraphPuzzles/Reduction/Induction/DeletedSeparatingCut.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/EdgeDeletionInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/EdgeDeletionInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/NearBrickCrossingInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/NearBrickCrossingInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/NearBrickInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/NearBrickInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/NearBrickSimpleInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/NearBrickSimpleInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/WitnessContraction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/WitnessContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/WitnessCrossingInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/WitnessCrossingInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/WitnessInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/WitnessInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/WitnessNoncrossingInduction.lean",
+      "target": "GraphPuzzles/Reduction/Induction/WitnessNoncrossingInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Induction/WitnessUncrossing.lean",
+      "target": "GraphPuzzles/Reduction/Induction/WitnessUncrossing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelContraction.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelCutTransport.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelCutTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelEdges.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelEdges.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelInduction.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelMatchingTransport.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelMatchingTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelPetersenTransport.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelPetersenTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelReduction.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelReduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelSimplification.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelSimplification.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/ParallelStructureTransport.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/ParallelStructureTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Parallel/SpanningSimpleIso.lean",
+      "target": "GraphPuzzles/Reduction/Parallel/SpanningSimpleIso.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DependenceClass.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DependenceClass.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DependentAvoidance.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DependentAvoidance.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DependentBarrier.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DependentBarrier.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DependentBipartite.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DependentBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DoubletonBipartite.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DoubletonBipartite.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/DoubletonCrossing.lean",
+      "target": "GraphPuzzles/Reduction/Removable/DoubletonCrossing.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/EdgeConnectivity.lean",
+      "target": "GraphPuzzles/Reduction/Removable/EdgeConnectivity.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/EdgeDependence.lean",
+      "target": "GraphPuzzles/Reduction/Removable/EdgeDependence.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/EdgeRestriction.lean",
+      "target": "GraphPuzzles/Reduction/Removable/EdgeRestriction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableClass.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableClass.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableClassContraction.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableClassContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableContraction.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableContractionBasics.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableContractionBasics.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableCut.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableCut.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Removable/RemovableNearBrick.lean",
+      "target": "GraphPuzzles/Reduction/Removable/RemovableNearBrick.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/CubicTwoWheelReduction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/CubicTwoWheelReduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/DegreeTwoContraction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/DegreeTwoContraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheel.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheel.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelBicontraction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelBicontraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelCutDeletion.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelCutDeletion.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelCutReduction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelCutReduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelNearBrick.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelNearBrick.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelRemovability.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelRemovability.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelShoreBicontraction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelShoreBicontraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelStructure.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelStructure.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelTheorem.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelTheorem.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/OddWheelTriangle.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/OddWheelTriangle.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/PentagonalPair.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/PentagonalPair.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/PentagonalPairTransport.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/PentagonalPairTransport.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/PentagonalShore.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/PentagonalShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelBicontraction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelBicontraction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelCubic.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelCubic.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelDeletionInduction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelDeletionInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelNoncubic.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelNoncubic.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelNoncubicInduction.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelNoncubicInduction.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Reduction/Wheels/TwoWheelRestorationShore.lean",
+      "target": "GraphPuzzles/Reduction/Wheels/TwoWheelRestorationShore.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Results/CycleDoubleCover.lean",
       "target": "GraphPuzzles/Results/CycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/Sabidussi.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Results/Sabidussi.lean",
       "target": "GraphPuzzles/Results/Sabidussi.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/SnarkFactorisation.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Results/SnarkFactorisation.lean",
       "target": "GraphPuzzles/Results/SnarkFactorisation.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean",
       "target": "GraphPuzzles/Results/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/LICENSE",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/GraphPuzzles/Results/TwoCircuitFourMatchings.lean",
+      "target": "GraphPuzzles/Results/TwoCircuitFourMatchings.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/LICENSE",
       "target": "LICENSE"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/README.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/README.md",
       "target": "README.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/RELEASE_NOTES.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/RELEASE_NOTES.md",
       "target": "RELEASE_NOTES.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/SabidussiChallenge.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/SabidussiChallenge.lean",
       "target": "SabidussiChallenge.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/SabidussiSolution.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/SabidussiSolution.lean",
       "target": "SabidussiSolution.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/VERIFICATION.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/VERIFICATION.md",
       "target": "VERIFICATION.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/CycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/checks/CycleDoubleCover.lean",
       "target": "checks/CycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/SnarkFactorisation.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/checks/SnarkFactorisation.lean",
       "target": "checks/SnarkFactorisation.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/checks/StrongFiveCycleDoubleCover.lean",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/checks/StrongFiveCycleDoubleCover.lean",
       "target": "checks/StrongFiveCycleDoubleCover.lean"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/comparator/sabidussi_compatibility.json",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/checks/TwoCircuitFourMatchings.lean",
+      "target": "checks/TwoCircuitFourMatchings.lean"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/comparator/sabidussi_compatibility.json",
       "target": "comparator/sabidussi_compatibility.json"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/formalization.yaml",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/formalization.yaml",
       "target": "formalization.yaml"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/lake-manifest.json",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/lake-manifest.json",
       "target": "lake-manifest.json"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/lakefile.toml",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/lakefile.toml",
       "target": "lakefile.toml"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/lean-toolchain",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/lean-toolchain",
       "target": "lean-toolchain"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/README.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/factorisations/README.md",
       "target": "papers/factorisations/README.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/unique_factorisation_snarks.pdf",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/factorisations/unique_factorisation_snarks.pdf",
       "target": "papers/factorisations/unique_factorisation_snarks.pdf"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/factorisations/unique_factorisation_snarks.tex",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/factorisations/unique_factorisation_snarks.tex",
       "target": "papers/factorisations/unique_factorisation_snarks.tex"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/sabidussi/sabidussi_proof.pdf",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/sabidussi/sabidussi_proof.pdf",
       "target": "papers/sabidussi/sabidussi_proof.pdf"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/README.md",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/strong-five-cdc/README.md",
       "target": "papers/strong-five-cdc/README.md"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.pdf",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.pdf",
       "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.tex",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/strong-five-cdc/strong_five_cycle_double_covers.tex",
       "target": "papers/strong-five-cdc/strong_five_cycle_double_covers.tex"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/export-files/tools/publication.py",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/two-circuit-four-matchings/README.md",
+      "target": "papers/two-circuit-four-matchings/README.md"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.pdf",
+      "target": "papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.pdf"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.tex",
+      "target": "papers/two-circuit-four-matchings/two_circuit_four_perfect_matchings.tex"
+    },
+    {
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/export-files/tools/publication.py",
       "target": "tools/publication.py"
     },
     {
-      "source": "publication/releases/factorisations-v0.3.0/manifest.json",
+      "source": "publication/releases/two-circuit-four-matchings-v0.4.0/manifest.json",
       "target": "publication/public-manifest.json"
     }
-  ],
-  "release": {
-    "version": "0.3.0",
-    "date": "2026-10-07",
-    "paper": "papers/factorisations/unique_factorisation_snarks.tex",
-    "paper_pdf": "papers/factorisations/unique_factorisation_snarks.pdf",
-    "strong_five_paper": "papers/strong-five-cdc/strong_five_cycle_double_covers.pdf",
-    "sabidussi_paper": "papers/sabidussi/sabidussi_proof.pdf"
-  }
+  ]
 }
