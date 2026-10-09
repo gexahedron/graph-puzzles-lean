@@ -1,0 +1,467 @@
+% !TEX TS-program = pdflatexmk
+\RequirePackage{iftex}
+\ifPDFTeX
+  \pdfoutput=1
+  \pdfminorversion=7
+  \input glyphtounicode
+  \pdfgentounicode=1
+\fi
+\ifdefined\pdfinterwordspaceon\pdfinterwordspaceon\fi
+\documentclass[justified,notoc,twoside,nobib,nofonts]{tufte-handout}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\ifPDFTeX
+  \usepackage[tracking]{microtype}
+\else
+  \usepackage{microtype}
+\fi
+\usepackage{amsthm,thmtools,thm-restate}
+\usepackage{amsmath,amssymb,mathtools}
+% KPfonts text, with the same New PX maths as the font comparison.
+\usepackage[nomath,oldstylenums]{kpfonts}
+\edef\KPbodyfamily{\rmdefault}
+\renewcommand{\rmdefault}{zpltlf}
+\usepackage{newpxmath}
+\let\rmdefault\KPbodyfamily
+\renewcommand{\familydefault}{\rmdefault}
+
+% BaskervilleF headings use native Type 1 fonts and work with pdfLaTeX.
+\newcommand{\BaskervilleHeading}{%
+  \fontencoding{T1}\fontfamily{BaskervilleF-LF}%
+  \fontseries{m}\fontshape{n}\selectfont}
+\titleformat{\section}[hang]
+  {\BaskervilleHeading\fontsize{15}{18}\selectfont}
+  {\thesection}{1em}{}
+\titleformat{\subsection}[hang]
+  {\BaskervilleHeading\fontsize{13}{16}\selectfont}
+  {\thesubsection}{1em}{}
+\titleformat{\paragraph}[runin]
+  {\BaskervilleHeading}{\theparagraph}{1em}{}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\maketitle}{\LARGE\itshape\@title}
+  {\BaskervilleHeading\fontsize{22}{26}\selectfont\raggedright\@title}
+  {}{\PackageError{defect-three-oriented-cdc}{Title font patch failed}{}}
+% The author and email are printed immediately below the title block.
+\patchcmd{\maketitle}{\@@author\@@date}{\@@date}
+  {}{\PackageError{defect-three-oriented-cdc}{Author block patch failed}{}}
+\makeatother
+\usepackage{booktabs,array,enumitem,needspace}
+\usepackage[numbers,square]{natbib}
+\usepackage{xcolor}
+\usepackage{xurl,hyperref,cleveref}
+\urlstyle{same}
+\geometry{a4paper,top=23mm,bottom=46mm,left=28mm,right=56mm,marginparwidth=3cm}
+\setlength{\emergencystretch}{2em}
+\clubpenalty=10000
+\widowpenalty=10000
+\displaywidowpenalty=10000
+\setcounter{secnumdepth}{2}
+\AtBeginDocument{\fontsize{12}{15}\selectfont}
+\fancyhead[LE]{\thepage\quad\textsmallcaps{nikolay ulyanov}}
+\fancyhead[RO]{\textsmallcaps{oriented five-cycle covers}\quad\thepage}
+\declaretheorem[name=Theorem,numberwithin=section]{theorem}
+\declaretheorem[name=Proposition,sibling=theorem]{proposition}
+\declaretheorem[name=Lemma,sibling=theorem]{lemma}
+\declaretheorem[name=Corollary,sibling=theorem]{corollary}
+\declaretheorem[name=Definition,sibling=theorem,style=definition]{definition}
+\setlist[enumerate]{label=\textup{(\roman*)},leftmargin=*,itemsep=2pt,topsep=4pt}
+\crefname{theorem}{theorem}{theorems}
+\crefname{lemma}{lemma}{lemmas}
+\crefname{definition}{definition}{definitions}
+\setcitestyle{numbers,square}
+
+% Full references appear in the margin at their first citation.
+% Margin selection uses the canonical latex-margin-citations skill:
+% margin notes stay visible but do not enter the main copied text.
+\makeatletter
+\newdimen\@gp@fnmarkwidth
+\newcommand{\bothcite}[2][0cm]{%
+  \citep{#2}\sidenote[][#1]{\raggedright\csname paper@#2\endcsname}%
+  \kern\@gp@fnmarkwidth\@gp@cite@space}
+\def\@gp@cite@space{\@ifnextchar.{\@gp@cite@halfspace}{\@gp@cite@comma}}
+\def\@gp@cite@comma{\@ifnextchar,{\@gp@cite@halfspace}{\@gp@cite@semicolon}}
+\def\@gp@cite@semicolon{\@ifnextchar;{\@gp@cite@halfspace}{\@gp@cite@colon}}
+\def\@gp@cite@colon{\@ifnextchar:{\@gp@cite@halfspace}{\@gp@cite@exclamation}}
+\def\@gp@cite@exclamation{\@ifnextchar!{\@gp@cite@halfspace}{\@gp@cite@question}}
+\def\@gp@cite@question{\@ifnextchar?{\@gp@cite@halfspace}{\@gp@cite@openparen}}
+\def\@gp@cite@openparen{\@ifnextchar({\@gp@cite@halfspace}{\@gp@cite@closeparen}}
+\def\@gp@cite@closeparen{\@ifnextchar){\@gp@cite@halfspace}{\@gp@cite@bracket}}
+\def\@gp@cite@bracket{\@ifnextchar]{\@gp@cite@halfspace}{\@gp@cite@normalspace}}
+\def\@gp@cite@halfspace{\nobreak\hskip.5\fontdimen2\font\relax}
+\def\@gp@cite@normalspace{\nobreak\space}
+% GP margin selection v1 (pdfLaTeX). Keep this block in the standalone source.
+\makeatletter
+\@ifundefined{@gp@fnmarkwidth}{\newdimen\@gp@fnmarkwidth}{}
+\ifPDFTeX
+\def\@makefnmark{%
+  \hbox{%
+    \setbox\z@=\hbox{\@textsuperscript{\normalfont\footnotesize\@thefnmark}}%
+    \global\@gp@fnmarkwidth=\wd\z@%
+    \setbox\tw@=\copy\z@%
+    \immediate\pdfxform\tw@%
+    \pdfannot width\wd\z@ height\ht\z@ depth\dp\z@{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /AP << /N \the\pdflastxform\space 0 R >>%
+    }%
+  }%
+}
+\fi
+% Selection-safe margin text: annotation appearances, with separate URI links.
+\ifPDFTeX
+\newbox\@gp@marginbox
+\newdimen\@gp@marginwidth
+\newdimen\@gp@marginheight
+\newdimen\@gp@marginfirstheight
+\newdimen\@gp@marginpadding
+\newdimen\@gp@marginskip
+\newdimen\@gp@margindepth
+\newcount\@gp@marginserial
+\long\def\@gp@marginappearance#1{%
+  \begingroup
+  \global\let\@gp@marginuri\@empty
+  \setbox\@gp@marginbox=\vtop{%
+    \hsize=\marginparwidth
+    \def\href##1##2{%
+      \ifx\@gp@marginuri\@empty
+        \xdef\@gp@marginuri{\detokenize{##1}}%
+      \else
+        \PackageError{gp-margin-selection}{More than one URI in a margin note}%
+          {Use a separate note for each reference.}%
+      \fi
+      \textcolor{\@urlcolor}{##2}%
+    }%
+    #1\par
+  }%
+  \@gp@marginfirstheight=\ht\@gp@marginbox
+  \setbox\@gp@marginbox=\vbox{\unvbox\@gp@marginbox}%
+  \@gp@marginpadding=\baselineskip
+  \advance\@gp@marginpadding-\prevdepth
+  \advance\@gp@marginpadding-\@gp@marginfirstheight
+  \ifdim\@gp@marginpadding<\lineskiplimit
+    \@gp@marginpadding=\lineskip
+  \fi
+  \@gp@marginskip=\baselineskip
+  \advance\@gp@marginskip-\prevdepth
+  \advance\@gp@marginskip-\ht\@gp@marginbox
+  \ifdim\@gp@marginskip<\lineskiplimit
+    \@gp@marginskip=\lineskip
+  \fi
+  \advance\@gp@marginpadding-\@gp@marginskip
+  \vskip\@gp@marginpadding
+  \@gp@marginwidth=\wd\@gp@marginbox
+  \@gp@marginheight=\ht\@gp@marginbox
+  \@gp@margindepth=\dp\@gp@marginbox
+  \immediate\pdfxform\@gp@marginbox
+  \edef\@gp@marginform{\the\pdflastxform}%
+  \global\advance\@gp@marginserial\@ne
+  \hbox{%
+    \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /NM (GPmargin-\the\@gp@marginserial)%
+      /AP << /N \@gp@marginform\space 0 R >>%
+    }%
+    \ifx\@gp@marginuri\@empty\else
+      \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+        /Subtype /Link /F 4 /Border [0 0 0]%
+        /A << /S /URI /URI (\pdfescapestring{\@gp@marginuri}) >>%
+      }%
+    \fi
+    \vrule width0pt height\@gp@marginheight depth\@gp@margindepth
+    \kern\@gp@marginwidth
+  }%
+  \endgroup
+}
+\else
+\long\def\@gp@marginappearance#1{#1}
+\fi
+\renewcommand\@footnotetext[2][0pt]{%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \def\baselinestretch{\setspace@singlespace}%
+    \reset@font\footnotesize%
+    \@tufte@margin@par%
+    \vspace*{-1\baselineskip}%
+    \@gp@marginappearance{%
+      \noindent
+      \protected@edef\@currentlabel{%
+        \csname p@footnote\endcsname\@thefnmark%
+      }%
+      \color@begingroup
+        \@makefntext{\ignorespaces#2}%
+      \color@endgroup
+    }%
+  }%
+}
+\renewcommand\marginnote[2][0pt]{%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@infootnote@cite%
+  }{}%
+  \gdef\@tufte@citations{}%
+  \marginpar{%
+    \hbox{}\vspace*{#1}%
+    \@tufte@marginnote@font\@tufte@marginnote@justification%
+    \@tufte@margin@par\vspace*{-1\baselineskip}%
+    \@gp@marginappearance{\noindent #2}%
+  }%
+  \@tufte@print@citations%
+  \ifthenelse{\boolean{@tufte@loadnatbib}}{%
+    \let\cite\@tufte@normal@cite%
+  }{}%
+}
+\makeatother
+
+\expandafter\def\csname paper@KarabasEtAl2024\endcsname{%
+  J\'an Karab\'a\v{s}, Edita M\'a\v{c}ajov\'a, Roman Nedela and
+  Martin \v{S}koviera. \emph{Cubic graphs with colouring defect 3}.
+  Electronic Journal of Combinatorics 31(2) (2024), P2.6.
+  \href{https://doi.org/10.37236/12333}{doi:10.37236/12333}.}
+\newcommand{\paperreference}[1]{\csname paper@#1\endcsname}
+\makeatother
+
+\title[Graph Puzzles III.3-preview: Oriented five-cycle double covers]{Graph Puzzles III.3-preview: Oriented five-cycle double covers of snarks with colouring defect three}
+\author{Nikolay Ulyanov + AI-Slop}
+\date{30 August 2026}
+\hypersetup{
+  pdftitle={Graph Puzzles III.3-preview: Oriented five-cycle double covers of snarks with colouring defect three},
+  pdfauthor={Nikolay Ulyanov + AI-Slop},
+  colorlinks=true,
+  linkcolor=blue!50!black,
+  citecolor=blue!50!black,
+  urlcolor=blue!50!black
+}
+
+\begin{document}
+\selectlanguage{english}
+\maketitle
+Nikolay Ulyanov\textsuperscript{*} + AI-Slop%
+\marginnote{\textsuperscript{*}{\scriptsize\href{mailto:ulyanick@gmail.com}{ulyanick@gmail.com}}}\par
+
+\begin{abstract}
+\noindent\newthought{Abstract: }
+For every optimal triple of perfect matchings of a snark of colouring defect
+three, the triple's hexagonal core extends to an oriented \(5\)-cycle double
+cover.  We construct the five directed cycle members.  Three
+auxiliary orientations of the bichromatic
+exterior paths determine an ordered pair of cover labels on every edge.
+At each cubic vertex the three ordered pairs form a directed triangle.
+Consequently every label induces a directed even subgraph, while every edge
+belongs to exactly two such subgraphs with opposite directions.
+\end{abstract}
+\noindent\rule{\linewidth}{0.4pt}
+
+\section{An ordered-pair criterion}
+
+Here a \emph{cycle} means an even subgraph and may be disconnected.
+We use \emph{snark} for a connected bridgeless cubic graph with no proper
+\(3\)-edge-colouring.  A \emph{\(3\)-array} is a triple of perfect matchings.
+The multiplicity of an edge is the number of matchings of the triple that
+contain it; the \emph{core} of the triple consists of the edges whose
+multiplicity is not one.  The \emph{colouring defect} of a cubic graph is the
+minimum, over all \(3\)-arrays, of the number of edges of multiplicity zero.
+
+\begin{definition}\label{def:o5cdc}
+An \emph{oriented \(5\)-cycle double cover} of a graph \(G\) is an indexed
+family \((D_1,\ldots,D_5)\) of directed cycles such that every edge belongs
+to exactly two members and receives opposite directions in those two
+members.
+\end{definition}
+
+\Needspace{16\baselineskip}
+\begin{lemma}[Ordered-pair criterion]\label{lem:pairs}
+Give every edge a reference direction and an ordered pair \(p\to q\) of
+distinct labels from \(\{1,\ldots,5\}\).  Let \(D_p\) use the edge in its
+reference direction and let \(D_q\) use it in the reverse direction.
+Suppose that, when the three incident edges at each vertex are read
+outwards---retaining \(p\to q\) if the reference direction points out of the
+vertex and reversing it otherwise---their ordered pairs form a directed
+triangle.  Then
+\((D_1,\ldots,D_5)\) is an oriented \(5\)-cycle double cover.
+\end{lemma}
+
+\begin{proof}
+Each edge lies in precisely the two members named by its pair, with opposite
+directions.  At a vertex, every label occurring in the directed triangle
+occurs once as a tail and once as a head.  Hence each \(D_r\) has one edge
+entering and one leaving the vertex, or no incident edge there.  Thus every
+\(D_r\) is a directed even subgraph.
+\end{proof}
+
+\section{The defect-three construction}
+
+\begin{theorem}\label{thm:main}
+Let \(G\) be a snark with colouring defect \(3\).  For every optimal triple
+of perfect matchings of \(G\), there is an oriented \(5\)-cycle double cover
+having the triple's induced hexagonal core as one indexed member.
+\end{theorem}
+
+\begin{proof}
+Fix an arbitrary triple of perfect matchings attaining the colouring defect.
+By the
+defect-three core characterization
+\bothcite{KarabasEtAl2024}, Theorem~3.3, their core is an induced cycle
+\[
+ C=v_1v_2\cdots v_6v_1.
+\]
+Every edge of \(G-E(C)\) is singly covered, and membership in the three
+matchings gives a proper \(3\)-edge-colouring of \(G-E(C)\).  After rotating
+\(C\) and permuting the colours, the six boundary edges at
+\(v_1,\ldots,v_6\) have colours
+\begin{equation}\label{eq:boundary}
+ 1,1,2,2,3,3.
+\end{equation}
+Let \(F_i\) denote the exterior colour-\(i\) class.
+
+\subsection*{Three auxiliary orientations}
+
+Fix \(i\in\{1,2,3\}\), write
+\(\{i,j,k\}=\{1,2,3\}\), and put
+\[
+ P_i=F_j\cup F_k,\qquad K_i=C\cup P_i.
+\]
+Every vertex outside \(C\) has degree two in \(P_i\).  Exactly four
+vertices of \(C\) are incident with \(P_i\), so \(P_i\) consists of two
+paths pairing these four terminals, together with disjoint circuits.
+Suppressing every degree-two vertex in the component of \(K_i\) containing
+\(C\) produces a cubic multigraph \(Q_i\) consisting of a \(4\)-cycle and a
+perfect matching.
+
+We claim that \(Q_i\) is bipartite.  By rotating and relabelling, it is
+enough to take \(i=1\).  The four terminals are
+\(v_3,v_4,v_5,v_6\), in that cyclic order.  A \(4\)-cycle plus a perfect
+matching is non-bipartite only when the matching pairs the opposite
+vertices \(v_3v_5\) and \(v_4v_6\).  If this occurred, interchange colours
+\(2\) and \(3\) on the exterior Kempe path joining \(v_3\) to \(v_5\).
+The boundary word would become
+\[
+ 1,1,3,2,2,3.
+\]
+This colouring extends across \(C\): give the consecutive cycle edges
+\(v_rv_{r+1}\), with indices modulo \(6\), the colours
+\[
+ 3,2,1,3,1,2,
+\]
+respectively.  At every \(v_r\), the boundary edge and the two cycle edges
+then receive all three colours.  This would Tait-colour \(G\), a
+contradiction.  Hence every \(Q_i\) is bipartite.
+
+Choose a bipartition \(A_i\cup B_i\) of \(Q_i\).  Orient its four
+suppressed \(C\)-segments from \(B_i\) to \(A_i\), and orient its two
+matching edges from \(A_i\) to \(B_i\).  Lift these directions consistently
+through the suppressed paths, and orient every circuit component of
+\(P_i\) cyclically.  Call the resulting orientation of \(K_i\)
+\(\mathcal O_i\).
+
+Thus \(\mathcal O_i\) passes through every degree-two vertex.  At a core
+vertex whose boundary edge has colour \(i\), its two \(C\)-edges point in
+opposite directions.  At either endpoint of a \(P_i\)-path, the two
+\(C\)-edges both point in and the exterior edge points out, or all three
+directions are reversed.
+
+\subsection*{The five cover labels}
+
+Fix an arbitrary reference direction on every edge.  For
+\(e\in K_i\), put \(\sigma_i(e)=+\) or \(-\) according as
+\(\mathcal O_i\) agrees or disagrees with the reference direction; for
+\(e\in F_i\), put \(\sigma_i(e)=0\).  The sign word
+\[
+ \sigma(e)=(\sigma_1(e),\sigma_2(e),\sigma_3(e))
+\]
+assigns an ordered pair to \(e\) by the following table:
+\begingroup
+\small
+\begin{equation}\label{eq:pair-table}
+\begin{array}{@{}c@{\quad}l@{\quad}l@{}}
+\toprule
+\text{edge class}&\text{displayed sign words}&\text{ordered pairs}\\
+\midrule
+C   & +++,\ +--,\ -+-,\ --+&
+       1\to5,\ 2\to5,\ 3\to5,\ 4\to5\\
+F_1 & 0++,\ 0+-&1\to2,\ 3\to4\\
+F_2 & +0+,\ +0-&1\to3,\ 2\to4\\
+F_3 & ++0,\ +-0&1\to4,\ 2\to3\\
+\bottomrule
+\end{array}
+\end{equation}
+\endgroup
+The negative of a displayed sign word receives the reversed ordered pair.
+Use the pair \(p\to q\) in \cref{lem:pairs}: the member \(D_p\) takes the
+reference direction and \(D_q\) takes the reverse direction.
+In the vector calculations below we identify \(+\) and \(-\) with \(+1\)
+and \(-1\).  At an endvertex \(v\) of an edge \(e\), let
+\(\sigma_v(e)=\sigma(e)\) if the reference direction points away from \(v\),
+and let \(\sigma_v(e)=-\sigma(e)\) otherwise.  Thus \(\sigma_v(e)\) is the
+sign word read outwards at \(v\), and its table pair is reversed in the
+second case.
+
+It remains only to check the local directed-triangle condition.  Put
+\[
+\begin{aligned}
+ t_1&=(1,1,1),&t_2&=(1,-1,-1),\\
+ t_3&=(-1,1,-1),&t_4&=(-1,-1,1).
+\end{aligned}
+\]
+The four vectors \(t_1,\ldots,t_4\) are affinely independent.  The first
+row of \eqref{eq:pair-table} says that a core sign word is \(t_p\) for
+\(p\to5\), or \(-t_p\) for \(5\to p\).  The remaining rows say that an
+exterior sign word belonging to the pair \(p\to q\) is
+\[
+ \frac{t_p-t_q}{2}.
+\]
+
+First let \(v\notin V(C)\).  For each coordinate \(i\), the orientation
+\(\mathcal O_i\) passes through \(v\) on the two edges whose colours differ
+from \(i\).  Their two outward \(i\)-signs are therefore opposite, while the
+colour-\(i\) edge has sign \(0\).  Hence the three vectors \(\sigma_v(e)\)
+sum to zero.  If their outward-read ordered pairs are
+\(p_s\to q_s\), then
+\[
+ \sum_{s=1}^3(t_{p_s}-t_{q_s})=0.
+\]
+For \(r\in\{1,2,3,4\}\), let \(d_r\) be the number of these pairs with tail
+\(r\), minus the number with head \(r\).  The displayed equality says
+\(\sum_r d_rt_r=0\), while automatically \(\sum_r d_r=0\).  Affine
+independence gives \(d_r=0\) for every \(r\).  Thus every label occurs
+equally often as a tail and as a head.  Three non-loop ordered pairs with
+this property form a directed triangle.
+
+Now let \(v\in V(C)\), and let its exterior edge \(a\) have colour \(i\).
+Suppose that the outward-read table pair of \(a\) is \(p\to q\).  Then
+\[
+ \sigma_v(a)=\frac{t_p-t_q}{2},\qquad
+ (t_p)_i=(t_q)_i,\qquad
+ (t_p)_j=-(t_q)_j\quad(j\ne i).
+\]
+In \(\mathcal O_i\), the two \(C\)-edges have opposite signs.  In each
+\(\mathcal O_j\) with \(j\ne i\), they have the same sign, opposite to that
+of \(a\).  Consequently their two sign words are \(t_q\) and \(-t_p\).
+The table labels the two \(C\)-edges by \(q\to5\) and \(5\to p\).
+Together with \(p\to q\), they form the directed triangle
+\[
+ p\longrightarrow q\longrightarrow5\longrightarrow p.
+\]
+
+The hypothesis of \cref{lem:pairs} now holds at every vertex.  Therefore
+\((D_1,\ldots,D_5)\) is an oriented \(5\)-cycle double cover.  By the
+table, label \(5\) occurs precisely on the core edges.  Hence
+\(E(D_5)=E(C)\), and \(D_5\) is a cyclic orientation of \(C\).
+
+Finally, all five members are nonempty.  Indeed, if some \(D_r\) were
+empty, all edge-pairs would lie in the complete graph on the remaining
+four labels.  Colour each edge of \(G\) by the unique one of the three
+one-factors of this \(K_4\) containing its pair.  At every vertex the
+three pairs form a triangle and hence receive the three distinct colours.
+This would Tait-colour \(G\), again a contradiction.
+\end{proof}
+
+\Needspace{8\baselineskip}
+\begingroup
+\fontsize{10}{12}\selectfont
+\setlength{\bibsep}{5pt}
+\begin{thebibliography}{KMNS24}
+\bibitem[KMNS24]{KarabasEtAl2024}\paperreference{KarabasEtAl2024}
+\end{thebibliography}
+\endgroup
+
+\end{document}

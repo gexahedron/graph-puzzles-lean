@@ -1,3 +1,24 @@
+# v0.5.0 — Oriented five-cycle double covers of snarks with colouring defect three
+
+Publishes **Graph Puzzles III.3-preview: Oriented five-cycle double covers
+of snarks with colouring defect three**, together with its exact TeX/PDF
+and Lean proofs.
+
+For every chosen optimal matching triple in a snark of colouring defect
+three, an oriented five-cycle double cover contains that triple's entire
+hexagonal core as one indexed member. Every edge occurs in exactly two
+directed even subgraphs, with opposite directions.
+
+The core characterization, auxiliary orientations, ordered-pair criterion,
+sign-word table and both vertex cases are proved in Lean. Import
+`GraphPuzzles.Claims.OrientedFiveCycleDoubleCover` for the paper statements.
+The [paper-to-Lean guide](papers/defect-three-oriented-five/README.md)
+explains the hypotheses and construction.
+
+Earlier proof modules and paper files are retained. The release includes
+the reviewed source archive, standalone TeX and PDF. The PDF is also on
+[GitHub Pages](https://gexahedron.github.io/graph_theory/defect3_oriented_5cdc.pdf).
+
 # v0.4.0 — Four perfect matchings for snarks with a two-circuit 2-factor
 
 Publishes **Graph Puzzles IV.2-preview: Four perfect matchings for snarks

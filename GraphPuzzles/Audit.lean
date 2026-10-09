@@ -2,6 +2,7 @@ import GraphPuzzles
 import GraphPuzzles.Audit.StrongFiveCycleDoubleCover
 import GraphPuzzles.Audit.SnarkFactorisation
 import GraphPuzzles.Audit.TwoCircuitFourMatchings
+import GraphPuzzles.Audit.OrientedFiveCycleDoubleCover
 
 /-! Exact axiom guards for all released proof families. Whitespace is ignored so
 namespace length and pretty-printer wrapping do not affect the axiom checks. -/

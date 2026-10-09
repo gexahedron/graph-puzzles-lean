@@ -12,6 +12,7 @@ the source layout, and how to build and check the proofs.
 | Strong 5-cycle double covers for critical, permutation and colouring-defect-three snarks | `GraphPuzzles.Results.StrongFiveCycleDoubleCover` |
 | Unique factorisations of hypohamiltonian, permutation and hypohamiltonian permutation snarks | `GraphPuzzles.Results.SnarkFactorisation` |
 | Four perfect matchings for snarks with a two-circuit 2-factor | `GraphPuzzles.Results.TwoCircuitFourMatchings` |
+| Oriented five-cycle double covers of colouring-defect-three snarks, containing each optimal triple's core | `GraphPuzzles.Results.OrientedFiveCycleDoubleCover` |
 
 Import `GraphPuzzles` for the results together, or import one of the entry
 points above. The declarations share the `GraphPuzzles` namespace.
@@ -120,6 +121,29 @@ theorem. Their reviewed prerequisites include Tutte's theorem via Mathlib,
 Edmonds' rational matching polytope, matching-covered graphs, tight cuts,
 near-bricks, odd ears, reductions and the Petersen exception.
 
+## Oriented five-cycle double covers
+
+The [paper](../papers/defect-three-oriented-five/defect3_oriented_5cdc.pdf)
+and its [TeX source](../papers/defect-three-oriented-five/defect3_oriented_5cdc.tex)
+prove that every optimal matching triple in a snark of colouring defect three
+has an oriented five-cycle double cover containing the triple's entire
+hexagonal core as one indexed member. Each member is a directed even
+subgraph and may be disconnected. Every edge belongs to exactly two members,
+with opposite directions.
+
+Import `GraphPuzzles.Claims.OrientedFiveCycleDoubleCover` for the exact paper
+statement, the numerical existence statement and the structural hexagonal-core
+version. The [paper-to-Lean guide](../papers/defect-three-oriented-five/README.md)
+explains the hypotheses and maps the construction to its declarations.
+
+`DefectThree/OrientedFive.lean` retains the chosen optimal triple's core
+through extraction and endpoint relabelling. `DefectThree/HexagonOrientation.lean`
+constructs the three auxiliary orientations using binary orientation parity
+and a Kempe-colouring obstruction. `CycleCovers/OrientedCover.lean` proves
+the ordered-pair criterion and verifies the sign-word table and both vertex
+balance cases. `CycleCovers/OrientedProperties.lean` and
+`CycleCovers/OrientedTransport.lean` supply forgetful and relabelling operations.
+
 ## Graph model and source layout
 
 The graph model allows labelled parallel edges and loops; each loop
@@ -135,8 +159,8 @@ are defined in `FinGraph/`.
 | `Core/` | Four-colour algebra, local patterns, parity, balancing, cyclic words and finite counting |
 | `Graph/` | Endpoint graph model, boundaries, connectivity, bridgelessness, relabelling and the cyclic-word bridge |
 | `Circuits/` | Ordinary circuits, Euler traversals and parity colourings |
-| `CycleCovers/` | Dominating-circuit covers, exact circuit extension, strong five-covers and the general CDC bridge |
-| `DefectThree/` | Matching triples, hexagonal core extraction and strong five-covers |
+| `CycleCovers/` | Dominating-circuit covers, exact circuit extension, strong and oriented five-covers, and the general CDC bridge |
+| `DefectThree/` | Matching triples, hexagonal core extraction, auxiliary orientations, and strong and oriented five-covers |
 | `FinGraph/` | Finite graphs, multipoles, colourings, Hamilton cycles, completions and isomorphisms |
 | `Poles/` | Hamiltonian three-poles, their four-covers, and Kempe-walk colourings |
 | `Matching/` | Perfect matchings, Tutte bridge, rational matching polytope and four-cover assembly |
@@ -160,6 +184,7 @@ LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/CycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/StrongFiveCycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/SnarkFactorisation.lean
 LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/TwoCircuitFourMatchings.lean
+LEAN_NUM_THREADS=1 lake env lean -j1 -M4096 checks/OrientedFiveCycleDoubleCover.lean
 LEAN_NUM_THREADS=1 lake --wfail build SabidussiSolution
 python3 tools/publication.py check --public-tree
 ```

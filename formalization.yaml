@@ -1,4 +1,4 @@
-version: "0.4.0"
+version: "0.5.0"
 project:
   name: "Graph Puzzles in Lean"
   authors: ["Nikolay Ulyanov"]
@@ -52,3 +52,13 @@ sources:
       factor; perfect matching index exactly four; permutation-snark corollary.
       The Petersen graph is excluded. Both Campos–Lucchesi and Karabáš–Máčajová
       inputs are proved, together with their reviewed matching-theory prerequisites.
+  - title: "Graph Puzzles III.3-preview: Oriented five-cycle double covers of snarks with colouring defect three"
+    authors: ["Nikolay Ulyanov + AI-Slop"]
+    id: "papers/defect-three-oriented-five/defect3_oriented_5cdc.tex"
+    type: "paper"
+    relationship: "formalizes"
+    note: >-
+      For every chosen optimal matching triple in a snark of colouring defect three,
+      an oriented five-cover contains the entire triple's core as one indexed member.
+      The core bridge, auxiliary orientations, sign-word table and ordered-pair
+      criterion are proved internally.
