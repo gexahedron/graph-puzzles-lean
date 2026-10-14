@@ -1,0 +1,21 @@
+papers/strong-five-cdc/README.md
+  s_600e78900d990c::t_51991eef531224 3,9-12
+papers/strong-five-cdc/strong_five_cycle_double_covers.tex
+  s_600e78900d990c::t_d03629430647cc 81,99-101,116-183,190-198,210-211,218-219,1091
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.15",
+  "base_commit_sha": "27c60ba40996b228edd4bc9a03ea81312d4221a6",
+  "prompts": {},
+  "sessions": {
+    "s_600e78900d990c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a13a65-3134-7193-b1ae-b994dc709b0b",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "gexahedron <3427698+gexahedron@users.noreply.github.com>"
+    }
+  }
+}
