@@ -1,10 +1,14 @@
 # Strong five-cycle double covers: paper and Lean
 
-This directory contains the exact supplied source
+This directory contains the current standalone source
 [strong_five_cycle_double_covers.tex](strong_five_cycle_double_covers.tex)
 and its [matching 18-page PDF](strong_five_cycle_double_covers.pdf).
 The title is *Graph Puzzles III.2-preview: Strong five-cycle double covers*,
 dated 6 October 2026. The supplied attribution is preserved.
+
+The same PDF and source are also published on the author's website:
+[PDF](https://gexahedron.github.io/graph_theory/strong_five_cycle_double_covers.pdf)
+and [LaTeX source](https://gexahedron.github.io/graph_theory/strong_five_cycle_double_covers.tex).
 
 Import `GraphPuzzles.Results.StrongFiveCycleDoubleCover` for the underlying
 proofs or `GraphPuzzles.Claims.StrongFiveCycleDoubleCover` for the statements

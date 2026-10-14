@@ -52,7 +52,6 @@
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \usepackage{xurl,hyperref,cleveref}
-\usepackage{accsupp}
 \urlstyle{same}
 \geometry{a4paper,top=23mm,bottom=46mm,left=28mm,right=56mm,marginparwidth=3cm}
 \setlength{\emergencystretch}{2em}
@@ -79,7 +78,7 @@
 \setcitestyle{numbers,square}
 
 % Full references appear in the margin at their first citation.
-% Use the selection fix from snark_book_opus/book/preamble.tex:
+% Margin selection uses the canonical latex-margin-citations skill:
 % margin notes stay visible but do not enter the main copied text.
 \makeatletter
 \newdimen\@gp@fnmarkwidth
@@ -97,6 +96,9 @@
 \def\@gp@cite@bracket{\@ifnextchar]{\@gp@cite@halfspace}{\@gp@cite@normalspace}}
 \def\@gp@cite@halfspace{\nobreak\hskip.5\fontdimen2\font\relax}
 \def\@gp@cite@normalspace{\nobreak\space}
+% GP margin selection v1 (pdfLaTeX). Keep this block in the standalone source.
+\makeatletter
+\@ifundefined{@gp@fnmarkwidth}{\newdimen\@gp@fnmarkwidth}{}
 \ifPDFTeX
 \def\@makefnmark{%
   \hbox{%
@@ -111,21 +113,90 @@
   }%
 }
 \fi
+% Selection-safe margin text: annotation appearances, with separate URI links.
+\ifPDFTeX
+\newbox\@gp@marginbox
+\newdimen\@gp@marginwidth
+\newdimen\@gp@marginheight
+\newdimen\@gp@marginfirstheight
+\newdimen\@gp@marginpadding
+\newdimen\@gp@marginskip
+\newdimen\@gp@margindepth
+\newcount\@gp@marginserial
+\long\def\@gp@marginappearance#1{%
+  \begingroup
+  \global\let\@gp@marginuri\@empty
+  \setbox\@gp@marginbox=\vtop{%
+    \hsize=\marginparwidth
+    \def\href##1##2{%
+      \ifx\@gp@marginuri\@empty
+        \xdef\@gp@marginuri{\detokenize{##1}}%
+      \else
+        \PackageError{gp-margin-selection}{More than one URI in a margin note}%
+          {Use a separate note for each reference.}%
+      \fi
+      \textcolor{\@urlcolor}{##2}%
+    }%
+    #1\par
+  }%
+  \@gp@marginfirstheight=\ht\@gp@marginbox
+  \setbox\@gp@marginbox=\vbox{\unvbox\@gp@marginbox}%
+  \@gp@marginpadding=\baselineskip
+  \advance\@gp@marginpadding-\prevdepth
+  \advance\@gp@marginpadding-\@gp@marginfirstheight
+  \ifdim\@gp@marginpadding<\lineskiplimit
+    \@gp@marginpadding=\lineskip
+  \fi
+  \@gp@marginskip=\baselineskip
+  \advance\@gp@marginskip-\prevdepth
+  \advance\@gp@marginskip-\ht\@gp@marginbox
+  \ifdim\@gp@marginskip<\lineskiplimit
+    \@gp@marginskip=\lineskip
+  \fi
+  \advance\@gp@marginpadding-\@gp@marginskip
+  \vskip\@gp@marginpadding
+  \@gp@marginwidth=\wd\@gp@marginbox
+  \@gp@marginheight=\ht\@gp@marginbox
+  \@gp@margindepth=\dp\@gp@marginbox
+  \immediate\pdfxform\@gp@marginbox
+  \edef\@gp@marginform{\the\pdflastxform}%
+  \global\advance\@gp@marginserial\@ne
+  \hbox{%
+    \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+      /Subtype /Watermark /F 708 /Contents ()%
+      /NM (GPmargin-\the\@gp@marginserial)%
+      /AP << /N \@gp@marginform\space 0 R >>%
+    }%
+    \ifx\@gp@marginuri\@empty\else
+      \pdfannot width\@gp@marginwidth height\@gp@marginheight depth\@gp@margindepth{%
+        /Subtype /Link /F 4 /Border [0 0 0]%
+        /A << /S /URI /URI (\pdfescapestring{\@gp@marginuri}) >>%
+      }%
+    \fi
+    \vrule width0pt height\@gp@marginheight depth\@gp@margindepth
+    \kern\@gp@marginwidth
+  }%
+  \endgroup
+}
+\else
+\long\def\@gp@marginappearance#1{#1}
+\fi
 \renewcommand\@footnotetext[2][0pt]{%
   \marginpar{%
-    \BeginAccSupp{method=hex,unicode,ActualText=2060}%
     \hbox{}\vspace*{#1}%
     \def\baselinestretch{\setspace@singlespace}%
     \reset@font\footnotesize%
     \@tufte@margin@par%
-    \vspace*{-1\baselineskip}\noindent%
-    \protected@edef\@currentlabel{%
-      \csname p@footnote\endcsname\@thefnmark%
+    \vspace*{-1\baselineskip}%
+    \@gp@marginappearance{%
+      \noindent
+      \protected@edef\@currentlabel{%
+        \csname p@footnote\endcsname\@thefnmark%
+      }%
+      \color@begingroup
+        \@makefntext{\ignorespaces#2}%
+      \color@endgroup
     }%
-    \color@begingroup%
-      \@makefntext{\ignorespaces#2}%
-    \color@endgroup%
-    \EndAccSupp{}%
   }%
 }
 \renewcommand\marginnote[2][0pt]{%
@@ -134,17 +205,18 @@
   }{}%
   \gdef\@tufte@citations{}%
   \marginpar{%
-    \BeginAccSupp{method=hex,unicode,ActualText=2060}%
     \hbox{}\vspace*{#1}%
     \@tufte@marginnote@font\@tufte@marginnote@justification%
-    \@tufte@margin@par\vspace*{-1\baselineskip}\noindent #2%
-    \EndAccSupp{}%
+    \@tufte@margin@par\vspace*{-1\baselineskip}%
+    \@gp@marginappearance{\noindent #2}%
   }%
   \@tufte@print@citations%
   \ifthenelse{\boolean{@tufte@loadnatbib}}{%
     \let\cite\@tufte@normal@cite%
   }{}%
 }
+\makeatother
+
 \expandafter\def\csname paper@HO13\endcsname{%
   Arthur Hoffmann-Ostenhof. \emph{A note on 5-cycle double covers}.
   Graphs and Combinatorics 29(4) (2013), 977--979.
@@ -1016,7 +1088,7 @@ a five-cycle double cover: this holds if and only if $G-V(C)$ is
 3-edge-colourable.
 
 \newpage
-tt
+\section{Relationships between snark classes}
 
 For context, we recall how the classes considered here relate to two
 further familiar classes. A snark $G$ is \emph{hypohamiltonian} if
